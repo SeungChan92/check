@@ -1,0 +1,175 @@
+
+
+
+09:21:54 BOUND : main - start
+09:22:03 BOUND : ------------------------------------------------------------------------
+09:22:03 BOUND : Chrome  - start
+09:22:03 BOUND : Chrome  - end
+09:22:21 BOUND : ------------------------------------------------------------------------
+09:22:21 BOUND : Firefox - start
+09:22:21 BOUND : Firefox - end
+09:22:30 BOUND : ------------------------------------------------------------------------
+09:22:30 BOUND : IE      - start
+09:22:30 BOUND : IE      - end
+
+
+
+09:27:46 BOUND : main - start
+
+
+
+09:28:35 BOUND : main - start
+09:28:40 BOUND : ------------------------------------------------------------------------
+09:28:40 BOUND : Chrome  - start
+09:28:40 BOUND : Chrome  - end
+09:28:47 BOUND : ------------------------------------------------------------------------
+09:28:47 BOUND : Firefox - start
+09:28:47 BOUND : Firefox - end
+09:28:51 BOUND : ------------------------------------------------------------------------
+09:28:51 BOUND : IE      - start
+09:28:51 BOUND : IE      - end
+
+
+
+09:31:56 BOUND : main - start
+09:32:01 BOUND : ------------------------------------------------------------------------
+09:32:01 BOUND : Chrome  - start
+09:32:01 BOUND : Chrome  - end
+09:32:09 BOUND : ------------------------------------------------------------------------
+09:32:09 BOUND : Firefox - start
+09:32:09 BOUND : Firefox - end
+09:32:12 BOUND : ------------------------------------------------------------------------
+09:32:12 BOUND : IE      - start
+09:32:12 BOUND : IE      - end
+
+
+
+09:34:57 BOUND : main - start
+09:35:02 BOUND : ------------------------------------------------------------------------
+09:35:02 BOUND : Chrome  - start
+09:35:13 ERROR : need to specify error
+09:35:13 BOUND : Chrome  - end
+09:35:20 BOUND : ------------------------------------------------------------------------
+09:35:20 BOUND : Firefox - start
+09:35:32 ERROR : need to specify error
+09:35:32 BOUND : Firefox - end
+09:35:36 BOUND : ------------------------------------------------------------------------
+09:35:36 BOUND : IE      - start
+09:35:48 ERROR : need to specify error
+09:35:48 BOUND : IE      - end
+
+
+
+09:39:18 BOUND : main - start
+09:39:23 BOUND : ------------------------------------------------------------------------
+09:39:23 BOUND : Chrome  - start
+09:39:34 ERROR : Fail
+
+		Category : message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+09:39:34 BOUND : Chrome  - end
+09:39:41 BOUND : ------------------------------------------------------------------------
+09:39:41 BOUND : Firefox - start
+09:39:51 ERROR : Fail
+
+		Category : message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+09:39:51 BOUND : Firefox - end
+09:39:55 BOUND : ------------------------------------------------------------------------
+09:39:55 BOUND : IE      - start
+09:40:05 ERROR : Fail
+
+		Category : message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+09:40:06 BOUND : IE      - end
+
+
+
+10:38:51 BOUND : main - start
+10:38:58 BOUND : ------------------------------------------------------------------------
+10:38:58 BOUND : Chrome  - start
+10:39:09 ERROR : Fail
+
+		Category : Message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+10:39:09 BOUND : Chrome  - end
+10:39:16 BOUND : ------------------------------------------------------------------------
+10:39:16 BOUND : Firefox - start
+10:39:27 ERROR : Fail
+
+		Category : Message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+10:39:27 BOUND : Firefox - end
+10:39:33 BOUND : ------------------------------------------------------------------------
+10:39:33 BOUND : IE      - start
+10:39:44 ERROR : Fail
+
+		Category : Message
+		Method : loadAddress_FromGroup(String group_name)
+		group_name	: new_group
+
+		Exception : class org.openqa.selenium.NoSuchElementException
+
+10:39:44 BOUND : IE      - end
+
+
+
+10:46:10 BOUND : main - start
+10:46:14 BOUND : ------------------------------------------------------------------------
+10:46:14 BOUND : Chrome  - start
+10:46:26 BOUND : Chrome  - end
+
+
+
+10:55:32 BOUND : main - start
+10:55:40 BOUND : ------------------------------------------------------------------------
+10:55:40 BOUND : Chrome  - start
+10:55:55 BOUND : Chrome  - end
+
+
+
+10:57:12 BOUND : main - start
+10:57:25 BOUND : ------------------------------------------------------------------------
+10:57:25 BOUND : Chrome  - start
+10:57:41 BOUND : Chrome  - end
+
+
+
+11:07:22 BOUND : main - start
+11:07:27 BOUND : ------------------------------------------------------------------------
+11:07:27 BOUND : Chrome  - start
+11:07:39 BOUND : Chrome  - end
+
+
+
+11:19:19 BOUND : main - start
+11:19:26 BOUND : ------------------------------------------------------------------------
+11:19:26 BOUND : Chrome  - start
+11:19:41 BOUND : Chrome  - end
+
+
+
+11:22:01 BOUND : main - start
+11:22:05 BOUND : ------------------------------------------------------------------------
+11:22:05 BOUND : Chrome  - start
+11:22:23 BOUND : Chrome  - end
