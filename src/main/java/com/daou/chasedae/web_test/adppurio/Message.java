@@ -37,11 +37,17 @@ public class Message extends Category {
 			driver.findElement(By.linkText(mode)).click();
 
 			log.info("message - mode : " + mode);
+			
+			logger.log(LogStatus.PASS, "init");
 		} catch (Exception e) {
-			System.out.println(e.toString());
-			Parameter[] parameters = new Parameter[1];
-			parameters[0] = new Parameter("mode", mode);
-			throw new Fail(category, "init(String mode)", parameters, e);
+			System.out.println(ExceptionUtils.getStackTrace(e));
+			logger.log(LogStatus.ERROR
+					, "init<br>"
+					+ "<pre>" + ExceptionUtils.getStackTrace(e) + "</pre>");
+//			System.out.println(e.toString());
+//			Parameter[] parameters = new Parameter[1];
+//			parameters[0] = new Parameter("mode", mode);
+//			throw new Fail(category, "init(String mode)", parameters, e);
 		}
 	}
 
@@ -49,11 +55,12 @@ public class Message extends Category {
 		try {
 			driver.findElement(By.id("sendMainDtoSubject")).clear();
 			driver.findElement(By.id("sendMainDtoSubject")).sendKeys(title);
+			
+			logger.log(LogStatus.PASS, "typeTitle");
 		} catch (Exception e) {
-			System.out.println(e.toString());
-			Parameter[] parameters = new Parameter[1];
-			parameters[0] = new Parameter("title", title);
-			throw new Fail(category, "typeTitle(String title)", parameters, e);
+			logger.log(LogStatus.ERROR
+					, "typeTitle<br>"
+					+ "<pre>" + ExceptionUtils.getStackTrace(e) + "</pre>");
 		}
 	}
 
@@ -61,6 +68,8 @@ public class Message extends Category {
 		try {
 			driver.findElement(By.id("sendMessageDtoMessage")).clear();
 			driver.findElement(By.id("sendMessageDtoMessage")).sendKeys(message);
+			
+			logger.log(LogStatus.PASS, "typeMessage");
 		} catch (Exception e) {
 			System.out.println(e.toString());
 			Parameter[] parameters = new Parameter[1];
@@ -85,9 +94,14 @@ public class Message extends Category {
 			tool.waitForAlert();
 			tool.closeAlertAndGetItsText();
 			//assertEquals("잔액이 부족합니다.", tool.closeAlertAndGetItsText());
+			
+			logger.log(LogStatus.PASS, "send");
 		} catch (Exception e) {
-			Parameter[] parameters = new Parameter[0];
-			throw new Fail(category, "send()", parameters, e);
+			logger.log(LogStatus.ERROR
+					, "send<br>"
+					+ "<pre>" + ExceptionUtils.getStackTrace(e) + "</pre>");
+//			Parameter[] parameters = new Parameter[0];
+//			throw new Fail(category, "send()", parameters, e);
 		}
 	}
 
@@ -104,9 +118,13 @@ public class Message extends Category {
 			//assertTrue(tool.closeAlertAndGetItsText().matches("^선택한 1건을 발송창에 추가 하시겠습니까[\\s\\S]$"));
 			driver.findElement(By.id("btnSendReceiverClose")).click();
 			tool.goTo_main();
+			
+			logger.log(LogStatus.PASS, "loadAddress_FromGroup");
 		} catch (Exception e) {
 			System.out.println(ExceptionUtils.getStackTrace(e));
-			logger.log(LogStatus.ERROR, "<pre>" + ExceptionUtils.getStackTrace(e) + "</pre>");
+			logger.log(LogStatus.ERROR
+					, "loadAddress_FromGroup<br>"
+					+ "<pre>" + ExceptionUtils.getStackTrace(e) + "</pre>");
 //			Parameter[] parameters = new Parameter[1];
 //			parameters[0] = new Parameter("group_name", group_name);
 //			throw new Fail(category, "loadAddress_FromGroup(String group_name)", parameters, e);
@@ -204,6 +222,8 @@ public class Message extends Category {
 			tool.waitForAlert();
 			assertEquals("저장하였습니다.", tool.closeAlertAndGetItsText());
 			Thread.sleep(1000);
+			
+			logger.log(LogStatus.PASS, "saveMessage");
 		} catch (Exception e) {
 			Parameter[] parameters = new Parameter[0];
 			throw new Fail(category, "saveMessage()", parameters, e);

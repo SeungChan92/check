@@ -32,13 +32,13 @@ public class Main_Firefox {
 		
 		driver = new FirefoxDriver();
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 	    tool = new Tool(driver);
 	    
-	    testSuite = new TestSuite(driver, baseUrl, tool, "firefox");
+	    testSuite = new TestSuite(driver, baseUrl, tool, "Firefox");
 	}
 
 	@Test

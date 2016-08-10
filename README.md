@@ -8,18 +8,21 @@ This project has purpose which makes ordinary web test automated.
 
 If you find Web Test Automation useful in your project, please consider citing:
 
-    Author = SeungChan An
+    Author = Seung-Chan Ahn
     Title = Web Test Automation
     Year = 2016
 
 ### Contents
 1. [Summary] (#summary)
-1. [Development Environment](#development-environment)
-2. [Result Reporting] (#result-reporting)
-3. [Installation](#installation)
-4. [Run](#run)
-5. [Usage](#usage)
-6. [Reference](#reference)
+2. [Operating Method] (#operation-method)
+2. [Todo] (#todo)
+3. [Issue] (#issue)
+4. [Development Environment](#development-environment)
+5. [Result Reporting] (#result-reporting)
+6. [Installation](#installation)
+7. [Run](#run)
+8. [Usage](#usage)
+9. [Reference](#reference)
 
 ### Summary
 
@@ -27,6 +30,36 @@ If you find Web Test Automation useful in your project, please consider citing:
 	+ service dependent한 부분은 따로 기록해주어 테스터가 알 수 있도록한다.
 	+ 완자동 인식은 아니더라도, config 파일을 이용해서 인식을 도와줄 수 있도록한다.
 
+### Operating Method
+
+1. crawl pages
+2. build testcode
+3. run test
+4. make report
+	
+### Todo
+
++ Test1
+	1. [by crawler + html parser] 각 페이지의 input tag 목록 정리하기
+		+ 모든 페이지에 대해 [xpath] //input[@type='text'] 뽑아내기
+			+ 중복 페이지 거르기
+				+ [maybe] crawler's tour method filters duplication.
+		+ page tree 만들기
+	2. [by person] 각 input tag에 대한 올바른 value 선택 
+	3. [by selenium] many Values per [input] tag에 대한 alert 메세지 축적(기록)
+		+ [lator] 서버코드와 동기화
+	
+### Issue
+
++ 같은 페이지에서 먼저 검사하는 input 폼에 잘못된 값이 입력되어 있을 경우, 다음 input 폼을 검사하지 않는다.
+	+ 테스터가 (테스트할 가치가 있는 values set과) 올바른 value를 알려주어야한다.
++ Crawler
+	+ crawler4j
+		+ login
+			+ It success with invalid id, pw
+			+ [solution] use URL to /LoginAct
+			+ [need] avoid /logout
+	
 ### Development Environment
 
 1. OS : windows7
@@ -52,3 +85,8 @@ If you find Web Test Automation useful in your project, please consider citing:
 ### Usage
 
 ### Reference
+
++ Selenium
++ ExtentReports
++ https://github.com/yasserg/crawler4j
++ jsoup

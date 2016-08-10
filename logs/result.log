@@ -173,3 +173,125 @@
 11:22:05 BOUND : ------------------------------------------------------------------------
 11:22:05 BOUND : Chrome  - start
 11:22:23 BOUND : Chrome  - end
+
+
+
+16:34:23 BOUND : main - start
+
+
+
+16:35:02 BOUND : main - start
+16:35:07 BOUND : ------------------------------------------------------------------------
+16:35:07 BOUND : Chrome  - start
+16:35:19 BOUND : Chrome  - end
+
+
+
+16:38:32 BOUND : main - start
+16:38:37 BOUND : ------------------------------------------------------------------------
+16:38:37 BOUND : Chrome  - start
+16:39:01 BOUND : Chrome  - end
+
+
+
+16:40:19 BOUND : main - start
+16:40:23 BOUND : ------------------------------------------------------------------------
+16:40:23 BOUND : Chrome  - start
+16:40:33  INFO : message - mode : 단문
+16:40:43 BOUND : Chrome  - end
+
+
+
+16:41:43 BOUND : main - start
+16:41:48 BOUND : ------------------------------------------------------------------------
+16:41:48 BOUND : Chrome  - start
+16:41:54  INFO : message - mode : 단문
+16:42:06 BOUND : Chrome  - end
+
+
+
+16:44:04 BOUND : main - start
+16:44:09 BOUND : ------------------------------------------------------------------------
+16:44:09 BOUND : Chrome  - start
+16:44:14  INFO : message - mode : 단문
+16:44:25 BOUND : Chrome  - end
+
+
+
+16:45:24 BOUND : main - start
+16:45:29 BOUND : ------------------------------------------------------------------------
+16:45:29 BOUND : Chrome  - start
+16:45:35  INFO : message - mode : 단문
+16:45:46 BOUND : Chrome  - end
+
+
+
+16:47:08 BOUND : main - start
+
+
+
+16:47:56 BOUND : main - start
+16:48:00 BOUND : ------------------------------------------------------------------------
+16:48:00 BOUND : Chrome  - start
+16:48:05  INFO : message - mode : 단문
+16:48:16 BOUND : Chrome  - end
+
+
+
+16:52:59 BOUND : main - start
+16:53:03 BOUND : ------------------------------------------------------------------------
+16:53:03 BOUND : Chrome  - start
+16:53:11  INFO : message - mode : 단문
+16:53:34 BOUND : Chrome  - end
+
+
+
+16:59:29 BOUND : main - start
+16:59:34 BOUND : ------------------------------------------------------------------------
+16:59:34 BOUND : Chrome  - start
+16:59:41  INFO : message - mode : 단문
+17:00:02 BOUND : Chrome  - end
+
+
+
+17:10:39 BOUND : main - start
+17:10:44 BOUND : ------------------------------------------------------------------------
+17:10:44 BOUND : Chrome  - start
+17:10:50  INFO : message - mode : 단문
+17:11:11 BOUND : Chrome  - end
+
+
+
+17:12:44 BOUND : main - start
+17:12:49 BOUND : ------------------------------------------------------------------------
+17:12:49 BOUND : Chrome  - start
+17:12:54  INFO : message - mode : 단문
+17:13:17 BOUND : Chrome  - end
+17:13:36 BOUND : ------------------------------------------------------------------------
+17:13:36 BOUND : Firefox - start
+17:13:45  INFO : message - mode : 단문
+17:14:05 BOUND : Firefox - end
+17:14:12 BOUND : ------------------------------------------------------------------------
+17:14:12 BOUND : IE      - start
+17:14:25  INFO : message - mode : 단문
+17:14:52 BOUND : IE      - end
+
+
+
+17:17:34 BOUND : main - start
+
+
+
+17:17:52 BOUND : main - start
+17:17:57 BOUND : ------------------------------------------------------------------------
+17:17:57 BOUND : Chrome  - start
+17:18:03  INFO : message - mode : 단문
+17:18:21 BOUND : Chrome  - end
+17:18:29 BOUND : ------------------------------------------------------------------------
+17:18:29 BOUND : Firefox - start
+17:18:34  INFO : message - mode : 단문
+17:18:49 BOUND : Firefox - end
+17:18:52 BOUND : ------------------------------------------------------------------------
+17:18:52 BOUND : IE      - start
+17:18:59  INFO : message - mode : 단문
+17:19:22 BOUND : IE      - end

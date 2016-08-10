@@ -14,8 +14,8 @@ public class Main {
 		log_NewLine.log(Level.getLevel("BOUND"), "");
 		log.log(Level.getLevel("BOUND"), "main - start");
 		
-		JUnitCore.main("com.daou.chasedae.web_test.adppurio.Main_Chrome");
-//				, "com.daou.chasedae.web_test.adppurio.Main_Firefox"
-//				, "com.daou.chasedae.web_test.adppurio.Main_IE");
+		JUnitCore.main("com.daou.chasedae.web_test.adppurio.Main_Chrome"//);
+				, "com.daou.chasedae.web_test.adppurio.Main_Firefox"
+				, "com.daou.chasedae.web_test.adppurio.Main_IE");
 	}
 }

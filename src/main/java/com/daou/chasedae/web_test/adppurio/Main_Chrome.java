@@ -34,13 +34,13 @@ public class Main_Chrome {
 		
 		driver = new ChromeDriver();
 		
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
 		tool = new Tool(driver);
 	    
-	    testSuite = new TestSuite(driver, baseUrl, tool, "chrome");
+	    testSuite = new TestSuite(driver, baseUrl, tool, "Chrome");
 	}
 
 	@Test
