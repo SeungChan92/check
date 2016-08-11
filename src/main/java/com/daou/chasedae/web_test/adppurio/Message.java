@@ -55,7 +55,7 @@ public class Message extends Category {
 		try {
 			driver.findElement(By.id("sendMainDtoSubject")).clear();
 			driver.findElement(By.id("sendMainDtoSubject")).sendKeys(title);
-			
+		
 			logger.log(LogStatus.PASS, "typeTitle");
 		} catch (Exception e) {
 			logger.log(LogStatus.ERROR

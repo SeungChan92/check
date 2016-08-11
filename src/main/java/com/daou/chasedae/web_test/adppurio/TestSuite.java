@@ -23,12 +23,11 @@ public class TestSuite {
 	private String browser;
 
 	private Logger log = LogManager.getLogger("LevelLog");
-	private ExtentReports reports;
+	private static ExtentReports reports = new ExtentReports("logs/[test_result]_adppurio.html", false);
 	private ExtentTest logger;
 
 	public TestSuite(WebDriver driver, String baseUrl, Tool tool, String browser) {
 		tool.rememberMainWindow();
-		reports = new ExtentReports("logs/[test_result]_adppurio.html", false);
 		reports.loadConfig(new File("src/main/resources/extent-config.xml"));
 		logger = reports.startTest(browser);
 

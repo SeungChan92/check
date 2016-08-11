@@ -41,16 +41,21 @@ If you find Web Test Automation useful in your project, please consider citing:
 
 + Test1
 	1. [by crawler + html parser] 각 페이지의 input tag 목록 정리하기
-		+ 모든 페이지에 대해 [xpath] //input[@type='text'] 뽑아내기
+		+ [done] 모든 페이지에 대해 [xpath] //input[@type='text'] 뽑아내기
 			+ 중복 페이지 거르기
 				+ [maybe] crawler's tour method filters duplication.
 		+ page tree 만들기
+			+ String -> ExtentReports
+		+ exclude
+			+ [url] //number
 	2. [by person] 각 input tag에 대한 올바른 value 선택 
 	3. [by selenium] many Values per [input] tag에 대한 alert 메세지 축적(기록)
 		+ [lator] 서버코드와 동기화
 	
 ### Issue
 
++ [problem] same last URL in diffrent path.
+	+ use full URL instead of only last part.
 + 같은 페이지에서 먼저 검사하는 input 폼에 잘못된 값이 입력되어 있을 경우, 다음 input 폼을 검사하지 않는다.
 	+ 테스터가 (테스트할 가치가 있는 values set과) 올바른 value를 알려주어야한다.
 + Crawler
