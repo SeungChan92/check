@@ -22,7 +22,8 @@ If you find Web Test Automation useful in your project, please consider citing:
 6. [Installation](#installation)
 7. [Run](#run)
 8. [Usage](#usage)
-9. [Reference](#reference)
+9. [Data Structure] (#data-structure)
+10. [Reference](#reference)
 
 ### Summary
 
@@ -42,12 +43,17 @@ If you find Web Test Automation useful in your project, please consider citing:
 + first step
 	+ crawl and save in json file
 		+ what
+			+ pages_url
 			+ formTags in pages
 			+ inputTags in formTags
 			+ alertMessages in inputTags
 		+ why
 			+ to make testcode using it
 			+ to save alertmessage in this json file
+		+ [reference] write json file
+			+ https://crunchify.com/how-to-write-json-object-to-file-in-java/
+		+ [reference] read json from file
+			+ https://crunchify.com/how-to-read-json-object-from-file-in-java/
 	+ // make testcode
 	+ test and save (the results and) alertMessages
 	+ show tester them
@@ -87,6 +93,51 @@ If you find Web Test Automation useful in your project, please consider citing:
 ### Run
 
 ### Usage
+
+### Data Structure
+
+It save crawling result as json format in a file
+
+	{
+		pages :
+		[
+			{
+				url : "",
+				formTags :
+				[
+					{
+						index : ,
+						submitButton_tagName : "",
+						submitButton_id : "",
+						submitButton_name : "",
+						inputTags :
+						[
+							{
+								attributes :
+								[
+									type : "",
+									id : "",
+									name : ""
+								],
+								valueTypes :
+								[
+									"", ""
+								],
+								validValue : ""
+								alertMessages :
+								[
+									{
+										valueType : "",
+										message : ""
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		]
+	}
 
 ### Reference
 
