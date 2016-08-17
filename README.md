@@ -41,12 +41,11 @@ If you find Web Test Automation useful in your project, please consider citing:
 ### Todo
 
 + first step
-	+ crawl and save in json file
+	$ crawl and save in json file
 		+ what
-			+ pages_url
-			+ formTags in pages
-			+ inputTags in formTags
-			+ alertMessages in inputTags
+			$ pages_url
+			$ formTags in pages
+			$ inputTags in formTags
 		+ why
 			+ to make testcode using it
 			+ to save alertmessage in this json file
@@ -67,7 +66,8 @@ If you find Web Test Automation useful in your project, please consider citing:
 
 + [problem] same last URL in diffrent path.
 	+ use full URL instead of only last part.
-+ 같은 페이지에서 먼저 검사하는 input 폼에 잘못된 값이 입력되어 있을 경우, 다음 input 폼을 검사하지 않는다.
++ 같은 페이지에서 먼저 검사하는 input 폼에 잘못된 값이 입력되어 있을 경우, 다음 input 폼을 
+검사하지 않는다.
 	+ 테스터가 (테스트할 가치가 있는 values set과) 올바른 value를 알려주어야한다.
 	
 ### Development Environment
@@ -106,7 +106,11 @@ It save crawling result as json format in a file
 				formTags :
 				[
 					{
-						index : ,
+						attributes :
+						{
+							id : "",
+							name : ""
+						},
 						submitButton_tagName : "",
 						submitButton_id : "",
 						submitButton_name : "",
@@ -114,11 +118,11 @@ It save crawling result as json format in a file
 						[
 							{
 								attributes :
-								[
+								{
 									type : "",
 									id : "",
 									name : ""
-								],
+								},
 								valueTypes :
 								[
 									"", ""
