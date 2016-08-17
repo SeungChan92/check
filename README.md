@@ -102,7 +102,7 @@ It save crawling result as json format in a file
 		pages :
 		[
 			{
-				url : "",
+				path : "",
 				formTags :
 				[
 					{
