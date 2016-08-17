@@ -41,11 +41,11 @@ If you find Web Test Automation useful in your project, please consider citing:
 ### Todo
 
 + first step
-	$ crawl and save in json file
+	+ [done] crawl and save in json file
 		+ what
-			$ pages_url
-			$ formTags in pages
-			$ inputTags in formTags
+			+ pages_url
+			+ formTags in pages
+			+ inputTags in formTags
 		+ why
 			+ to make testcode using it
 			+ to save alertmessage in this json file
