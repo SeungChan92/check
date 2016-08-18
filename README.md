@@ -55,14 +55,16 @@ If you find Web Test Automation useful in your project, please consider citing:
 			+ https://crunchify.com/how-to-read-json-object-from-file-in-java/
 	+ // make testcode
 	+ [done] test and save (the results and) alertMessages
-	+ show tester them
+	+ [done] show tester them
+		+ json to html report
+			+ 구조 유지
 	
 ### Issue
 
 + 프로젝트 내용 공유, 피드백 받기
-+ 프로젝트 다이어그램 그려 보기
-	+ 툴사용 시도해보기
 + message 기능에서 샘플로 코드 작성
+	+ 입력 문자열을 파일로 빼기
+	+ for문 이용해서 여러 패턴 test
 
 + [problem] same last URL in diffrent path.
 	+ use full URL instead of only last part.

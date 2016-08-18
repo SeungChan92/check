@@ -4,6 +4,7 @@ import org.junit.runner.JUnitCore;
 
 import com.daou.chasedae.web_test.adppurio.Main_Chrome;
 import com.daou.chasedae.web_test.common.Data;
+import com.daou.chasedae.web_test.common.Report;
 import com.daou.chasedae.web_test.common.crawler.MyCrawlController;
 
 public class Main {
@@ -16,10 +17,12 @@ public class Main {
 	public static void main(String[] args) throws Exception {    
 
 		// 2nd Edition
-		MyCrawlController.crawl();
-//		Data.readFile();
+//		MyCrawlController.crawl();
+		Data.readFile();
+		Data.ready();
 		JUnitCore.runClasses(Main_Chrome.class);
-		Data.writeFile();
+//		Data.writeFile();
+		Report.writeReport();
 		
 		
 		// 1st Edition

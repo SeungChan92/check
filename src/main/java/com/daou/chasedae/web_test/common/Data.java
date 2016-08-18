@@ -18,21 +18,28 @@ import org.jsoup.select.Elements;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
 
 public class Data {
 
 	private static Logger logger = LogManager.getRootLogger();
 	
-	private static JSONObject JSONobject = new JSONObject();
-	private static JSONArray pages = null; 
+	public static JSONObject JSONobject = new JSONObject();
+	public static JSONArray pages = null; 
 
 	public Data() { }
-
+	
 	public static void readFile() throws FileNotFoundException, IOException, ParseException
 	{
 		JSONParser parser = new JSONParser();
 		JSONobject = (JSONObject) parser.parse(new FileReader(
 				"/data/adppurio.json"));
+	}
+	public static void ready()
+	{
+		pages = (JSONArray) JSONobject.get("pages");
 	}
 	public static void writeFile() throws IOException
 	{
@@ -54,7 +61,7 @@ public class Data {
 			System.out.println("\nJSON Object: " + Data.JSONobject);
 		}
 	}
-
+	
 	public static void add_page(String path)
 	{
 		// if there is no page array

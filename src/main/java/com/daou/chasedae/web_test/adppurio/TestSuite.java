@@ -1,9 +1,17 @@
 package com.daou.chasedae.web_test.adppurio;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.openqa.selenium.WebDriver;
 
 import com.daou.chasedae.web_test.common.Fail;
@@ -25,6 +33,8 @@ public class TestSuite {
 	private Logger log = LogManager.getLogger("LevelLog");
 	private static ExtentReports reports = new ExtentReports("logs/[test_result]_adppurio.html", false);
 	private ExtentTest logger;
+	
+	public static JSONObject variables_message;
 
 	public TestSuite(WebDriver driver, String baseUrl, Tool tool, String browser) {
 		tool.rememberMainWindow();
@@ -37,8 +47,12 @@ public class TestSuite {
 		this.browser = browser;
 	}
 
-	public void ready() {
-		Variables_SendNumber.make();
+	public void ready() throws FileNotFoundException, IOException, ParseException {
+		JSONParser parser = new JSONParser();
+		
+		variables_message = (JSONObject) parser.parse(new FileReader(
+				"/data/variables/message.json"));
+//		Variables_SendNumber.make();
 	}
 
 	public void test() {
@@ -92,14 +106,21 @@ public class TestSuite {
 			//				{
 			//					message_content = Variables_Message.content_long_150;
 			//				}
-			//				
-			message.init("단문");
-			message.loadAddress_FromGroup("new_group");
-			message.typeTitle(Variables_Message.title);
-			message.typeMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-			message.saveMessage();
-//			member.logout();
-			message.send();
+			//
+			JSONArray sets = (JSONArray) variables_message.get("sets");
+			for(Iterator<Object> it_set = sets.iterator();it_set.hasNext();)
+			{
+				JSONObject set = (JSONObject) it_set.next();
+				
+				message.init("단문");
+				message.loadAddress_FromGroup("new_group");
+				message.typeTitle((String) set.get("title"));
+				message.typeMessage((String) set.get("content"));
+				message.saveMessage();
+//				member.logout();
+				message.send();
+				
+			}
 			//	
 			//				message.init("장문");
 			//				if(!browser.equals("firefox"))
