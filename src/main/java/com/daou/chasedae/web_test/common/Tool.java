@@ -68,7 +68,7 @@ public class Tool {
 		System.out.println("focus : main");
 	}
 
-	public String closeAlertAndGetItsText() {
+	public String closeAlert_andGetItsText() {
 		try {
 			Alert alert = driver.switchTo().alert();
 			String alertText = alert.getText();
@@ -82,6 +82,11 @@ public class Tool {
 			acceptNextAlert = true;
 		}
 	}
+	public void closeAlert_andSaveItsText(By formTag_by) {
+		String message = closeAlert_andGetItsText();
+		
+		save_alertMessage(formTag_by, message);
+	}
 
 	public void click(By linkText) {
 		wait.until(ExpectedConditions.elementToBeClickable(linkText));
@@ -92,10 +97,12 @@ public class Tool {
 		mainWindowHandle = driver.getWindowHandle();
 	}
 
-	
 	public ArrayList<InputTag> make_inputTagList(WebElement formTag) {
 		ArrayList<InputTag> inputTagList = new ArrayList<InputTag>();
 		List<WebElement> inputTags = formTag.findElements(By.tagName("input"));
+		List<WebElement> textareaTags = formTag.findElements(By.tagName("textarea"));
+		
+		inputTags.addAll(textareaTags);
 		
 		for(int i=0; i<inputTags.size(); i++)
 		{
@@ -105,10 +112,22 @@ public class Tool {
 			inputTag.id = web_inputTag.getAttribute("id");
 			inputTag.name = web_inputTag.getAttribute("name");
 			inputTag.value = web_inputTag.getAttribute("value");
+			inputTag.type = web_inputTag.getAttribute("type");
 			
 			inputTagList.add(inputTag);
 		}
 		
 		return inputTagList;
+	}
+
+	// save at Data
+	public void save_alertMessage(By formTag_by, String message) {
+		WebElement formTag = driver.findElement(formTag_by);
+		String formTag_id = formTag.getAttribute("id");
+		String formTag_name = formTag.getAttribute("name");
+		
+		ArrayList<InputTag> inputTagList = make_inputTagList(formTag);
+		
+		Data.add_alertMessage(driver.getCurrentUrl(), formTag_id, formTag_name, inputTagList, message);
 	}
 }

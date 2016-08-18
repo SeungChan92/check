@@ -127,7 +127,7 @@ public class Data {
 			, ArrayList<InputTag> inputTagList, String message) {
 
 		String page_path = page_url.substring(page_url.indexOf("com") + 3);
-		System.out.println("add_alertMessage - page_path : " + page_path);
+//		System.out.println("add_alertMessage - page_path : " + page_path);
 		JSONObject page = get_page(page_path);
 		JSONObject formTag = get_formTag((JSONArray) page.get("formTags"), formTag_id, formTag_name);
 		JSONArray alertMessages = null;
@@ -143,8 +143,8 @@ public class Data {
 		alertMessages = (JSONArray) formTag.get("alertMessages");
 		alertMessages.add(alertMessage);
 		
-		System.out.println("Data - add_alertMessage() - alertMessage : " + alertMessage);
-		System.out.println("Data - add_alertMessage() - alertMessages : " + alertMessages);
+//		System.out.println("Data - add_alertMessage() - alertMessage : " + alertMessage);
+//		System.out.println("Data - add_alertMessage() - alertMessages : " + alertMessages);
 	}
 
 	private static JSONObject build_alertMessage(JSONArray inputTags, String message) {
@@ -166,6 +166,7 @@ public class Data {
 			json_inputTag.put("id", inputTag.id);
 			json_inputTag.put("name", inputTag.name);
 			json_inputTag.put("value", inputTag.value);
+			json_inputTag.put("type", inputTag.type);
 
 			inputTags.add(json_inputTag);
 		}

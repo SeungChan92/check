@@ -82,24 +82,32 @@ public class Report {
 	private static String build_log_alertMessage(JSONObject alertMessage) {
 		String log = "";
 		JSONArray inputTags = (JSONArray) alertMessage.get("inputTags");
+		String newLine = "<br>";
 		
-		log += "<pre>\n";
-		log += "alertMessage : " + alertMessage.get("message") + '\n';
-		log += "\tinputTags : " + '\n';
+//		log += "<pre>\n";
+		log += "alertMessage : " + alertMessage.get("message") + newLine + newLine;
+//		log += " inputTags : " + newLine;
 		
 		// append every inputTag info
 		for(Iterator<Object> it_inputTag = inputTags.iterator();it_inputTag.hasNext();)
 		{
 			JSONObject inputTag = (JSONObject) it_inputTag.next();
 			
-			log += "\t\tinputTag ( "
+			log += "<span"; 
+			if(!inputTag.get("type").equals("hidden"))
+			{
+				log += " style='background-color:yellow'";
+			}
+			log += ">";
+			log += "inputTag ( "
 					+ "id : " + inputTag.get("id")
 					+ ", name : " + inputTag.get("name")
 					+ ", value : " + inputTag.get("value")
-					+ " )" + '\n';
+					+ " )" + newLine;
+			log += "</span>";
 		}
 		
-		log += "</pre>";
+//		log += "</pre>";
 		
 		return log;
 	}

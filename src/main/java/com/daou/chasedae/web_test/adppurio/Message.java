@@ -89,21 +89,14 @@ public class Message extends Category {
 			driver.findElement(By.cssSelector("p.ph_num")).click();
 			driver.findElement(By.linkText("저장 및 적용")).click();
 			tool.waitForAlert();
-			tool.closeAlertAndGetItsText();
-			//assertTrue(tool.closeAlertAndGetItsText().matches("^\\[01029591783\\]를 기본번호로 저장 및 적용하시겠습니까[\\s\\S]$"));
+			tool.closeAlert_andGetItsText();
 			tool.waitForAlert();
-			assertEquals("저장되었습니다.", tool.closeAlertAndGetItsText());
+			assertEquals("저장되었습니다.", tool.closeAlert_andGetItsText());
 			driver.findElement(By.id("btnSend")).click();
 			tool.waitForAlert();
-			String message = tool.closeAlertAndGetItsText();
-			//assertEquals("잔액이 부족합니다.", tool.closeAlertAndGetItsText());
+			tool.closeAlert_andSaveItsText(By.id("send_input"));
 			
 			logger.log(LogStatus.PASS, "send");
-			
-			// save alertMessage and situation
-			WebElement formTag = driver.findElement(By.id("send_input"));
-			ArrayList<InputTag> inputTagList = tool.make_inputTagList(formTag);
-			Data.add_alertMessage(driver.getCurrentUrl(), "send_input", "send_input", inputTagList, message);
 		
 		} catch (Exception e) {
 			logger.log(LogStatus.ERROR
@@ -123,7 +116,7 @@ public class Message extends Category {
 			driver.findElement(By.id("btnSendReceiverAddressSubmit")).click();
 			tool.waitForAlert();
 			Thread.sleep(5000);
-			tool.closeAlertAndGetItsText();
+			tool.closeAlert_andGetItsText();
 			//assertTrue(tool.closeAlertAndGetItsText().matches("^선택한 1건을 발송창에 추가 하시겠습니까[\\s\\S]$"));
 			driver.findElement(By.id("btnSendReceiverClose")).click();
 			tool.goTo_main();
@@ -154,7 +147,7 @@ public class Message extends Category {
 			Thread.sleep(5000);
 			driver.findElement(By.id("btnReceiverAdd")).click();
 			tool.waitForAlert();
-			tool.closeAlertAndGetItsText();
+			tool.closeAlert_andGetItsText();
 			//assertEquals("1건의 번호가 추가되었습니다.\n(중복되거나 유효하지않은 번호는 삭제됩니다.)", tool.closeAlertAndGetItsText());
 		} catch (Exception e) {
 			Parameter[] parameters = new Parameter[1];
@@ -227,9 +220,9 @@ public class Message extends Category {
 		try {
 			driver.findElement(By.id("btnSendMessageboxSave")).click();
 			tool.waitForAlert();
-			assertTrue(tool.closeAlertAndGetItsText().matches("^메시지를 저장하시겠습니까[\\s\\S]$"));
+			assertTrue(tool.closeAlert_andGetItsText().matches("^메시지를 저장하시겠습니까[\\s\\S]$"));
 			tool.waitForAlert();
-			assertEquals("저장하였습니다.", tool.closeAlertAndGetItsText());
+			assertEquals("저장하였습니다.", tool.closeAlert_andGetItsText());
 			Thread.sleep(1000);
 			
 			logger.log(LogStatus.PASS, "saveMessage");

@@ -112,11 +112,11 @@ public class TestSuite {
 			{
 				JSONObject set = (JSONObject) it_set.next();
 				
-				message.init("단문");
-				message.loadAddress_FromGroup("new_group");
+				message.init((String) set.get("mode"));
+//				message.loadAddress_FromGroup("new_group");
 				message.typeTitle((String) set.get("title"));
 				message.typeMessage((String) set.get("content"));
-				message.saveMessage();
+//				message.saveMessage();
 //				member.logout();
 				message.send();
 				

@@ -24,7 +24,7 @@ public class Address extends Category {
 		driver.findElement(By.id("addGroupName")).sendKeys(group_name);
 		driver.findElement(By.id("addGroup")).click();
 		tool.waitForAlert();
-		assertEquals("new_group 그룹을 추가하였습니다.", tool.closeAlertAndGetItsText());
+		assertEquals("new_group 그룹을 추가하였습니다.", tool.closeAlert_andGetItsText());
 		tool.wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText(group_name)));
 	}
 
@@ -36,9 +36,9 @@ public class Address extends Category {
 	    tool.wait.until(ExpectedConditions.elementToBeClickable(By.id("deleteGroup")));
 	    driver.findElement(By.id("deleteGroup")).click();
 	    tool.waitForAlert();
-	    assertTrue(tool.closeAlertAndGetItsText().matches("^1개의 그룹을 삭제 하시겠습니까[\\s\\S]$"));
+	    assertTrue(tool.closeAlert_andGetItsText().matches("^1개의 그룹을 삭제 하시겠습니까[\\s\\S]$"));
 	    tool.waitForAlert();
-	    assertEquals("그룹을 삭제 하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("그룹을 삭제 하였습니다.", tool.closeAlert_andGetItsText());
 	}
 	
 	public void addAddress() throws Exception {
@@ -51,7 +51,7 @@ public class Address extends Category {
 	    driver.findElement(By.id("userMemberDtoMobile")).sendKeys("01029591783");
 	    tool.click(By.id("saveMember"));
 	    tool.waitForAlert();
-	    assertEquals("등록하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("등록하였습니다.", tool.closeAlert_andGetItsText());
 	    tool.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='안승찬']")));
 	  }
 
@@ -62,7 +62,7 @@ public class Address extends Category {
 	    tool.click(By.name("no"));
 	    driver.findElement(By.id("deleteMember")).click();
 	    tool.waitForAlert();
-	    assertEquals("주소를 삭제 하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("주소를 삭제 하였습니다.", tool.closeAlert_andGetItsText());
 	  }
 
 	public void editAddress(String name, String moblie, String phone, String fax, String email) throws Exception {
@@ -82,22 +82,22 @@ public class Address extends Category {
 	    driver.findElement(By.xpath("(//input[@name='email'])[2]")).sendKeys("issea1015");
 	    driver.findElement(By.linkText("저장")).click();
 	    tool.waitForAlert();
-	    assertEquals("FAX번호 형식이 올바르지 않습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("FAX번호 형식이 올바르지 않습니다.", tool.closeAlert_andGetItsText());
 	    driver.findElement(By.cssSelector("td.pad6 > input[name=\"fax\"]")).clear();
 	    driver.findElement(By.cssSelector("td.pad6 > input[name=\"fax\"]")).sendKeys(fax);
 	    driver.findElement(By.linkText("저장")).click();
 	    tool.waitForAlert();
-	    assertEquals("이메일 형식이 올바르지 않습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("이메일 형식이 올바르지 않습니다.", tool.closeAlert_andGetItsText());
 	    driver.findElement(By.xpath("(//input[@name='email'])[2]")).clear();
 	    driver.findElement(By.xpath("(//input[@name='email'])[2]")).sendKeys("issea1015@1.1");
 	    driver.findElement(By.linkText("저장")).click();
 	    tool.waitForAlert();
-	    assertEquals("이메일 형식이 올바르지 않습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("이메일 형식이 올바르지 않습니다.", tool.closeAlert_andGetItsText());
 	    driver.findElement(By.xpath("(//input[@name='email'])[2]")).clear();
 	    driver.findElement(By.xpath("(//input[@name='email'])[2]")).sendKeys(email);
 	    driver.findElement(By.linkText("저장")).click();
 	    tool.waitForAlert();
-	    assertEquals("주소를 수정 하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("주소를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 	    tool.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='" + name + "']")));
 	  }
 
@@ -113,7 +113,7 @@ public class Address extends Category {
 	    driver.findElement(By.id("get_name")).sendKeys("안승찬");
 	    driver.findElement(By.id("funSend")).click();
 	    tool.waitForAlert();
-	    assertEquals("주소록 보내기를 완료하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("주소록 보내기를 완료하였습니다.", tool.closeAlert_andGetItsText());
 	    tool.goTo_main();
 	  }
 	
@@ -121,7 +121,7 @@ public class Address extends Category {
 	    driver.get(baseUrl + "/");
 	    driver.findElement(By.linkText("주소록")).click();
 	    tool.waitForAlert();
-	    tool.closeAlertAndGetItsText();
+	    tool.closeAlert_andGetItsText();
 	    driver.findElement(By.linkText("보낸주소결과")).click();
 	    
 	    // 전송할 주소록으로 등록 됐는지 확인
@@ -130,7 +130,7 @@ public class Address extends Category {
 	    driver.findElement(By.name("no")).click();
 	    driver.findElement(By.id("funSendGroupDel")).click();
 	    tool.waitForAlert();
-	    assertEquals("보낸 주소록을 삭제하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("보낸 주소록을 삭제하였습니다.", tool.closeAlert_andGetItsText());
 	  }
 
 	public void addAddress_InManagement() throws Exception {
@@ -152,7 +152,7 @@ public class Address extends Category {
 	    driver.findElement(By.name("memo")).sendKeys("test");
 	    driver.findElement(By.id("memberCreate")).click();
 	    tool.waitForAlert();
-	    assertEquals("등록하였습니다.", tool.closeAlertAndGetItsText());
+	    assertEquals("등록하였습니다.", tool.closeAlert_andGetItsText());
 	    
 	    // wait (화면 밝기 - 회색 -> 흰)
 	    tool.wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[text()='그룹관리']")));

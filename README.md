@@ -40,24 +40,13 @@ If you find Web Test Automation useful in your project, please consider citing:
 	
 ### Todo
 
-+ first step
-	+ [done] crawl and save in json file
-		+ what
-			+ pages_url
-			+ formTags in pages
-			+ inputTags in formTags
-		+ why
-			+ to make testcode using it
-			+ to save alertmessage in this json file
-		+ [reference] write json file
-			+ https://crunchify.com/how-to-write-json-object-to-file-in-java/
-		+ [reference] read json from file
-			+ https://crunchify.com/how-to-read-json-object-from-file-in-java/
-	+ // make testcode
-	+ [done] test and save (the results and) alertMessages
-	+ [done] show tester them
-		+ json to html report
-			+ 구조 유지
++ page별로 alertMessage 저장
+	+ formTag 별 -> page 별
++ 의미있는 Tag 강조
+	+ [done] 일단은 hidden만 제외
++ 입력 문자열 표준화
+	+ 빈값, 문자, 숫자, 특문
++ textarea 추가, report에
 	
 ### Issue
 
@@ -147,7 +136,8 @@ It save crawling result as json format in a file
 									{
 										id : "",
 										name : "",
-										value : ""
+										value : "",
+										type : ""
 									}
 								],
 								message : ""
