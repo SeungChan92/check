@@ -1,9 +1,13 @@
 package com.daou.chasedae.web_test.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -86,5 +90,25 @@ public class Tool {
 	
 	public void rememberMainWindow() {
 		mainWindowHandle = driver.getWindowHandle();
+	}
+
+	
+	public ArrayList<InputTag> make_inputTagList(WebElement formTag) {
+		ArrayList<InputTag> inputTagList = new ArrayList<InputTag>();
+		List<WebElement> inputTags = formTag.findElements(By.tagName("input"));
+		
+		for(int i=0; i<inputTags.size(); i++)
+		{
+			WebElement web_inputTag = inputTags.get(i);
+			InputTag inputTag = new InputTag();
+			
+			inputTag.id = web_inputTag.getAttribute("id");
+			inputTag.name = web_inputTag.getAttribute("name");
+			inputTag.value = web_inputTag.getAttribute("value");
+			
+			inputTagList.add(inputTag);
+		}
+		
+		return inputTagList;
 	}
 }

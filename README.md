@@ -54,7 +54,7 @@ If you find Web Test Automation useful in your project, please consider citing:
 		+ [reference] read json from file
 			+ https://crunchify.com/how-to-read-json-object-from-file-in-java/
 	+ // make testcode
-	+ test and save (the results and) alertMessages
+	+ [done] test and save (the results and) alertMessages
 	+ show tester them
 	
 ### Issue
@@ -135,6 +135,20 @@ It save crawling result as json format in a file
 										message : ""
 									}
 								]
+							}
+						],
+						alertMessages :
+						[
+							{
+								inputTags :
+								[
+									{
+										id : "",
+										name : "",
+										value : ""
+									}
+								],
+								message : ""
 							}
 						]
 					}

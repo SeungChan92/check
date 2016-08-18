@@ -146,6 +146,7 @@ public class MyCrawler extends WebCrawler {
 		Document doc = Jsoup.parse(html);
 		
 		// save page
+//		System.out.println("MyCrawler - save() - path : " + path);
 		Data.add_page(path);
 
 		// save formTags and inputTags
@@ -153,10 +154,10 @@ public class MyCrawler extends WebCrawler {
 		for(Iterator<Element> it_form = formTags.iterator();it_form.hasNext();)
 		{
 			Element formTag = it_form.next();
-			Elements inputTags = formTag.getElementsByTag("input");
+//			Elements inputTags = formTag.getElementsByTag("input");
 			
 			Data.add_formTag(path, formTag);
-			Data.add_inputTags(path, formTag, inputTags);
+//			Data.add_inputTags(path, formTag, inputTags);
 		}
 	}
 }

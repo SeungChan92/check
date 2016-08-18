@@ -1,5 +1,8 @@
 package com.daou.chasedae.web_test;
 
+import org.junit.runner.JUnitCore;
+
+import com.daou.chasedae.web_test.adppurio.Main_Chrome;
 import com.daou.chasedae.web_test.common.Data;
 import com.daou.chasedae.web_test.common.crawler.MyCrawlController;
 
@@ -12,10 +15,16 @@ public class Main {
 
 	public static void main(String[] args) throws Exception {    
 
+		// 2nd Edition
+		MyCrawlController.crawl();
+//		Data.readFile();
+		JUnitCore.runClasses(Main_Chrome.class);
+		Data.writeFile();
+		
+		
+		// 1st Edition
 //		reports.loadConfig(new File("src/main/resources/extent-config.xml"));
 //		ExtentTest logger = reports.startTest("adppurio");
-		MyCrawlController.crawl();
-		Data.writeFile();
 		
 //		log_NewLine.log(Level.getLevel("BOUND"), "");
 //		log.log(Level.getLevel("BOUND"), "main - start");

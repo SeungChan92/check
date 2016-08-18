@@ -98,7 +98,7 @@ public class TestSuite {
 			message.typeTitle(Variables_Message.title);
 			message.typeMessage("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 			message.saveMessage();
-			member.logout();
+//			member.logout();
 			message.send();
 			//	
 			//				message.init("장문");

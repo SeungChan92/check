@@ -7,6 +7,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -16,7 +17,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 import com.daou.chasedae.web_test.common.Category;
+import com.daou.chasedae.web_test.common.Data;
 import com.daou.chasedae.web_test.common.Fail;
+import com.daou.chasedae.web_test.common.InputTag;
 import com.daou.chasedae.web_test.common.Parameter;
 import com.daou.chasedae.web_test.common.Tool;
 import com.relevantcodes.extentreports.ExtentTest;
@@ -92,10 +95,16 @@ public class Message extends Category {
 			assertEquals("저장되었습니다.", tool.closeAlertAndGetItsText());
 			driver.findElement(By.id("btnSend")).click();
 			tool.waitForAlert();
-			tool.closeAlertAndGetItsText();
+			String message = tool.closeAlertAndGetItsText();
 			//assertEquals("잔액이 부족합니다.", tool.closeAlertAndGetItsText());
 			
 			logger.log(LogStatus.PASS, "send");
+			
+			// save alertMessage and situation
+			WebElement formTag = driver.findElement(By.id("send_input"));
+			ArrayList<InputTag> inputTagList = tool.make_inputTagList(formTag);
+			Data.add_alertMessage(driver.getCurrentUrl(), "send_input", "send_input", inputTagList, message);
+		
 		} catch (Exception e) {
 			logger.log(LogStatus.ERROR
 					, "send<br>"
