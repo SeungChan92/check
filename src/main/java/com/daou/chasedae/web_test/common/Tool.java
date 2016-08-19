@@ -105,12 +105,12 @@ public class Tool {
 			acceptNextAlert = true;
 		}
 	}
-	public void closeAlert_andSaveItsText(By formTag_by) {
+	public void closeAlert_andSaveItsText() {
 		logger.debug("Tool - closeAlert_andSaveItsText() : start");
 
 		String message = closeAlert_andGetItsText();
 
-		save_alertMessage(formTag_by, message);
+		save_alertMessage(message);
 	}
 
 	public void click(By linkText) {
@@ -215,10 +215,18 @@ public class Tool {
 		attributes.put("type", web_inputTag.getAttribute("type"));
 	}
 
-	public void save_alertMessage(By formTag_by, String message) {
+	public void save_alertMessage(String message) {
 		logger.debug("Tool - save_alertMessage() : start");
 		logger.debug("Tool - save_alertMessage() - snapshot : " + snapshot);
 
 		Data.add_alertMessage(snapshot_url, baseUrl, snapshot, message);
+	}
+	
+	// observe
+	public void observe_click(By button_by) throws InterruptedException {
+		snapshot();
+		driver.findElement(button_by).click();
+		waitFor_alert();
+		closeAlert_andSaveItsText();
 	}
 }

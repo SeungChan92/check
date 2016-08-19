@@ -92,13 +92,11 @@ public class Message extends Category {
 			
 			// workspace : start
 			
-			tool.snapshot();
-			driver.findElement(By.id("btnSend")).click();
-			tool.waitFor_alert();
-			tool.closeAlert_andSaveItsText(By.id("send_input"));
-			tool.waitFor_allDone();
-
+			tool.observe_click(By.id("btnSend"));
+					
 			// workspace : end
+			
+			tool.waitFor_allDone();
 			
 			logger.debug("Message - send() : end");
 			
@@ -249,6 +247,7 @@ public class Message extends Category {
 	}
 
 	public void suite() throws Fail {
+		logger.debug("Message - suite() : start");
 		
 		String[] modes = {"단문"};
 		String[] StringCases = {"string", "1234"};

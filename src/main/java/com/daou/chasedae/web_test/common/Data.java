@@ -237,17 +237,27 @@ public class Data {
 	}
 
 	private static int get_page_index(String path) {
+		int page_index = -1;
+		
 		for(int i=0; i<pages.size(); i++)
 		{
 //			System.out.println("Data - get_page_index() - json_path : " + (String) (((JSONObject)pages.get(i)).get("path")));
 //			System.out.println("Data - get_page_index() - path      : " + path);
 			if(((String) (((JSONObject)pages.get(i)).get("path"))).equals(path))
 			{
-				return i;
+				page_index = i;
+				break;
 			}
 		}
+		
+		// if there is no page
+		if(page_index == -1)
+		{
+			add_page(path);
+			page_index = get_page_index(path);
+		}
 
-		return -1;
+		return page_index;
 	}
 	private static int get_formTag_index(JSONArray formTags, Element formTag) {
 		for(int i=0; i<formTags.size(); i++)
@@ -261,7 +271,7 @@ public class Data {
 				return i;
 			}
 		}
-
+		
 		return -1;
 	}
 	private static int get_formTag_index(JSONArray formTags, String formTag_id, String formTag_name) {

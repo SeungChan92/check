@@ -31,15 +31,16 @@ public class TestSuite {
 	private String browser;
 
 	private Logger log = LogManager.getLogger("LevelLog");
+	private Logger logger = LogManager.getRootLogger();
 	private static ExtentReports reports = new ExtentReports("logs/[test_result]_adppurio.html", false);
-	private ExtentTest logger;
+	private ExtentTest extentTest;
 	
 	public static JSONObject variables_message;
 
 	public TestSuite(WebDriver driver, String baseUrl, Tool tool, String browser) {
 		tool.rememberMainWindow();
 		reports.loadConfig(new File("src/main/resources/extent-config.xml"));
-		logger = reports.startTest(browser);
+		extentTest = reports.startTest(browser);
 
 		member = new Member(driver, baseUrl, tool, reports.startTest("Member"));
 		address = new Address(driver, baseUrl, tool, reports.startTest("Address"));
@@ -58,6 +59,9 @@ public class TestSuite {
 	public void test() {
 
 		try {			
+			member.login(Variables_User.id, Variables_User.pw);
+			member.editUserInfo();
+			message.suite();
 			//			// member
 			//			member.login(Variables_User.id, Variables_User.pw);
 			//			member.logout();			
@@ -68,7 +72,7 @@ public class TestSuite {
 			//			member.findPW_ByEmail();
 			//			member.findPW_ByIdentity();
 			//
-			member.login(Variables_User.id, Variables_User.pw);
+//			member.login(Variables_User.id, Variables_User.pw);
 			//
 			//			// member - 마이페이지
 			//			member.editUserInfo();
@@ -107,7 +111,7 @@ public class TestSuite {
 			//					message_content = Variables_Message.content_long_150;
 			//				}
 			//
-			message.suite();
+//			message.suite();
 			//	
 			//				message.init("장문");
 			//				if(!browser.equals("firefox"))
@@ -134,15 +138,16 @@ public class TestSuite {
 			//			logger.log(LogStatus.FAIL, fail.buildMessage());
 			//			log.error(fail.buildMessage());
 		} catch(Exception e) {
+			e.printStackTrace();
 			//			log.error("need to specify error");
 		}
 
-		logger.appendChild(message.getExtentTest());
-		logger.appendChild(address.getExtentTest());
-		logger.appendChild(member.getExtentTest());
-		reports.endTest(logger);
-		reports.flush();
-		reports.close();
+//		extentTest.appendChild(message.getExtentTest());
+//		extentTest.appendChild(address.getExtentTest());
+//		extentTest.appendChild(member.getExtentTest());
+//		reports.endTest(extentTest);
+//		reports.flush();
+//		reports.close();
 	}
 
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.daou.chasedae.web_test.common.Category;
 import com.daou.chasedae.web_test.common.Tool;
+import com.daou.chasedae.web_test.common.Variables_User;
 import com.relevantcodes.extentreports.ExtentTest;
 
 public class Member extends Category {
@@ -139,66 +140,68 @@ public class Member extends Category {
 	}
 
 	public void editUserInfo() throws Exception {
+		logger.debug("Member - editUserInfo() : start"); 
+		
 		driver.get(baseUrl + "/user/edit");
 		driver.findElement(By.cssSelector("img[alt=\"AD뿌리오\"]")).click();
 		driver.findElement(By.linkText("마이페이지")).click();
 		driver.findElement(By.id("info_pw")).clear();
-		driver.findElement(By.id("info_pw")).sendKeys("vnfms2357!");
+		driver.findElement(By.id("info_pw")).sendKeys(Variables_User.pw);
 		driver.findElement(By.id("confirmBtn")).click();
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("1");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("이메일 주소 형식이 올바르지 않습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("이메일 주소를 입력해 주세요", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("issea1015@gmail.com");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.id("address2")).clear();
 		driver.findElement(By.id("address2")).sendKeys("ㅇㅇ");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("0");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("01011111111");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
-		driver.findElement(By.id("phone")).clear();
-		driver.findElement(By.id("phone")).sendKeys("010-1111-1111");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
-		driver.findElement(By.id("phone")).clear();
-		driver.findElement(By.id("phone")).sendKeys("0321111111");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
-		driver.findElement(By.id("fax")).clear();
-		driver.findElement(By.id("fax")).sendKeys("0321111111");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
+//		driver.findElement(By.id("phone")).clear();
+//		driver.findElement(By.id("phone")).sendKeys("010-1111-1111");
+//		
+//		tool.observe_click(By.id("editBtn"));
+//		
+//		driver.findElement(By.id("phone")).clear();
+//		driver.findElement(By.id("phone")).sendKeys("0321111111");
+//		
+//		tool.observe_click(By.id("editBtn"));
+//		
+//		driver.findElement(By.id("fax")).clear();
+//		driver.findElement(By.id("fax")).sendKeys("0321111111");
+//		
+//		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.name("companyName")).clear();
 		driver.findElement(By.name("companyName")).sendKeys("다우");
 		driver.findElement(By.name("emailReceiveType")).click();
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
 		driver.findElement(By.linkText("취소")).click();
 		driver.findElement(By.id("info_pw")).clear();
-		driver.findElement(By.id("info_pw")).sendKeys("vnfms2357!");
+		driver.findElement(By.id("info_pw")).sendKeys(Variables_User.pw);
 		driver.findElement(By.id("confirmBtn")).click();
 		driver.findElement(By.name("companyName")).clear();
 		driver.findElement(By.name("companyName")).sendKeys("");
@@ -215,9 +218,10 @@ public class Member extends Category {
 		driver.findElement(By.id("zipCode")).sendKeys("");
 		driver.findElement(By.id("mes_sendname")).clear();
 		driver.findElement(By.id("mes_sendname")).sendKeys("");
-		driver.findElement(By.id("editBtn")).click();
-		tool.waitFor_alert();
-		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
+		
+		tool.observe_click(By.id("editBtn"));
+		
+		logger.debug("Member - editUserInfo() : end"); 
 	}
 
 	public void editPW(String new_pw) throws Exception {
