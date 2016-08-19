@@ -40,16 +40,21 @@ If you find Web Test Automation useful in your project, please consider citing:
 	
 ### Todo
 
-+ page별로 alertMessage 저장
++ [now] textarea tag는 textareaTag로 표시해 주기
+	+ 현재 report에 inputTag로 표시됨
++ [now] page별로 alertMessage 저장
 	+ formTag 별 -> page 별
 + 의미있는 Tag 강조
 	+ [done] 일단은 hidden만 제외
 + 입력 문자열 표준화
 	+ 빈값, 문자, 숫자, 특문
-+ textarea 추가, report에
 	
 ### Issue
 
++ submit 이후 페이지가 바뀌면, submit 시에 입력되어 있던 input값들을 읽어오려는 시도가 실패한다.
+	+ submit 하기 전에 읽어놔야 한다.
++ test시 data 저장으로 인한 test 속도 저하
+	+ [solution] sperate test thread and save data thread
 + 프로젝트 내용 공유, 피드백 받기
 + message 기능에서 샘플로 코드 작성
 	+ 입력 문자열을 파일로 빼기
@@ -94,6 +99,37 @@ It save crawling result as json format in a file
 		[
 			{
 				path : "",
+				alertMessages :
+				[
+					{
+						message : "",
+						snapshot :
+						{
+							formTags :
+							[
+								{
+									attributes :
+									{
+										id : "",
+										name : ""
+									},
+									inputTags :
+									[
+										{
+											attributes :
+											{
+												id : "",
+												name : "",
+												value : "",
+												type : ""
+											}
+										}
+									],
+								}
+							]
+						}
+					}
+				],
 				formTags :
 				[
 					{
@@ -126,21 +162,6 @@ It save crawling result as json format in a file
 										message : ""
 									}
 								]
-							}
-						],
-						alertMessages :
-						[
-							{
-								inputTags :
-								[
-									{
-										id : "",
-										name : "",
-										value : "",
-										type : ""
-									}
-								],
-								message : ""
 							}
 						]
 					}

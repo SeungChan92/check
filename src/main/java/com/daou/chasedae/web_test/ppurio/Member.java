@@ -45,7 +45,7 @@ public class Member {
 		driver.findElement(By.id("DoSubmit_emailmobile")).click();
 		driver.findElement(By.linkText("‘ * ’ 부분 확인하기")).click();
 		driver.findElement(By.linkText("인증번호 받기")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("선택하신 수단으로 아이디를 전송하였습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -62,7 +62,7 @@ public class Member {
 	    driver.findElement(By.id("DoSubmit_emailmobile")).click();
 	    driver.findElement(By.linkText("‘ * ’ 부분 확인하기")).click();
 	    driver.findElement(By.linkText("인증메일 받기")).click();
-	    tool.waitForAlert();
+	    tool.waitFor_alert();
 	    assertEquals("선택하신 수단으로 아이디를 전송하였습니다.", tool.closeAlert_andGetItsText());
 	  }
 }

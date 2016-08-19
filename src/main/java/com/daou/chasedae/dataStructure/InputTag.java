@@ -1,4 +1,4 @@
-package com.daou.chasedae.web_test.common;
+package com.daou.chasedae.dataStructure;
 
 public class InputTag {
 	public String id;

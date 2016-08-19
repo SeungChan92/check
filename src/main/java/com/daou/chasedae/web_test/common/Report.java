@@ -2,6 +2,8 @@ package com.daou.chasedae.web_test.common;
 
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -10,7 +12,11 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 public class Report {
+	private static final String newLine = "<br>";
+	
 	private static ExtentReports extentReports;
+	
+	private static Logger logger = LogManager.getRootLogger();
 
 	public static void writeReport() {
 
@@ -32,14 +38,11 @@ public class Report {
 		for(Iterator<Object> it_page = Data.pages.iterator();it_page.hasNext();)
 		{
 			JSONObject page = (JSONObject) it_page.next();
-			JSONArray formTags = (JSONArray) page.get("formTags");
+			JSONArray alertMessages = (JSONArray) page.get("alertMessages");
 			ExtentTest extentTest_page = extentReports.startTest(page.get("path").toString());
 
-			// make child test for every formTag
-			append_formTags(extentTest_page, formTags);
-
-			// make child test for every page (cont.)
 			extentTest_site.appendChild(extentTest_page);
+			append_alertMessages(extentTest_page, alertMessages);
 		}
 	}
 	private static void append_formTags(ExtentTest extentTest_page, JSONArray formTags) {
@@ -57,14 +60,14 @@ public class Report {
 			extentTest_page.appendChild(extentTest_formTag);
 		}
 	}
-	private static void append_alertMessages(ExtentTest extentTest_formTag, JSONArray alertMessages) {
+	private static void append_alertMessages(ExtentTest extentTest_page, JSONArray alertMessages) {
 		if (alertMessages == null) return;
 
 		for(Iterator<Object> it_alertMessage = alertMessages.iterator();it_alertMessage.hasNext();)
 		{
 			JSONObject alertMessage = (JSONObject) it_alertMessage.next();
-			
-			extentTest_formTag.log(LogStatus.INFO, build_log_alertMessage(alertMessage));
+
+			extentTest_page.log(LogStatus.INFO, build_log_alertMessage(alertMessage));
 		}
 	}
 
@@ -81,34 +84,64 @@ public class Report {
 	}
 	private static String build_log_alertMessage(JSONObject alertMessage) {
 		String log = "";
-		JSONArray inputTags = (JSONArray) alertMessage.get("inputTags");
-		String newLine = "<br>";
+
+		String message = (String) alertMessage.get("message");
+		JSONObject snapshot = (JSONObject) alertMessage.get("snapshot");
+		JSONArray formTags = (JSONArray) snapshot.get("formTags");
+		JSONObject formTag = null;
+		JSONObject attributes = null;
+		JSONArray inputTags = null;
+
+		log += "alertMessage : " + message + newLine + newLine;
+
+		// append every formTags info
+		for(Iterator<Object> it_formTag = formTags.iterator();it_formTag.hasNext();)
+		{
+			formTag = (JSONObject) it_formTag.next();
+			attributes = (JSONObject) formTag.get("attributes");
+			inputTags = (JSONArray) formTag.get("inputTags");
+
+			logger.debug("Report - build_log_alertMessage - formTag : " + formTag);
+			
+			log += "<span style='padding-left:10px'>"
+					+ "formTag ("
+					+ "id : " + attributes.get("id")
+					+ ", name : " + attributes.get("name")
+					+ " )"
+					+ "</span>" + newLine;
+
+			// append every inputTags info
+			log += build_log_inputTags(inputTags);
+		}
+
+		return log;
+	}
+	private static String build_log_inputTags(JSONArray inputTags) {
+		String log = "";
 		
-//		log += "<pre>\n";
-		log += "alertMessage : " + alertMessage.get("message") + newLine + newLine;
-//		log += " inputTags : " + newLine;
-		
-		// append every inputTag info
+		JSONObject inputTag = null;
+		JSONObject attributes = null; 
+
 		for(Iterator<Object> it_inputTag = inputTags.iterator();it_inputTag.hasNext();)
 		{
-			JSONObject inputTag = (JSONObject) it_inputTag.next();
-			
-			log += "<span"; 
-			if(!inputTag.get("type").equals("hidden"))
+			inputTag = (JSONObject) it_inputTag.next();
+			attributes = (JSONObject) inputTag.get("attributes");
+
+			log += "<span style='padding-left:20px"; 
+			if(!attributes.get("type").equals("hidden"))
 			{
-				log += " style='background-color:yellow'";
+				log += ";background-color:yellow";
 			}
-			log += ">";
+			log += "'>";
 			log += "inputTag ( "
-					+ "id : " + inputTag.get("id")
-					+ ", name : " + inputTag.get("name")
-					+ ", value : " + inputTag.get("value")
+					+ "id : " + attributes.get("id")
+					+ ", name : " + attributes.get("name")
+					+ ", value : " + attributes.get("value")
+					+ ", type : " + attributes.get("type")
 					+ " )" + newLine;
 			log += "</span>";
 		}
-		
-//		log += "</pre>";
-		
+
 		return log;
 	}
 }

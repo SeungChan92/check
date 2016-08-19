@@ -28,7 +28,8 @@ public class Main_Chrome {
 	@Before
 	public void setUp() throws Exception {
 //		baseUrl = "http://www-sta.adppurio.com:10051";
-		baseUrl = "https://www.adppurio.com";
+//		baseUrl = "https://www.adppurio.com";
+		baseUrl = "http://www-dev.adppurio.com:10051";
 		
 		System.setProperty("webdriver.chrome.driver", "C:/driver/chromedriver.exe");
 		
@@ -38,7 +39,7 @@ public class Main_Chrome {
 		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 		
-		tool = new Tool(driver);
+		tool = new Tool(driver, baseUrl);
 	    
 	    testSuite = new TestSuite(driver, baseUrl, tool, "Chrome");
 	}

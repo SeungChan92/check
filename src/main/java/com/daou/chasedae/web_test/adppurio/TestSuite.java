@@ -107,20 +107,7 @@ public class TestSuite {
 			//					message_content = Variables_Message.content_long_150;
 			//				}
 			//
-			JSONArray sets = (JSONArray) variables_message.get("sets");
-			for(Iterator<Object> it_set = sets.iterator();it_set.hasNext();)
-			{
-				JSONObject set = (JSONObject) it_set.next();
-				
-				message.init((String) set.get("mode"));
-//				message.loadAddress_FromGroup("new_group");
-				message.typeTitle((String) set.get("title"));
-				message.typeMessage((String) set.get("content"));
-//				message.saveMessage();
-//				member.logout();
-				message.send();
-				
-			}
+			message.suite();
 			//	
 			//				message.init("장문");
 			//				if(!browser.equals("firefox"))
@@ -150,9 +137,9 @@ public class TestSuite {
 			//			log.error("need to specify error");
 		}
 
-		logger.appendChild(message.getLogger());
-		logger.appendChild(address.getLogger());
-		logger.appendChild(member.getLogger());
+		logger.appendChild(message.getExtentTest());
+		logger.appendChild(address.getExtentTest());
+		logger.appendChild(member.getExtentTest());
 		reports.endTest(logger);
 		reports.flush();
 		reports.close();

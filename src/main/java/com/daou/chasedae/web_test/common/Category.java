@@ -12,21 +12,21 @@ public class Category {
 	protected WebDriver driver;
 	protected String baseUrl;
 	protected Tool tool;
-	protected ExtentTest logger;
+	protected ExtentTest extentTest;
 
-	protected Logger log;
+	protected Logger logger;
 
-	protected Category(String category, WebDriver driver, String baseUrl, Tool tool, ExtentTest logger) {
+	protected Category(String category, WebDriver driver, String baseUrl, Tool tool, ExtentTest extentTest) {
 		this.category = category;
 		this.driver = driver;
 		this.baseUrl = baseUrl;
 		this.tool = tool;
-		this.logger = logger;
+		this.extentTest = extentTest;
 		
-		log = LogManager.getRootLogger();
+		this.logger = LogManager.getRootLogger();
 	}
 	
-	public ExtentTest getLogger() {
-		return logger;
+	public ExtentTest getExtentTest() {
+		return extentTest;
 	}
 }

@@ -16,6 +16,7 @@ import org.json.simple.parser.ParseException;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import com.daou.chasedae.dataStructure.InputTag;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.relevantcodes.extentreports.ExtentReports;
@@ -123,56 +124,42 @@ public class Data {
 			json_inputTags.add(json_inputTag);
 		}
 	}
-	public static void add_alertMessage(String page_url, String formTag_id, String formTag_name
-			, ArrayList<InputTag> inputTagList, String message) {
-
-		String page_path = page_url.substring(page_url.indexOf("com") + 3);
-//		System.out.println("add_alertMessage - page_path : " + page_path);
-		JSONObject page = get_page(page_path);
-		JSONObject formTag = get_formTag((JSONArray) page.get("formTags"), formTag_id, formTag_name);
-		JSONArray alertMessages = null;
-
-		JSONArray inputTags = build_inputTags(inputTagList);
-		JSONObject alertMessage = build_alertMessage(inputTags, message);
-
-		if(!formTag.containsKey("alertMessages"))
-		{
-			formTag.put("alertMessages", new JSONArray());
-		}
-
-		alertMessages = (JSONArray) formTag.get("alertMessages");
-		alertMessages.add(alertMessage);
+	public static void add_alertMessage(String page_url, String baseUrl, JSONObject snapshot, String message)
+	{
+		logger.debug("Data - add_alertMessage() : start");
 		
-//		System.out.println("Data - add_alertMessage() - alertMessage : " + alertMessage);
-//		System.out.println("Data - add_alertMessage() - alertMessages : " + alertMessages);
-	}
-
-	private static JSONObject build_alertMessage(JSONArray inputTags, String message) {
+		JSONObject page = null;
+		JSONArray alertMessages = null;
 		JSONObject alertMessage = new JSONObject();
-
-		alertMessage.put("inputTags", inputTags);
-		alertMessage.put("message", message);
-
-		return alertMessage;
-	}
-	private static JSONArray build_inputTags(ArrayList<InputTag> inputTagList) {
-		JSONArray inputTags = new JSONArray();
-
-		for(int i=0; i<inputTagList.size(); i++)
+		String page_path = page_url.substring(page_url.indexOf(baseUrl) + baseUrl.length());
+		
+		page = get_page(page_path);
+		if (!page.containsKey("alertMessages"))
 		{
-			InputTag inputTag = inputTagList.get(i);
-			JSONObject json_inputTag = new JSONObject();
-
-			json_inputTag.put("id", inputTag.id);
-			json_inputTag.put("name", inputTag.name);
-			json_inputTag.put("value", inputTag.value);
-			json_inputTag.put("type", inputTag.type);
-
-			inputTags.add(json_inputTag);
+			alertMessages = new JSONArray();
+			page.put("alertMessages", alertMessages);
 		}
-
-		return inputTags;
+		else
+		{
+			alertMessages = (JSONArray) page.get("alertMessages");
+		}
+		
+		alertMessages.add(alertMessage);
+		build_alertMessage(alertMessage, message, snapshot);
+		
+		logger.debug("Data - add_alertMessage() : end");
+		logger.debug("Data - add_alertMessage() - page : " + page);
 	}
+
+	private static void build_alertMessage(JSONObject alertMessage, String message, JSONObject snapshot) {
+		logger.debug("Data - build_alertMessage() : start");
+		
+		alertMessage.put("message", message);
+		alertMessage.put("snapshot", snapshot);
+		
+		logger.debug("Data - build_alertMessage() - alertMessage : " + alertMessage);
+	}
+	
 	private static JSONObject get_page(String path) {
 		int page_index = -1;
 		JSONObject page = null;
@@ -189,7 +176,8 @@ public class Data {
 		if(page_index == -1)
 		{
 			// log
-			System.out.println("add_formTag - no such page");
+			logger.debug("Data - get_page() - no such page");
+			logger.debug("Data - get_page() - path : " + path);
 
 			return null;
 		}

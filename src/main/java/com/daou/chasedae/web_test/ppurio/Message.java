@@ -27,18 +27,18 @@ public class Message {
 		driver.findElement(By.id("textReceiverInput")).clear();
 		driver.findElement(By.id("textReceiverInput")).sendKeys("01029591783");
 		driver.findElement(By.id("btnReceiverAdd")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("1건의 번호가 추가되었습니다.\n(중복되거나 유효하지않은 번호는 삭제됩니다.)", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("sendMainDtoSendNumber")).click();
 		driver.findElement(By.name("chkSendNumber")).click();
 		driver.findElement(By.cssSelector("p.ph_num")).click();
 		driver.findElement(By.linkText("저장 및 적용")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertTrue(tool.closeAlert_andGetItsText().matches("^\\[01029591783\\]를 기본번호로 저장 및 적용하시겠습니까[\\s\\S]$"));
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("저장되었습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("btnSend")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("잔액이 부족합니다.", tool.closeAlert_andGetItsText());
 	}
 }

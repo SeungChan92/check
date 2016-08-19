@@ -56,7 +56,7 @@ public class Member extends Category {
 		driver.findElement(By.id("findIdBtn")).click();
 		driver.findElement(By.linkText("‘ * ’ 부분 확인하기")).click();
 		driver.findElement(By.linkText("휴대폰으로 받기")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("선택하신 수단으로 아이디를 전달하였습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -73,7 +73,7 @@ public class Member extends Category {
 		driver.findElement(By.id("findIdBtn")).click();
 		driver.findElement(By.linkText("‘ * ’ 부분 확인하기")).click();
 		driver.findElement(By.linkText("이메일로 받기")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("선택하신 수단으로 아이디를 전달하였습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -102,7 +102,7 @@ public class Member extends Category {
 		driver.findElement(By.id("findPasswordBtn")).click();
 		driver.findElement(By.id("requestAuthCode")).click();
 		driver.findElement(By.id("requestBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("인증번호 입력", tool.closeAlert_andGetItsText());
 		driver.findElement(By.linkText("뒤로")).click();
 	}
@@ -121,7 +121,7 @@ public class Member extends Category {
 		driver.findElement(By.name("emailDomain")).sendKeys("gmail.com");
 		driver.findElement(By.id("findPasswordBtn")).click();
 		driver.findElement(By.id("requestAuthCodeByEmail")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("인증메일을 발송했습니다.\n메일로 발송된 주소를 통해 접속하시면 비밀번호를 새로 설정하실 수 있습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -148,53 +148,53 @@ public class Member extends Category {
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("1");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("이메일 주소 형식이 올바르지 않습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("이메일 주소를 입력해 주세요", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("email")).clear();
 		driver.findElement(By.id("email")).sendKeys("issea1015@gmail.com");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("address2")).clear();
 		driver.findElement(By.id("address2")).sendKeys("ㅇㅇ");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("0");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("01011111111");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("010-1111-1111");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("전화번호는 숫자만 입력해 주세요.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("phone")).clear();
 		driver.findElement(By.id("phone")).sendKeys("0321111111");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("fax")).clear();
 		driver.findElement(By.id("fax")).sendKeys("0321111111");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.name("companyName")).clear();
 		driver.findElement(By.name("companyName")).sendKeys("다우");
 		driver.findElement(By.name("emailReceiveType")).click();
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.linkText("취소")).click();
 		driver.findElement(By.id("info_pw")).clear();
@@ -216,7 +216,7 @@ public class Member extends Category {
 		driver.findElement(By.id("mes_sendname")).clear();
 		driver.findElement(By.id("mes_sendname")).sendKeys("");
 		driver.findElement(By.id("editBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -231,7 +231,7 @@ public class Member extends Category {
 		driver.findElement(By.id("new_pw_entry")).clear();
 		driver.findElement(By.id("new_pw_entry")).sendKeys(new_pw);
 		driver.findElement(By.id("updateBtn")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("정보를 수정 하였습니다.", tool.closeAlert_andGetItsText());
 	}
 
@@ -253,13 +253,13 @@ public class Member extends Category {
 		driver.findElement(By.name("funfunAuthFileRequestForm.memo")).clear();
 		driver.findElement(By.name("funfunAuthFileRequestForm.memo")).sendKeys("1");
 		driver.findElement(By.id("funfunBtnRegisterFile")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("서류인증이 신청되었습니다.", tool.closeAlert_andGetItsText());
 		Thread.sleep(2000);
 		driver.findElement(By.name("btnDelete")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertTrue(tool.closeAlert_andGetItsText().matches("^01011111111 번호를 삭제하시겠습니까[\\s\\S]$"));
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("삭제 되었습니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("funfunSendNumberSearch")).clear();
 		driver.findElement(By.id("funfunSendNumberSearch")).sendKeys("01011111111");
@@ -277,7 +277,7 @@ public class Member extends Category {
 		driver.findElement(By.id("saved_money")).sendKeys("1");
 		driver.findElement(By.id("pay_cellphone")).click();
 		driver.findElement(By.id("btnPayment")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("1,000원 이상의 금액에 이용하실 수 있습니다 ", tool.closeAlert_andGetItsText());
 		driver.findElement(By.id("saved_money")).clear();
 		driver.findElement(By.id("saved_money")).sendKeys("1000");
@@ -302,7 +302,7 @@ public class Member extends Category {
 		driver.findElement(By.id("chk00")).click();
 		driver.findElement(By.cssSelector("p > label")).click();
 		driver.findElement(By.cssSelector("img[alt=\"다음\"]")).click();
-		tool.waitForAlert();
+		tool.waitFor_alert();
 		assertEquals("이용약관을 읽고 동의하셔야 합니다.", tool.closeAlert_andGetItsText());
 		driver.findElement(By.cssSelector("img[alt=\"취소\"]")).click();
 		driver.findElement(By.cssSelector("img[alt=\"확인\"]")).click();

@@ -53,7 +53,7 @@
 	</Appenders>
 	
 	<Loggers>
-		<Root level="info">
+		<Root level="debug">
 			<!-- <AppenderRef ref="dailyRollingFile" /> -->
 			<AppenderRef ref="Console" />
 		</Root>

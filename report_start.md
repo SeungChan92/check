@@ -54,3 +54,8 @@
 + [from] 같은 form에 있는 다른 input을 테스트하기 위해서, 올바른 입력값을 유진한다.
 	+ 테스터에게 제공할 정보 : page URL, input tag [@id, name]
 	+ DB table : inputTag
+	
+### 의미있는 inputTag data 인지 판별하는 기준
+
++ hidden이 아니다
++ innerText가 있다.
