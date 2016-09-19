@@ -40,28 +40,27 @@ If you find Web Test Automation useful in your project, please consider citing:
 	
 ### Todo
 
-+ [now] textarea tag는 textareaTag로 표시해 주기
-	+ 현재 report에 inputTag로 표시됨
-+ [now] page별로 alertMessage 저장
-	+ formTag 별 -> page 별
-+ 의미있는 Tag 강조
-	+ [done] 일단은 hidden만 제외
-+ 입력 문자열 표준화
-	+ 빈값, 문자, 숫자, 특문
-	
++ sperate test thread and save data thread
++ snapshot
+	+ now
+		+ when : just before button click
+		+ what : all inputTag in this page, pageURL
+	+ edit
+		+ when : sendkey to inputTags
+		+ what : only this inputTag
+		+ it need to snapshot pageURL before button click
++ save alertMessage
+	+ now : [main thread] when click
+	+ edit : [second thread] check if alert occurs, and if occurs then save the message
+		+ [main thread] no need to consider alert
+
 ### Issue
 
-+ submit 이후 페이지가 바뀌면, submit 시에 입력되어 있던 input값들을 읽어오려는 시도가 실패한다.
-	+ submit 하기 전에 읽어놔야 한다.
 + test시 data 저장으로 인한 test 속도 저하
 	+ [solution] sperate test thread and save data thread
 + 프로젝트 내용 공유, 피드백 받기
-+ message 기능에서 샘플로 코드 작성
-	+ 입력 문자열을 파일로 빼기
-	+ for문 이용해서 여러 패턴 test
++ [Crawler] 비밀번호 재확인을 요구하는 페이지는 접근 못 함
 
-+ [problem] same last URL in diffrent path.
-	+ use full URL instead of only last part.
 + 같은 페이지에서 먼저 검사하는 input 폼에 잘못된 값이 입력되어 있을 경우, 다음 input 폼을 
 검사하지 않는다.
 	+ 테스터가 (테스트할 가치가 있는 values set과) 올바른 value를 알려주어야한다.

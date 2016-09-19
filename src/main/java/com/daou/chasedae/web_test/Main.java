@@ -24,7 +24,6 @@ public class Main {
 //		Data.writeFile();
 		Report.writeReport();
 		
-		
 		// 1st Edition
 //		reports.loadConfig(new File("src/main/resources/extent-config.xml"));
 //		ExtentTest logger = reports.startTest("adppurio");
