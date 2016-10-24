@@ -76,8 +76,9 @@ public class TestSuite {
 			String receiverNumber = Phone.generate();
 			String title = randomString.nextString();
 			String message_string = randomString.nextString();
+			String mode = randomString.select_mode();
 			
-			message.send("단문", title, message_string, receiverNumber);
+			message.send(mode, "예약", title, message_string, receiverNumber);
 		}
 	}
 }

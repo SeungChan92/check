@@ -35,17 +35,31 @@ public class Message extends Category {
 		super("Message", driver, baseUrl, tool, extentTest);
 	}
 	public void init(String mode) throws Fail {
-		String url = "mgr/PPSmsMgr.qri?act=sms_form";
+		String url_sms = "mgr/PPSmsMgr.qri?act=sms_form";
+		String url_lms = "mgr/PPSmsMgr.qri?act=smsform_mms";
+		String url_mms = "mgr/PPPhotoMgr.qri?act=photo_form";
+		String url = "";
+		
+		if (mode.equals("단문"))
+		{
+			url = url_sms;
+		}
+		else if (mode.equals("장문"))
+		{
+			url = url_lms;
+		}
+		else if (mode.equals("포토"))
+		{
+			url = url_mms;
+		}
 		
 		try {
-			if (mode.equals("단문"))
-			{
-				driver.get(baseUrl + "/" + url);
-	
-				logger.info("message - mode : " + mode);
-	
-				//extentTest.log(LogStatus.PASS, "init");
-			}
+			driver.get(baseUrl + "/" + url);
+
+			logger.info("message - mode : " + mode);
+
+			//extentTest.log(LogStatus.PASS, "init");
+			
 		} catch (Exception e) {
 			System.out.println(ExceptionUtils.getStackTrace(e));
 			extentTest.log(LogStatus.ERROR
@@ -71,8 +85,8 @@ public class Message extends Category {
 	}
 	public void typeMessage(String message) throws Fail {
 		try {
-			driver.findElement(By.id("body1")).clear();
-			driver.findElement(By.id("body1")).sendKeys(message);
+			driver.findElement(By.name("body1")).clear();
+			driver.findElement(By.name("body1")).sendKeys(message);
 
 			//extentTest.log(LogStatus.PASS, "typeMessage");
 		} catch (Exception e) {
@@ -82,28 +96,24 @@ public class Message extends Category {
 			throw new Fail(category, "typeMessage(String message)", parameters, e);
 		}
 	}
-	public void send(String mode, String title, String message, String receiverNumber) throws Fail {
+	public void send(String mode, String reserved, String title, String message, String receiverNumber) throws Fail {
 		By button_send = By.id("sbutton");
 		By button_send_2 = By.xpath("//a[@href='javascript:jsSend();']");
 		By complete = By.className("sub_title");
 		
 		try {
-			this.init("단문");
+			
+			this.init(mode);
+			
+			if(mode.equals("포토"))
+			{
+				this.register_image();
+			}
 			this.typeTitle(title);
 			this.typeMessage(message);
 			this.loadAddress_FromType(receiverNumber);
-			
-			//driver.findElement(By.name("callback")).click();
-			//driver.findElement(By.name("radio_cno[]")).click();
-			//driver.findElement(By.cssSelector("p.ph_num")).click();
-			//driver.findElement(By.linkText("저장 및 적용")).click();
-			//tool.waitFor_alert();
-			//tool.closeAlert_andGetItsText();
-			//tool.waitFor_alert();
-			//assertEquals("저장되었습니다.", tool.closeAlert_andGetItsText());
-			
-			// workspace : start
-			
+			this.reserve("12", "31", "12", "0");
+					
 			driver.findElement(button_send).click();
 			//tool.wait.until(ExpectedConditions.visibilityOf(driver.findElement(complete)));
 			driver.findElement(button_send_2).click();
@@ -128,6 +138,20 @@ public class Message extends Category {
 			//			Parameter[] parameters = new Parameter[0];
 			//			throw new Fail(category, "send()", parameters, e);
 		}
+	}
+	private void register_image() throws InterruptedException {
+		By button_1 = By.xpath("//span[@id='image']//a");
+		By input_filePath = By.name("userfile1");
+		By button_include = By.xpath("//a[@href='javascript:jsImageUpload();']");
+		
+		driver.findElement(button_1).click();
+		tool.goTo_PopUp();
+		driver.findElement(input_filePath).sendKeys("C:/Users/Public/Pictures/Sample Pictures/사과.jpg");
+		driver.findElement(button_include).click();
+		tool.waitFor_alert();
+		tool.closeAlert_andGetItsText();
+		tool.goTo_main();
+		
 	}
 	public void loadAddress_FromGroup(String group_name) throws Fail {
 		try {
@@ -157,8 +181,8 @@ public class Message extends Category {
 	public void loadAddress_FromType(String receiverNumber) throws Fail {
 		By button_add = By.xpath("//a[@href='javascript:addSmsList();']");
 		
-		driver.findElement(By.id("rcv_mobile")).click();
-		driver.findElement(By.id("rcv_mobile")).sendKeys(receiverNumber);
+		driver.findElement(By.name("rcv_mobile")).click();
+		driver.findElement(By.name("rcv_mobile")).sendKeys(receiverNumber);
 		driver.findElement(button_add).click();
 	}
 	public void loadAddress_FromType_paste(String sendNumber) throws Fail {
@@ -202,20 +226,27 @@ public class Message extends Category {
 			throw new Fail(category, "loadAddress_FromTextFile(String file_path)", parameters, e);
 		}
 	}
-	public void reserve(String day, String hour, String minute) throws Fail {
-		try {
-			driver.get(baseUrl + "/send/standard/lms");
-			driver.findElement(By.id("sendStatusReserve")).click();
-			driver.findElement(By.linkText(day)).click();
-			new Select(driver.findElement(By.cssSelector("select.hour"))).selectByVisibleText(hour + "시");
-			new Select(driver.findElement(By.cssSelector("select.minute"))).selectByVisibleText(minute + "분");
-		} catch (Exception e) {
-			Parameter[] parameters = new Parameter[3];
+	public void reserve(String month, String day, String hour, String minute) throws Fail {
+		
+		By radio_reserve = By.xpath("//input[@onclick='jsReserveCheck(1)']");
+		By select_month	= By.name("month");
+		By select_day	= By.name("day");
+		By select_hour	= By.name("hour");
+		By select_minute = By.name("minute");
+		
+		//try {
+			driver.findElement(radio_reserve).click();
+			tool.selectByValue(select_month, month);
+			tool.selectByValue(select_day, day);
+			tool.selectByValue(select_hour, hour);
+			tool.selectByValue(select_minute, minute);
+		//} catch (Exception e) {
+			/*Parameter[] parameters = new Parameter[3];
 			parameters[0] = new Parameter("day", day);
 			parameters[1] = new Parameter("hour", hour);
 			parameters[2] = new Parameter("minute", minute);
-			throw new Fail(category, "reserve(String day, String hour, String minute)", parameters, e);
-		}
+			throw new Fail(category, "reserve(String day, String hour, String minute)", parameters, e);*/
+		//}
 	}
 	public void addSpecialChar() throws Fail {
 		try {
