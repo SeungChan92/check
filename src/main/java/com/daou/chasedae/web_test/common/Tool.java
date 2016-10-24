@@ -15,6 +15,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.daou.chasedae.dataStructure.InputTag;
@@ -228,5 +229,11 @@ public class Tool {
 		driver.findElement(button_by).click();
 		waitFor_alert();
 		closeAlert_andSaveItsText();
+	}
+	
+	public void selectByValue(By select, String value) {
+		WebElement element_select = driver.findElement(select);
+	    Select dropDown = new Select(element_select);
+	    dropDown.selectByValue(value);
 	}
 }

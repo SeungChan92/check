@@ -27,9 +27,8 @@ public class Main_Chrome {
 
 	@Before
 	public void setUp() throws Exception {
-//		baseUrl = "http://www-sta.adppurio.com:10051";
-//		baseUrl = "https://www.adppurio.com";
-		baseUrl = "http://www-dev.adppurio.com:10051";
+		//baseUrl = "http://www-dev.adppurio.com:10051";
+		baseUrl = "http://www.gosms.co.kr/";
 		
 		System.setProperty("webdriver.chrome.driver", "C:/driver/chromedriver.exe");
 		
