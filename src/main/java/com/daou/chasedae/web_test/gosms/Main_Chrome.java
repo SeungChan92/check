@@ -45,7 +45,7 @@ public class Main_Chrome {
 	}
 
 	@Test
-	public void main() throws Exception {
+	public void main() throws Exception, Fail {
 		System.out.println("Main_Chrome - main : start");
 		
 		log.log(Level.getLevel("BOUND"), "------------------------------------------------------------------------");

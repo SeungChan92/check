@@ -10,6 +10,7 @@ import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import com.daou.chasedae.web_test.common.Fail;
 import com.daou.chasedae.web_test.common.Tool;
 import com.daou.chasedae.web_test.common.Variables_Message;
 import com.daou.chasedae.web_test.common.Variables_User;
@@ -42,7 +43,7 @@ public class Main_Firefox {
 	}
 
 	@Test
-	public void main() throws Exception {
+	public void main() throws Exception, Fail {
 		log.log(Level.getLevel("BOUND"), "------------------------------------------------------------------------");
 		log.log(Level.getLevel("BOUND"), "Firefox - start");
 		
