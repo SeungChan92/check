@@ -78,7 +78,11 @@ public class TestSuite {
 			String message_string = randomString.nextString();
 			String mode = randomString.select_mode();
 			
-			message.send(mode, "예약", title, message_string, receiverNumber);
+			try {
+				message.send(mode, "예약", title, message_string, receiverNumber);
+			} catch (Exception e) {
+				System.out.println("Something goes wrong. But keep going.");
+			}
 		}
 	}
 }
