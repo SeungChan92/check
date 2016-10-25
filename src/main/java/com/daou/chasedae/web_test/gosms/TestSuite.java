@@ -53,8 +53,8 @@ public class TestSuite {
 	public void ready() throws FileNotFoundException, IOException, ParseException {
 		JSONParser parser = new JSONParser();
 		
-		variables_message = (JSONObject) parser.parse(new FileReader(
-				"/data/variables/message.json"));
+		//variables_message = (JSONObject) parser.parse(new FileReader(
+		//		"/data/variables/message.json"));
 //		Variables_SendNumber.make();
 	}
 
