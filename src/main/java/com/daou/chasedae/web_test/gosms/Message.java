@@ -99,7 +99,7 @@ public class Message extends Category {
 	public void send(String mode, String reserved, String title, String message, String receiverNumber) throws Fail {
 		By button_send = By.id("sbutton");
 		By button_send_2 = By.xpath("//a[@href='javascript:jsSend();']");
-		By complete = By.className("sub_title");
+		By option_receiverNumber = By.xpath("//select[@name='to_list']//option");
 		
 		try {
 			
@@ -112,6 +112,7 @@ public class Message extends Category {
 			this.typeTitle(title);
 			this.typeMessage(message);
 			this.loadAddress_FromType(receiverNumber);
+			tool.wait.until(ExpectedConditions.visibilityOf(driver.findElement(option_receiverNumber)));
 			this.reserve("12", "31", "12", "0");
 					
 			driver.findElement(button_send).click();
