@@ -60,7 +60,7 @@ public class TestSuite {
 
 	public void test() throws Exception, Fail {
 
-		member.login("yjlee1", "test1234##");
+		member.login("yjlee2", "test1234##");
 		
 		/*
 		for(int i=0; i<2000; i++)

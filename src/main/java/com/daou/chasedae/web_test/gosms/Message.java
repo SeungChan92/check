@@ -97,6 +97,8 @@ public class Message extends Category {
 		}
 	}
 	public void send(String mode, String reserved, String title, String message, String receiverNumber) throws Fail {
+		String group_name = "1만";
+		
 		By button_send = By.id("sbutton");
 		By button_send_2 = By.xpath("//a[@href='javascript:jsSend();']");
 		By option_receiverNumber = By.xpath("//select[@name='to_list']//option");
@@ -112,6 +114,7 @@ public class Message extends Category {
 			this.typeTitle(title);
 			this.typeMessage(message);
 			this.loadAddress_FromType(receiverNumber);
+			this.loadAddress_FromGroup(group_name);
 			tool.wait.until(ExpectedConditions.visibilityOf(driver.findElement(option_receiverNumber)));
 			this.reserve("12", "31", "12", "0");
 					
@@ -155,20 +158,24 @@ public class Message extends Category {
 		
 	}
 	public void loadAddress_FromGroup(String group_name) throws Fail {
+		By button_1 = By.xpath("//a[@href=\"javascript:jsOpenAddr('1083234');\"]");
+		By checkbox_group = By.xpath("//input[@value='" + group_name + "']"
+				+ "//..//input[@type='checkbox']");
+		By button_ok = By.xpath("/html/body/table/tbody/tr[3]/td/a[1]");
+		By button_close = By.xpath("/html/body/table/tbody/tr[3]/td/a[2]");
+		
 		try {
-			driver.get(baseUrl + "/send/standard/sms");
-			driver.findElement(By.id("btnSendReceiverAddress")).click();
+			driver.findElement(button_1).click();
 			tool.goTo_PopUp();
-			driver.findElement(By.xpath("(//a[text()='" + group_name + "']/../../..//input[@type='checkbox'])")).click();
-			driver.findElement(By.id("btnSendReceiverAddressSubmit")).click();
+			driver.findElement(checkbox_group).click();
+			driver.findElement(button_ok).click();
 			tool.waitFor_alert();
-			Thread.sleep(5000);
 			tool.closeAlert_andGetItsText();
 			//assertTrue(tool.closeAlertAndGetItsText().matches("^선택한 1건을 발송창에 추가 하시겠습니까[\\s\\S]$"));
-			driver.findElement(By.id("btnSendReceiverClose")).click();
+			driver.findElement(button_close).click();
 			tool.goTo_main();
 
-			extentTest.log(LogStatus.PASS, "loadAddress_FromGroup");
+			//extentTest.log(LogStatus.PASS, "loadAddress_FromGroup");
 		} catch (Exception e) {
 			System.out.println(ExceptionUtils.getStackTrace(e));
 			extentTest.log(LogStatus.ERROR
