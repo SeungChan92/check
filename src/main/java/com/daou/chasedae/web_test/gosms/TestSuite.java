@@ -25,6 +25,24 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+
+
+public class BasicTest extends BasicCommon{
+	
+	BasicSuitu basic;
+	
+	basic.add(address);
+	basic.add(user);
+	
+	public void run(){
+		basic.start();
+	}
+	
+	
+	
+}
+
+
 public class TestSuite {
 
 	private Member member;
