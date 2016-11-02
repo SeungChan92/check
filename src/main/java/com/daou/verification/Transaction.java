@@ -14,8 +14,8 @@ public abstract class Transaction {
 		System.out.println(this.name + " : start");
 	}
 	public void logException(Exception e) {
-		System.out.println(this.name + " : exception occur");
-		e.printStackTrace();
+		System.out.print(this.name + " : exception occur");
+		System.out.println(" - " + e.getClass().getName());
 	}
 	public void logSuccess() {
 		System.out.println(this.name + " : success");
