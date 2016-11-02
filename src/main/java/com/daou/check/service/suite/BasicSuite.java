@@ -6,7 +6,7 @@ import com.daou.check.service.module.Common;
 import com.daou.check.service.module.Member;
 import com.daou.check.service.module.Message;
 
-public class Basic implements Suite {
+public class BasicSuite implements Suite {
 	
 	public static void construct() {
 		transactions.add( new Transaction("홈페이지로 이동") {
@@ -19,6 +19,16 @@ public class Basic implements Suite {
 			@Override
 			public void transact() {
 				Member.login();
+			}
+		});
+		transactions.add( new Transaction("문자발송") {
+			@Override
+			public void transact() throws InterruptedException {
+				Message.goToPage_message();
+				Message.typeTitle(Dto.title);
+				Message.typeMessage(Dto.message);
+				Message.addReceiver_fromType(Dto.receiver);
+				Message.clickSendButton();
 			}
 		});
 	}
