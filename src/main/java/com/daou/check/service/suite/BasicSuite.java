@@ -6,7 +6,7 @@ import com.daou.check.service.module.Common;
 import com.daou.check.service.module.Member;
 import com.daou.check.service.module.Message;
 
-public class BasicSuite implements Suite {
+public class BasicSuite extends Suite {
 	
 	public static void construct() {
 		transactions.add( new Transaction("홈페이지로 이동") {
@@ -31,16 +31,5 @@ public class BasicSuite implements Suite {
 				Message.clickSendButton();
 			}
 		});
-	}
-	public static void run() {
-		for ( Transaction transaction : transactions )
-		{
-			try {
-				transaction.transact();
-				transaction.success();
-			} catch (Exception e) {
-				transaction.fail(e);
-			}
-		}
 	}
 }
