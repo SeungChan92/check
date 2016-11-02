@@ -17,9 +17,8 @@ public class BasicSuite extends Suite {
 		});
 		transactions.add( new Transaction("로그인") {
 			@Override
-			public void transact() throws Exception {
+			public void transact() {
 				Member.login();
-				throw new Exception();
 			}
 		});
 		transactions.add( new Transaction("문자발송") {

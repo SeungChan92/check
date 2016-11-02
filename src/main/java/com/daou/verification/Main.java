@@ -2,6 +2,7 @@ package com.daou.verification;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.daou.verification.service.module.Common;
@@ -12,7 +13,7 @@ import com.daou.verification.service.suite.BasicSuite;
 
 public class Main {
 	
-	private static ChromeDriver chromeDriver = null;
+	private static WebDriver webDriver = null;
 	
 	public static void main(String[] args) {
         setup();
@@ -22,7 +23,7 @@ public class Main {
 
 	// depth 1
 	private static void setup() {
-		setup_chromeDriver();
+		setup_webDriver();
 		setup_modules();
 	}
 	private static void verify() {
@@ -30,21 +31,21 @@ public class Main {
 		BasicSuite.run();
 	}
 	private static void finish() {
-		chromeDriver.quit();
+		webDriver.quit();
 	}
 	
 	// depth 2
-	private static void setup_chromeDriver() {
+	private static void setup_webDriver() {
 		System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
-		chromeDriver = new ChromeDriver();
-		chromeDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		chromeDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		chromeDriver.manage().window().maximize();
+		webDriver = new ChromeDriver();
+		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		webDriver.manage().window().maximize();
 	}
 	private static void setup_modules() {
-		Tool.setChromeDriver(chromeDriver);
-		Common.setChromeDriver(chromeDriver);
-		Member.setChromeDriver(chromeDriver);
-		Message.setChromeDriver(chromeDriver);
+		Tool.setWebDriver(webDriver);
+		Common.setWebDriver(webDriver);
+		Member.setWebDriver(webDriver);
+		Message.setWebDriver(webDriver);
 	}
 }

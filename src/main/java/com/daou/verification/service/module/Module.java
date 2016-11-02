@@ -1,11 +1,12 @@
 package com.daou.verification.service.module;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class Module {
-	protected static ChromeDriver driver;
+	protected static WebDriver driver;
 	
-	public static void setChromeDriver(ChromeDriver chromeDriver) {
-		Module.driver = chromeDriver;
+	public static void setWebDriver(WebDriver driver) {
+		Module.driver = driver;
 	}
 }
