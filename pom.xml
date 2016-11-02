@@ -2,16 +2,18 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.daou.chasedae</groupId>
-	<artifactId>web_test</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<groupId>com.daou</groupId>
+	<artifactId>check</artifactId>
+	<version>2.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>web_test</name>
+	<name>check</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+    	<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencies>
@@ -20,47 +22,5 @@
 			<artifactId>selenium-java</artifactId>
 			<version>2.53.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/commons-lang/commons-lang -->
-
-		<!-- [for] Crawler -->
-		<!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
-
-		<!-- [for] json -->
-		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-
-
 	</dependencies>
-
-	<build>
-		<plugins>
-			<!-- <plugin> <artifactId>maven-surefire-plugin</artifactId> <version>2.12.4</version> 
-				<configuration> <includes> <include>com/daou/chasedae/web_test/adppurio/Main*.java</include> 
-				<include>com/daou/chasedae/web_test/ppurio/Main*.java</include> </includes> 
-				</configuration> </plugin> -->
-			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-source-plugin</artifactId> 
-				<executions> <execution> <id>attach-sources</id> <phase>package</phase> <goals> 
-				<goal>test-jar</goal> </goals> </execution> </executions> </plugin> -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-shade-plugin</artifactId>
-				<version>2.4.3</version>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>shade</goal>
-						</goals>
-						<configuration>
-							<transformers>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>com.daou.chasedae.web_test.Main</mainClass>
-								</transformer>
-							</transformers>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
 </project>
