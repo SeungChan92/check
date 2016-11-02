@@ -9,11 +9,15 @@ public abstract class Transaction {
 	}
 	
 	public abstract void transact() throws Exception;
-	public void fail(Exception e) {
-		System.out.println(this.name + " : fail");
+	
+	public void logStart() {
+		System.out.println(this.name + " : start");
+	}
+	public void logException(Exception e) {
+		System.out.println(this.name + " : exception occur");
 		e.printStackTrace();
 	}
-	public void success() {
+	public void logSuccess() {
 		System.out.println(this.name + " : success");
 	}
 }

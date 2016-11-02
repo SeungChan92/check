@@ -14,10 +14,12 @@ public class Suite { // abstract
 		for ( Transaction transaction : transactions )
 		{
 			try {
+				transaction.logStart();
 				transaction.transact();
-				transaction.success();
+				transaction.logSuccess();
+				
 			} catch (Exception e) {
-				transaction.fail(e);
+				transaction.logException(e);
 			}
 		}
 	}
