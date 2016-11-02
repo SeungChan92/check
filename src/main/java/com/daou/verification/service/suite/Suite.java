@@ -1,9 +1,9 @@
-package com.daou.check.service.suite;
+package com.daou.verification.service.suite;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.daou.check.Transaction;
+import com.daou.verification.Transaction;
 
 public class Suite { // abstract
 

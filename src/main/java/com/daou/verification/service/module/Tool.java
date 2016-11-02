@@ -1,4 +1,4 @@
-package com.daou.check.service.module;
+package com.daou.verification.service.module;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;

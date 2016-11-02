@@ -1,8 +1,8 @@
-package com.daou.check.service.module;
+package com.daou.verification.service.module;
 
 import org.openqa.selenium.By;
 
-import com.daou.check.dto.Dto;
+import com.daou.verification.dto.Dto;
 
 public class Member extends Module {
 	public static void login() {

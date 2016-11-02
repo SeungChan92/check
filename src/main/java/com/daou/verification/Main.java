@@ -1,14 +1,14 @@
-package com.daou.check;
+package com.daou.verification;
 
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.daou.check.service.module.Common;
-import com.daou.check.service.module.Member;
-import com.daou.check.service.module.Message;
-import com.daou.check.service.module.Tool;
-import com.daou.check.service.suite.BasicSuite;
+import com.daou.verification.service.module.Common;
+import com.daou.verification.service.module.Member;
+import com.daou.verification.service.module.Message;
+import com.daou.verification.service.module.Tool;
+import com.daou.verification.service.suite.BasicSuite;
 
 public class Main {
 	
@@ -16,7 +16,7 @@ public class Main {
 	
 	public static void main(String[] args) {
         setup();
-        main();
+        verify();
         finish();
     }
 
@@ -25,7 +25,7 @@ public class Main {
 		setup_chromeDriver();
 		setup_modules();
 	}
-	private static void main() {
+	private static void verify() {
 		BasicSuite.construct();
 		BasicSuite.run();
 	}

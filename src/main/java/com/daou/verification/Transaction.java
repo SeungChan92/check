@@ -1,4 +1,4 @@
-package com.daou.check;
+package com.daou.verification;
 
 public abstract class Transaction {
 	

@@ -1,4 +1,4 @@
-package com.daou.check.dto;
+package com.daou.verification.dto;
 
 public class Dto {
 	//public static final String baseUrl = "http://www-dev.adppurio.com:10051/";

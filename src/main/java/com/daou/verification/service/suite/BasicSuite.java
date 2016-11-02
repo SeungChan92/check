@@ -1,10 +1,10 @@
-package com.daou.check.service.suite;
+package com.daou.verification.service.suite;
 
-import com.daou.check.Transaction;
-import com.daou.check.dto.Dto;
-import com.daou.check.service.module.Common;
-import com.daou.check.service.module.Member;
-import com.daou.check.service.module.Message;
+import com.daou.verification.Transaction;
+import com.daou.verification.dto.Dto;
+import com.daou.verification.service.module.Common;
+import com.daou.verification.service.module.Member;
+import com.daou.verification.service.module.Message;
 
 public class BasicSuite extends Suite {
 	
