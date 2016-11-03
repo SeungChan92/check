@@ -1,7 +1,6 @@
 package com.daou.verification.service.module;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class Module {
 	protected static WebDriver driver;
