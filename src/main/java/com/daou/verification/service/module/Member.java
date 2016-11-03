@@ -6,6 +6,7 @@ import com.daou.verification.config.Config;
 
 public class Member extends Module {
 	public static void login() {
+		
 		By input_text_userId = By.id("userId");
 		By input_password_userPwd = By.id("userPwd");
 		
@@ -22,8 +23,13 @@ public class Member extends Module {
 		
 		// [클릭] login button
 		driver.findElement(button_login).click();
-		
-		// [대기] page load
-		Tool.waitFor_visibilityOfElement(button_logout);
+		for(int i=0; i<5; i++)
+		{
+			try {
+				driver.findElement(button_login).click();
+			} catch (Exception e) {
+				break;
+			}
+		}
 	}
 }
