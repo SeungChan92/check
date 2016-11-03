@@ -2,11 +2,11 @@ package com.daou.verification.service.module;
 
 import org.openqa.selenium.By;
 
-import com.daou.verification.dto.Dto;
+import com.daou.verification.config.Config;
 
 public class Message extends Module {
 	public static void goToPage_message() {
-		driver.get(Dto.baseUrl + "/sms/sendView");
+		driver.get(Config.get("baseUrl") + "/sms/sendView");
 	}
 	
 	public static void typeTitle(String title) {

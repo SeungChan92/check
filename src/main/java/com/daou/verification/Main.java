@@ -10,6 +10,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.daou.verification.config.Config;
 import com.daou.verification.service.module.Common;
 import com.daou.verification.service.module.Member;
 import com.daou.verification.service.module.Message;
@@ -30,6 +31,7 @@ public class Main {
 	private static void setup() {
 		setup_webDriver();
 		setup_modules();
+		setup_config();
 	}
 	private static void verify() {
 		BasicSuite.construct();
@@ -69,5 +71,8 @@ public class Main {
 		Common.setWebDriver(webDriver);
 		Member.setWebDriver(webDriver);
 		Message.setWebDriver(webDriver);
+	}
+	private static void setup_config() {
+		Config.load();
 	}
 }

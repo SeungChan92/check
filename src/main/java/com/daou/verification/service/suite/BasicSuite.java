@@ -1,7 +1,7 @@
 package com.daou.verification.service.suite;
 
 import com.daou.verification.Transaction;
-import com.daou.verification.dto.Dto;
+import com.daou.verification.config.Config;
 import com.daou.verification.service.module.Common;
 import com.daou.verification.service.module.Member;
 import com.daou.verification.service.module.Message;
@@ -25,9 +25,9 @@ public class BasicSuite extends Suite {
 			@Override
 			public void transact() throws InterruptedException {
 				Message.goToPage_message();
-				Message.typeTitle(Dto.title);
-				Message.typeMessage(Dto.message);
-				Message.addReceiver_fromType(Dto.receiver);
+				Message.typeTitle(Config.get("title"));
+				Message.typeMessage(Config.get("message"));
+				Message.addReceiver_fromType(Config.get("receiver"));
 				Message.clickSendButton();
 			}
 		});

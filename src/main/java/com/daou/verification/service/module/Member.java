@@ -2,7 +2,7 @@ package com.daou.verification.service.module;
 
 import org.openqa.selenium.By;
 
-import com.daou.verification.dto.Dto;
+import com.daou.verification.config.Config;
 
 public class Member extends Module {
 	public static void login() {
@@ -14,11 +14,11 @@ public class Member extends Module {
 		
 		// [입력] userId
 		driver.findElement(input_text_userId).clear();
-		driver.findElement(input_text_userId).sendKeys(Dto.userId);
+		driver.findElement(input_text_userId).sendKeys(Config.get("id"));
 		
 		// [입력] password
 		driver.findElement(input_password_userPwd).clear();
-		driver.findElement(input_password_userPwd).sendKeys(Dto.password);
+		driver.findElement(input_password_userPwd).sendKeys(Config.get("pw"));
 		
 		// [클릭] login button
 		driver.findElement(button_login).click();
