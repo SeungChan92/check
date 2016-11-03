@@ -4,7 +4,7 @@ By SeungChan An (com.daou.chasedae)
 
 This project has purpose which makes ordinary web test automated.
 
-### Citing
+## Citing
 
 If you find Web Test Automation useful in your project, please consider citing:
 
@@ -12,7 +12,7 @@ If you find Web Test Automation useful in your project, please consider citing:
     Title = Web Test Automation
     Year = 2016
 
-### Contents
+## Contents
 1. [Summary] (#summary)
 2. [Operating Method] (#operation-method)
 2. [Todo] (#todo)
@@ -25,20 +25,20 @@ If you find Web Test Automation useful in your project, please consider citing:
 9. [Data Structure] (#data-structure)
 10. [Reference](#reference)
 
-### Summary
+## Summary
 
 + 여러 서비스에서 공통으로 뺄 수 있는 부분을 정의하고 자동으로 인식할 수 있는 시스템
 	+ service dependent한 부분은 따로 기록해주어 테스터가 알 수 있도록한다.
 	+ 완자동 인식은 아니더라도, config 파일을 이용해서 인식을 도와줄 수 있도록한다.
 
-### Operating Method
+## Operating Method
 
 1. crawl pages
 2. // build testcode
 3. run test and save the results
 4. make report
 	
-### Todo
+## Todo
 
 + sperate test thread and save data thread
 + snapshot
@@ -54,7 +54,7 @@ If you find Web Test Automation useful in your project, please consider citing:
 	+ edit : [second thread] check if alert occurs, and if occurs then save the message
 		+ [main thread] no need to consider alert
 
-### Issue
+## Issue
 
 + test시 data 저장으로 인한 test 속도 저하
 	+ [solution] sperate test thread and save data thread
@@ -65,12 +65,12 @@ If you find Web Test Automation useful in your project, please consider citing:
 검사하지 않는다.
 	+ 테스터가 (테스트할 가치가 있는 values set과) 올바른 value를 알려주어야한다.
 	
-### Development Environment
+## Development Environment
 
 1. OS : windows7
 2. Language : java
 
-### Result Reporting
+## Result Reporting
 
 + purpose
 	+ exception이 발생한 code line을 찾을 수 있도록 한다.
@@ -83,17 +83,20 @@ If you find Web Test Automation useful in your project, please consider citing:
 + 계층구조
 	+ test/browser/category/method
 
-### Installation
+## Installation
 
-### Run
+## Run
 
-### Usage
-#### selenium server에 접근하기
+## Usage
+### selenium server에 접근하기
+#### basic
 	1. [on server] run {driver}.exe
-		+ server에 접근 허용하는 아이피 기입
+		+ [option] server에 접근 허용하는 아이피 기입
 	2. [on client] use [class] RemoteWebDriver
+#### advance
+	keyword : selenium-server, hub, node
 
-### Data Structure
+## Data Structure
 
 It save crawling result as json format in a file
 
@@ -173,7 +176,7 @@ It save crawling result as json format in a file
 		]
 	}
 
-### Reference
+## Reference
 
 + Selenium
 + ExtentReports
