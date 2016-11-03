@@ -31,10 +31,18 @@ public class Tool extends Module {
 			}
 		}
 	}
-	public static void waitFor_allDone() throws InterruptedException {
-		Thread.sleep(500);
+	public static void waitFor_allDone() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
+	public static void waitFor_visibilityOfElement(By element) {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+	}
+	
 	public static void goTo_PopUp() {
 		mainWindowHandle = driver.getWindowHandle();
 
@@ -72,8 +80,8 @@ public class Tool extends Module {
 		}
 	}
 
-	public static void click(By linkText) {
-		wait.until(ExpectedConditions.elementToBeClickable(linkText));
-		driver.findElement(linkText).click();
+	public static void click(By element) {
+		wait.until(ExpectedConditions.elementToBeClickable(element));
+		driver.findElement(element).click();
 	}
 }

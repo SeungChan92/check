@@ -88,6 +88,10 @@ If you find Web Test Automation useful in your project, please consider citing:
 ### Run
 
 ### Usage
+#### selenium server에 접근하기
+	1. [on server] run {driver}.exe
+		+ server에 접근 허용하는 아이피 기입
+	2. [on client] use [class] RemoteWebDriver
 
 ### Data Structure
 

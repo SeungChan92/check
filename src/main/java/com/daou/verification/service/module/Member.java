@@ -10,6 +10,7 @@ public class Member extends Module {
 		By input_password_userPwd = By.id("userPwd");
 		
 		By button_login = By.id("funfunBtnLogin");
+		By button_logout = By.className("btn_logout");
 		
 		// [입력] userId
 		driver.findElement(input_text_userId).clear();
@@ -21,5 +22,8 @@ public class Member extends Module {
 		
 		// [클릭] login button
 		driver.findElement(button_login).click();
+		
+		// [대기] page load
+		Tool.waitFor_visibilityOfElement(button_logout);
 	}
 }
