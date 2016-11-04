@@ -26,10 +26,9 @@ If you find Web Test Automation useful in your project, please consider citing:
 10. [Reference](#reference)
 
 ## Summary
-
-+ 여러 서비스에서 공통으로 뺄 수 있는 부분을 정의하고 자동으로 인식할 수 있는 시스템
-	+ service dependent한 부분은 따로 기록해주어 테스터가 알 수 있도록한다.
-	+ 완자동 인식은 아니더라도, config 파일을 이용해서 인식을 도와줄 수 있도록한다.
+여러 서비스에서 공통으로 뺄 수 있는 부분을 정의하고 자동으로 인식할 수 있는 시스템
+> + service dependent한 부분은 따로 기록해주어 테스터가 알 수 있도록한다.
+> + 완자동 인식은 아니더라도, config 파일을 이용해서 인식을 도와줄 수 있도록한다.
 
 ## Operating Method
 
