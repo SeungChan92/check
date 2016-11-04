@@ -1,25 +1,31 @@
-package all;
+package suite;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-public class Test {
-	private WebDriver webDriver = null;
+public class Suite {
+	protected WebDriver webDriver = null;
 	
-	@org.junit.Test
-	public void test() {
-		this.setup_webDriver();
-		webDriver.get("http://www.naver.com");
-		webDriver.quit();
+	@Before
+	public void setUp() {
+		if (webDriver == null)
+			setup_webDriver();
 	}
+	@After
+	public void finish() {
+		webDriver.close();
+	}
+	
 	private void setup_webDriver() {
-		
-//		// # make
+			
+		// # make
 //		// ## [for] local test
 //				System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
 //				System.setProperty("webdriver.ie.driver", "driver/IEDriverServer.exe");
@@ -37,8 +43,8 @@ public class Test {
 		}
 		
 		// # configure
-		webDriver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		webDriver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		webDriver.manage().window().maximize();
 	}
 }
