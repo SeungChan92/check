@@ -10,19 +10,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import infra.Common;
+import infra.Config;
+import infra.Tool;
+
 public class Suite {
 	protected WebDriver webDriver = null;
 	
+	// depth 0
 	@Before
 	public void setUp() {
-		if (webDriver == null)
-			setup_webDriver();
-	}
+		setup_webDriver();
+		setup_infra();
+	}	
 	@After
 	public void finish() {
 		webDriver.close();
 	}
 	
+	// depth 1
 	private void setup_webDriver() {
 			
 		// # make
@@ -46,5 +52,10 @@ public class Suite {
 		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		webDriver.manage().window().maximize();
+	}
+	private void setup_infra() {
+		Tool.init(webDriver);
+		Config.init();
+		Common.init(webDriver);
 	}
 }
