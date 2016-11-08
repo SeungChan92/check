@@ -1,6 +1,8 @@
 package suite.message;
 
 import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -11,20 +13,22 @@ import suite.Suite;
 
 public class SMS extends Suite {
 	
+	@BeforeClass
+	public static void goToPage_sms () {
+		Tool.goToPage("/sms/sendView");
+		Common.login();
+	}
+	
 	@Test
 	public void typeTitle_moreThan_30 () {
 		String string_31 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 		
-		Tool.goToPage("/sms/sendView");
-		Common.login();
 		typeTitle(string_31);
 		Tool.waitFor_alert();
 		Assert.assertEquals("제목은 30자이내로 작성해 주세요.", Tool.closeAlert_andGetItsText());		
 	}
 	@Test
 	public void send_instantly() {
-		Tool.goToPage("/sms/sendView");
-		Common.login();
 		
 		this.typeTitle(Config.get("title"));
 		this.typeMessage(Config.get("message"));
@@ -57,4 +61,5 @@ public class SMS extends Suite {
 		
 		this.webDriver.findElement(a_btnSend).click();
 	}
+	
 }

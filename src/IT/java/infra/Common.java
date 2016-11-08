@@ -35,4 +35,9 @@ public class Common implements Infra {
 		// [클릭] login button
 		webDriver.findElement(button_login).click();
 	}
+	public static void logout() {
+		By button_logout = By.className("btn_logout");
+		
+		webDriver.findElement(button_logout).click();
+	}
 }

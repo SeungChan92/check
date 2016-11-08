@@ -5,7 +5,9 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -15,21 +17,21 @@ import infra.Config;
 import infra.Tool;
 
 public class Suite {
-	protected WebDriver webDriver = null;
+	protected static WebDriver webDriver = null;
 	
 	// depth 0
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public static void setUp() {
 		setup_webDriver();
 		setup_infra();
-	}	
-	@After
-	public void finish() {
+	}
+	@AfterClass
+	public static void finish() {
 		webDriver.close();
 	}
 	
 	// depth 1
-	private void setup_webDriver() {
+	private static void setup_webDriver() {
 			
 		// # make
 //		// ## [for] local test
@@ -53,7 +55,7 @@ public class Suite {
 		webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 		webDriver.manage().window().maximize();
 	}
-	private void setup_infra() {
+	private static void setup_infra() {
 		Tool.init(webDriver);
 		Config.init();
 		Common.init(webDriver);
