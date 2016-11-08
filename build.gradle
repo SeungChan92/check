@@ -19,6 +19,9 @@ sourceSets {
 	integTest {
 	   java {
 		   srcDirs = ['src/IT/java']
+		   exclude 'member/login/**'
+		   exclude 'message/**'
+		   
        }
 	   resources {
 		   srcDirs = ['src/IT/resources']

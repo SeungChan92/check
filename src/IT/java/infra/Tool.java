@@ -106,4 +106,8 @@ public class Tool implements Infra {
 	public static void assertEquals_currentUrl(String url) {
 		assertEquals(Config.get("baseUrl")+url, Tool.webDriver.getCurrentUrl());
 	}
+	public static void assertEquals_alert(String alertMessage) {
+		Tool.waitFor_alert();
+		assertEquals(alertMessage, Tool.closeAlert_andGetItsText());
+	}
 }
