@@ -1,10 +1,9 @@
-package suite.member.login;
+package member.login;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import infra.Common;
 import infra.Config;
@@ -35,7 +34,7 @@ public class Login extends Suite{
 	public void id_right_pw_wrong() {
 		Common.login(Config.get("id"), "a");
 		Tool.waitFor_alert();
-		assertEquals(Config.get("baseUrl")+"/login/?fail", this.webDriver.getCurrentUrl());
+		assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.webDriver.getCurrentUrl());
 	}
 	@Test
 	public void id_right_pw_right() {

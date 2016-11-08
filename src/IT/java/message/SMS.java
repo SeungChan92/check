@@ -1,7 +1,6 @@
-package suite.message;
+package message;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -39,27 +38,27 @@ public class SMS extends Suite {
 	private void typeTitle(String title) {
 		By input_sendMainDtoSubject = By.id("sendMainDtoSubject");
 		
-		this.webDriver.findElement(input_sendMainDtoSubject).clear();
-		this.webDriver.findElement(input_sendMainDtoSubject).sendKeys(title);
+		Suite.webDriver.findElement(input_sendMainDtoSubject).clear();
+		Suite.webDriver.findElement(input_sendMainDtoSubject).sendKeys(title);
 	}
 	private void typeMessage(String message) {
 		By textarea_message = By.id("sendMessageDtoMessage");
 		
-		this.webDriver.findElement(textarea_message).clear();
-		this.webDriver.findElement(textarea_message).sendKeys(message);
+		Suite.webDriver.findElement(textarea_message).clear();
+		Suite.webDriver.findElement(textarea_message).sendKeys(message);
 	}
 	private void addReceiver_fromType(String receiver) {
 		By textarea_receiver = By.id("textReceiverInput");
 		By button_addReceiver = By.id("btnReceiverAdd");
 		
-		this.webDriver.findElement(textarea_receiver).click();
-		this.webDriver.findElement(textarea_receiver).sendKeys(receiver);
-		this.webDriver.findElement(button_addReceiver).click();
+		Suite.webDriver.findElement(textarea_receiver).click();
+		Suite.webDriver.findElement(textarea_receiver).sendKeys(receiver);
+		Suite.webDriver.findElement(button_addReceiver).click();
 	}
 	private void clickSendButton() {
 		By a_btnSend = By.id("btnSend");
 		
-		this.webDriver.findElement(a_btnSend).click();
+		Suite.webDriver.findElement(a_btnSend).click();
 	}
 	
 }
