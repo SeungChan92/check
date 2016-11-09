@@ -2,45 +2,77 @@ package member.login;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.Arrays;
+import java.util.Collection;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
 
 import infra.Common;
 import infra.Config;
 import infra.Tool;
 import suite.Suite;
 
+@RunWith(Parameterized.class)
 public class Login extends Suite{
 	
+	/*
+	 * cases
+	 * 1 : login fail and alert
+	 * 2 : login fail and goToPage_fail
+	 * 3 : login success
+	 */
+	private int case_number;
+	
+	private String id;
+	private String pw;
+	private String alertMessage;
+	
 	///*
+	@Parameters(name = "id:{1}, pw:{2}")
+	public static Collection<Object[]> data() {
+		Config.init();
+        
+		return Arrays.asList(new Object[][] {
+                 { 1, "", "", "id를 입력해 주세요." }, 
+                 { 1, Config.get("id"), "", "비밀번호를 입력해 주세요." }, 
+                 { 2, Config.get("id"), "a", "" },
+                 { 3, Config.get("id"), Config.get("pw"), "" }
+           });
+    }
+	public Login(int case_number, String id, String pw, String alertMessage) {
+		this.case_number = case_number;
+		this.id = id;
+		this.pw = pw;
+		this.alertMessage = alertMessage;
+    }
+	
 	@Before
 	public void goToPage_home() {
 		Common.goToPage_home();
 	}
 	
 	@Test
-	public void id_blank_pw_blank() {
-		Common.login("", "");
+	public void login() {
+		Common.login(this.id, this.pw);
 		Tool.waitFor_alert();
-		assertEquals("id를 입력해 주세요.", Tool.closeAlert_andGetItsText());
+		switch(this.case_number)
+		{
+		case 1:
+			assertEquals(this.alertMessage, Tool.closeAlert_andGetItsText());
+			break;
+		case 2:
+			assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.webDriver.getCurrentUrl());
+			break;
+		case 3:
+			Common.logout();
+			break;
+		}
 	}
-	@Test
-	public void id_right_pw_blank() {
-		Common.login(Config.get("id"), "");
-		Tool.waitFor_alert();
-		assertEquals("비밀번호를 입력해 주세요.", Tool.closeAlert_andGetItsText());
-	}
-	@Test
-	public void id_right_pw_wrong() {
-		Common.login(Config.get("id"), "a");
-		Tool.waitFor_alert();
-		assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.webDriver.getCurrentUrl());
-	}
-	@Test
-	public void id_right_pw_right() {
-		Common.login();
-		Common.logout();
-	}
+	/*
 	@Test // id 3회 오입력
 	public void id_wrong_3times() {
 		for (int i=0; i<3; i++)

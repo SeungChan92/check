@@ -19,10 +19,10 @@ sourceSets {
 	integTest {
 	   java {
 		   srcDirs = ['src/IT/java']
-		   exclude 'member/login/**'
+		   exclude 'member/login/Wrong_3Times.java'
 		   exclude 'member/join/Agreement.java'
+		   exclude 'member/join/Certification.java'
 		   exclude 'message/**'
-		   
        }
 	   resources {
 		   srcDirs = ['src/IT/resources']
@@ -65,9 +65,5 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
 	integTestCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 
-    // Declare the dependency for your favourite test framework you want to use in your tests.
-    // TestNG is also supported by the Gradle Test task. Just change the
-    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
-    // 'test.useTestNG()' to your build script.
-    //testCompile 'junit:junit:4.12'
+	integTestCompile 'junit:junit:4.12'
 }
