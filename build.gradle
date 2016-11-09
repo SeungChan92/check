@@ -20,6 +20,7 @@ sourceSets {
 	   java {
 		   srcDirs = ['src/IT/java']
 		   exclude 'member/login/**'
+		   exclude 'member/join/Agreement.java'
 		   exclude 'message/**'
 		   
        }
