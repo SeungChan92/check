@@ -6,13 +6,17 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 import infra.Common;
 import infra.Config;
 import infra.Tool;
+import page.LoginSection;
 import suite.Suite;
 
 public class Wrong_3Times extends Suite {
+	
+	private LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
 	
 	///*
 	@BeforeClass
@@ -22,19 +26,19 @@ public class Wrong_3Times extends Suite {
 	
 	@Test
 	public void id_blank_pw_blank() {
-		Common.login("", "");
+		loginSection.login("", "");
 		Tool.waitFor_alert();
 		assertEquals("id를 입력해 주세요.", Tool.closeAlert_andGetItsText());
 	}
 	@Test
 	public void id_right_pw_blank() {
-		Common.login(Config.get("id"), "");
+		loginSection.login(Config.get("id"), "");
 		Tool.waitFor_alert();
 		assertEquals("비밀번호를 입력해 주세요.", Tool.closeAlert_andGetItsText());
 	}
 	@Test
 	public void id_right_pw_right() {
-		Common.login();
+		loginSection.login(Config.get("id"), Config.get("pw"));
 		Tool.waitFor_alert();
 		assertEquals("자동입력 방지문자를 입력해 주세요", Tool.closeAlert_andGetItsText());
 	}

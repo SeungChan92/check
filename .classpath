@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java">
-		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="src" path="src/test/java">
-		<attributes>
-			<attribute name="FROM_GRADLE_MODEL" value="true"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry excluding="member/login/Wrong_3Times.java|member/join/Agreement.java|member/join/Certification.java|message/**" kind="src" path="src/IT/java">
 		<attributes>
 			<attribute name="FROM_GRADLE_MODEL" value="true"/>

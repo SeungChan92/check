@@ -33,7 +33,7 @@ public class Login extends Suite{
 	private String pw;
 	private String alertMessage;
 	
-    LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
+    private LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
 	
 	///*
 	@Parameters(name = "id:{1}, pw:{2}")
@@ -61,7 +61,7 @@ public class Login extends Suite{
 	
 	@Test
 	public void login() {
-		Common.login(this.id, this.pw);
+		loginSection.login(this.id, this.pw);
 		Tool.waitFor_alert();
 		switch(this.case_number)
 		{
