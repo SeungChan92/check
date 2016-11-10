@@ -8,7 +8,6 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import infra.Common;
 import infra.Config;
 import infra.Tool;
 import page.LoginSection;
@@ -16,12 +15,13 @@ import suite.Suite;
 
 public class Wrong_3Times extends Suite {
 	
-	private LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
+	private static LoginSection loginSection = null;
 	
 	///*
 	@BeforeClass
 	public static void goToPage_wrong3times() {
 		Tool.goToPage("/login?fail=who");
+		loginSection = PageFactory.initElements(driver, LoginSection.class);
 	}
 	
 	@Test
@@ -38,7 +38,7 @@ public class Wrong_3Times extends Suite {
 	}
 	@Test
 	public void id_right_pw_right() {
-		loginSection.login(Config.get("id"), Config.get("pw"));
+		loginSection.login();
 		Tool.waitFor_alert();
 		assertEquals("자동입력 방지문자를 입력해 주세요", Tool.closeAlert_andGetItsText());
 	}

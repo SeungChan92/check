@@ -4,18 +4,23 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
-import infra.Common;
 import infra.Config;
 import infra.Tool;
+import page.LoginSection;
 import suite.Suite;
 
 public class SMS extends Suite {
 	
 	@BeforeClass
 	public static void goToPage_sms () {
+		
+		LoginSection loginSection = null;
+		
 		Tool.goToPage("/sms/sendView");
-		Common.login();
+		loginSection = PageFactory.initElements(driver, LoginSection.class);
+		loginSection.login();
 	}
 	
 	@Test

@@ -3,6 +3,8 @@ package page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import infra.Config;
+
 public class LoginSection {
 	
 	@FindBy(name = "userId")
@@ -13,6 +15,9 @@ public class LoginSection {
 	@FindBy(id = "funfunBtnLogin")
 	private WebElement button_funfunBtnLogin;
 	
+	public void login() {
+		this.login(Config.get("id"), Config.get("pw"));
+	}
 	public void login(String userId, String userPwd) {
 		this.type_userId(userId);
 		this.type_userPwd(userPwd);
