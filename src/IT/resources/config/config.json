@@ -1,5 +1,6 @@
 {
-	"baseUrl" : "https://www-dev.adppurio.com:14051",
+	"baseUrl" : "http://www-sta.prosms.co.kr:10051",
+	"baseUrl_adppurio" : "https://www-dev.adppurio.com:14051",
 	"baseUrl_prosms" : "http://www-dev.prosms.co.kr:10051",
 	"id" : "issea1015",
 	"pw" : "test1234##",
@@ -11,5 +12,10 @@
 	
 	"name" : "안승찬",
 	"birth" : "19921015",
-	"phone" : "01029591783"
+	"phone" : "01029591783",
+	
+	"urls" : {
+		"Join_AgreementPage" : "/join/",
+		"Join_CertificationPage" : "/join/auth"
+	}
 }
