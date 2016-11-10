@@ -52,9 +52,9 @@ public class Wrong_3Times extends Suite {
 		String img_captimg_src_first = null;
 		String img_captimg_src_second = null;
 		
-		img_captimg_src_first = webDriver.findElement(img_captimg).getAttribute("src");
-		webDriver.findElement(button_funfunBtnResetCaptcha).click();
-		img_captimg_src_second = webDriver.findElement(img_captimg).getAttribute("src");
+		img_captimg_src_first = driver.findElement(img_captimg).getAttribute("src");
+		driver.findElement(button_funfunBtnResetCaptcha).click();
+		img_captimg_src_second = driver.findElement(img_captimg).getAttribute("src");
 		
 		Assert.assertFalse(null, (img_captimg_src_first.equals(img_captimg_src_second)));
 	}
@@ -67,19 +67,19 @@ public class Wrong_3Times extends Suite {
 		By button_login = By.id("funfunBtnLogin");
 
 		// [입력] userId
-		webDriver.findElement(input_text_userId).clear();
-		webDriver.findElement(input_text_userId).sendKeys(id);
+		driver.findElement(input_text_userId).clear();
+		driver.findElement(input_text_userId).sendKeys(id);
 
 		// [입력] password
-		webDriver.findElement(input_password_userPwd).clear();
-		webDriver.findElement(input_password_userPwd).sendKeys(pw);
+		driver.findElement(input_password_userPwd).clear();
+		driver.findElement(input_password_userPwd).sendKeys(pw);
 		
 		// [입력] 자동입력 방지문자
-		webDriver.findElement(input_text_userCaptcha).clear();
-		webDriver.findElement(input_text_userCaptcha).sendKeys(captcha);
+		driver.findElement(input_text_userCaptcha).clear();
+		driver.findElement(input_text_userCaptcha).sendKeys(captcha);
 
 		// [클릭] login button
-		webDriver.findElement(button_login).click();
+		driver.findElement(button_login).click();
 	}
 	//*/
 }

@@ -15,33 +15,33 @@ import infra.Config;
 import infra.Tool;
 
 public class Suite {
-	protected static WebDriver webDriver = null;
+	protected static WebDriver driver = null;
 	
 	// depth 0
 	@BeforeClass
 	public static void setUp() {
-		setup_webDriver();
+		setup_driver();
 		setup_infra();
 	}
 	@AfterClass
 	public static void finish() {
-		webDriver.close();
+		driver.close();
 	}
 	
 	// depth 1
-	private static void setup_webDriver() {
+	private static void setup_driver() {
 			
 		// # make
 //		// ## [for] local test
 //				System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");
 //				System.setProperty("webdriver.ie.driver", "driver/IEDriverServer.exe");
-//				webDriver = new InternetExplorerDriver();
+//				driver = new InternetExplorerDriver();
 		// ## [for] remote
 		try {
-			webDriver = new RemoteWebDriver(
+			driver = new RemoteWebDriver(
 					new URL("http://127.0.0.1:9515"),
 			        DesiredCapabilities.chrome());
-//			webDriver = new RemoteWebDriver(
+//			driver = new RemoteWebDriver(
 //					new URL("http://127.0.0.1:5555"),
 //			        DesiredCapabilities.internetExplorer());
 		} catch (MalformedURLException e) {
@@ -49,13 +49,13 @@ public class Suite {
 		}
 		
 		// # configure
-		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		webDriver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		webDriver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 	}
 	private static void setup_infra() {
-		Tool.init(webDriver);
+		Tool.init(driver);
 		Config.init();
-		Common.init(webDriver);
+		Common.init(driver);
 	}
 }

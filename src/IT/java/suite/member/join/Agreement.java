@@ -26,31 +26,31 @@ public class Agreement extends Suite {
 	}
 	@Test
 	public void agree_1() {
-		Suite.webDriver.findElement(this.input_checkbox_agreementCheck).click();
+		Suite.driver.findElement(this.input_checkbox_agreementCheck).click();
 		this.click_button_agreementBtn();
 		Tool.assertEquals_alert("개인정보 수집 및 이용 항목에 동의하셔야 합니다.");
 	}
 	@Test
 	public void agree_2() {
-		Suite.webDriver.findElement(this.input_checkbox_agreementCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_privacyCheck).click();
+		Suite.driver.findElement(this.input_checkbox_agreementCheck).click();
+		Suite.driver.findElement(this.input_checkbox_privacyCheck).click();
 		this.click_button_agreementBtn();
 		Tool.assertEquals_alert("개인정보 취급위탁 항목에 동의하셔야 합니다.");
 	}
 	@Test
 	public void agree_3() {
-		Suite.webDriver.findElement(this.input_checkbox_agreementCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_privacyCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_trustCheck).click();
+		Suite.driver.findElement(this.input_checkbox_agreementCheck).click();
+		Suite.driver.findElement(this.input_checkbox_privacyCheck).click();
+		Suite.driver.findElement(this.input_checkbox_trustCheck).click();
 		this.click_button_agreementBtn();
 		Tool.assertEquals_currentUrl("/join/auth");
 	}
 	@Test
 	public void agree_4() {
-		Suite.webDriver.findElement(this.input_checkbox_agreementCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_privacyCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_trustCheck).click();
-		Suite.webDriver.findElement(this.input_checkbox_marketingCheck).click();
+		Suite.driver.findElement(this.input_checkbox_agreementCheck).click();
+		Suite.driver.findElement(this.input_checkbox_privacyCheck).click();
+		Suite.driver.findElement(this.input_checkbox_trustCheck).click();
+		Suite.driver.findElement(this.input_checkbox_marketingCheck).click();
 		this.click_button_agreementBtn();
 		Tool.assertEquals_currentUrl("/join/auth");
 	}
@@ -58,6 +58,6 @@ public class Agreement extends Suite {
 	private void click_button_agreementBtn() {
 		By button_agreementBtn = By.id("agreementBtn");
 		
-		Suite.webDriver.findElement(button_agreementBtn).click();
+		Suite.driver.findElement(button_agreementBtn).click();
 	}
 }

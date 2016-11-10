@@ -38,27 +38,27 @@ public class SMS extends Suite {
 	private void typeTitle(String title) {
 		By input_sendMainDtoSubject = By.id("sendMainDtoSubject");
 		
-		Suite.webDriver.findElement(input_sendMainDtoSubject).clear();
-		Suite.webDriver.findElement(input_sendMainDtoSubject).sendKeys(title);
+		Suite.driver.findElement(input_sendMainDtoSubject).clear();
+		Suite.driver.findElement(input_sendMainDtoSubject).sendKeys(title);
 	}
 	private void typeMessage(String message) {
 		By textarea_message = By.id("sendMessageDtoMessage");
 		
-		Suite.webDriver.findElement(textarea_message).clear();
-		Suite.webDriver.findElement(textarea_message).sendKeys(message);
+		Suite.driver.findElement(textarea_message).clear();
+		Suite.driver.findElement(textarea_message).sendKeys(message);
 	}
 	private void addReceiver_fromType(String receiver) {
 		By textarea_receiver = By.id("textReceiverInput");
 		By button_addReceiver = By.id("btnReceiverAdd");
 		
-		Suite.webDriver.findElement(textarea_receiver).click();
-		Suite.webDriver.findElement(textarea_receiver).sendKeys(receiver);
-		Suite.webDriver.findElement(button_addReceiver).click();
+		Suite.driver.findElement(textarea_receiver).click();
+		Suite.driver.findElement(textarea_receiver).sendKeys(receiver);
+		Suite.driver.findElement(button_addReceiver).click();
 	}
 	private void clickSendButton() {
 		By a_btnSend = By.id("btnSend");
 		
-		Suite.webDriver.findElement(a_btnSend).click();
+		Suite.driver.findElement(a_btnSend).click();
 	}
 	
 }

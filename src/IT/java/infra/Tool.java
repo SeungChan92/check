@@ -14,16 +14,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Tool implements Infra {
 
-	private static WebDriver webDriver;
+	private static WebDriver driver;
 	public static WebDriverWait wait;
 	private static String mainWindowHandle;
 	private static boolean acceptNextAlert = true;
 
-	public static void init(WebDriver webDriver) {
-		Tool.webDriver = webDriver;
+	public static void init(WebDriver driver) {
+		Tool.driver = driver;
 
 		// init WebDriverWait
-		Tool.wait = new WebDriverWait(Tool.webDriver, 10);
+		Tool.wait = new WebDriverWait(Tool.driver, 10);
 	}
 
 	public static void waitFor_alert()
@@ -33,7 +33,7 @@ public class Tool implements Infra {
 		{
 			try
 			{
-				webDriver.switchTo().alert();
+				driver.switchTo().alert();
 				//Alert alert = driver.switchTo().alert();
 				break;
 			}
@@ -54,7 +54,7 @@ public class Tool implements Infra {
 	}
 	public static String closeAlert_andGetItsText() {
 		try {
-			Alert alert = webDriver.switchTo().alert();
+			Alert alert = driver.switchTo().alert();
 			String alertText = alert.getText();
 			if (acceptNextAlert) {
 				alert.accept();
@@ -68,7 +68,7 @@ public class Tool implements Infra {
 	}
 
 	public static void goTo_PopUp() {
-		mainWindowHandle = webDriver.getWindowHandle();
+		mainWindowHandle = driver.getWindowHandle();
 
 		wait.until(new ExpectedCondition<Boolean>() {
 			@Override
@@ -77,34 +77,34 @@ public class Tool implements Infra {
 			}
 		});
 
-		for (String activeHandle : webDriver.getWindowHandles()) {
+		for (String activeHandle : driver.getWindowHandles()) {
 			if (!activeHandle.equals(mainWindowHandle)) {
-				webDriver.switchTo().window(activeHandle);
+				driver.switchTo().window(activeHandle);
 				System.out.println("focus : pop-up");
 			}
 		}
 	}
 	public static void goTo_main() {
-		webDriver.switchTo().window(mainWindowHandle);
+		driver.switchTo().window(mainWindowHandle);
 		System.out.println("focus : main");
 	}
 
 	public static void goToPage(String url) {
-		webDriver.get(Config.get("baseUrl")+url);
+		driver.get(Config.get("baseUrl")+url);
 	}
 	
 	public static void click(By linkText) {
 		wait.until(ExpectedConditions.elementToBeClickable(linkText));
-		webDriver.findElement(linkText).click();
+		driver.findElement(linkText).click();
 	}
 	public static void selectByValue(By select, String value) {
-		WebElement element_select = webDriver.findElement(select);
+		WebElement element_select = driver.findElement(select);
 	    Select dropDown = new Select(element_select);
 	    dropDown.selectByValue(value);
 	}
 	
 	public static void assertEquals_currentUrl(String url) {
-		assertEquals(Config.get("baseUrl")+url, Tool.webDriver.getCurrentUrl());
+		assertEquals(Config.get("baseUrl")+url, Tool.driver.getCurrentUrl());
 	}
 	public static void assertEquals_alert(String alertMessage) {
 		Tool.waitFor_alert();

@@ -27,18 +27,18 @@ public class Certification extends Suite {
 		By input_text_No = By.name("No");
 		By button_cancel = By.className("btn_cancel");
 		
-		webDriver.findElement(button_certify).click();
+		driver.findElement(button_certify).click();
 		Tool.goTo_PopUp();
-		webDriver.findElement(button_kmc).click();
-		webDriver.findElement(input_radio_mvno_corp_ktm).click();
-		webDriver.findElement(button_ok).click();
+		driver.findElement(button_kmc).click();
+		driver.findElement(input_radio_mvno_corp_ktm).click();
+		driver.findElement(button_ok).click();
 		
 		// 정보입력
-		webDriver.findElement(input_text_userName).sendKeys(Config.get("name"));
-		webDriver.findElement(input_text_Birth).sendKeys(Config.get("birth"));
-		webDriver.findElement(input_text_No).sendKeys(Config.get("phone"));
+		driver.findElement(input_text_userName).sendKeys(Config.get("name"));
+		driver.findElement(input_text_Birth).sendKeys(Config.get("birth"));
+		driver.findElement(input_text_No).sendKeys(Config.get("phone"));
 		
-		webDriver.findElement(button_cancel).click();
+		driver.findElement(button_cancel).click();
 		Tool.goTo_main();
 	}
 	
@@ -48,16 +48,16 @@ public class Certification extends Suite {
 		By input_checkbox_trustCheck = By.id("trustCheck");
 		By input_checkbox_marketingCheck = By.id("marketingCheck");
 		
-		Suite.webDriver.findElement(input_checkbox_agreementCheck).click();
-		Suite.webDriver.findElement(input_checkbox_privacyCheck).click();
-		Suite.webDriver.findElement(input_checkbox_trustCheck).click();
-		Suite.webDriver.findElement(input_checkbox_marketingCheck).click();
+		Suite.driver.findElement(input_checkbox_agreementCheck).click();
+		Suite.driver.findElement(input_checkbox_privacyCheck).click();
+		Suite.driver.findElement(input_checkbox_trustCheck).click();
+		Suite.driver.findElement(input_checkbox_marketingCheck).click();
 		click_button_agreementBtn();
 		Tool.assertEquals_currentUrl("/join/auth");
 	}
 	private static void click_button_agreementBtn() {
 		By button_agreementBtn = By.id("agreementBtn");
 		
-		Suite.webDriver.findElement(button_agreementBtn).click();
+		Suite.driver.findElement(button_agreementBtn).click();
 	}	
 }

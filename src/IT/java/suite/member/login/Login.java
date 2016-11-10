@@ -10,10 +10,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import org.openqa.selenium.support.PageFactory;
 
 import infra.Common;
 import infra.Config;
 import infra.Tool;
+import page.LoginSection;
 import suite.Suite;
 
 @RunWith(Parameterized.class)
@@ -30,6 +32,8 @@ public class Login extends Suite{
 	private String id;
 	private String pw;
 	private String alertMessage;
+	
+    LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
 	
 	///*
 	@Parameters(name = "id:{1}, pw:{2}")
@@ -65,7 +69,7 @@ public class Login extends Suite{
 			assertEquals(this.alertMessage, Tool.closeAlert_andGetItsText());
 			break;
 		case 2:
-			assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.webDriver.getCurrentUrl());
+			assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
 			break;
 		case 3:
 			Common.logout();

@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 
 public class Common implements Infra {
 
-	private static WebDriver webDriver = null;
+	private static WebDriver driver = null;
 	
-	public static void init(WebDriver webDriver) {
-		Common.webDriver = webDriver;
+	public static void init(WebDriver driver) {
+		Common.driver = driver;
 	}
 	
 	public static void goToPage_home() {
@@ -25,19 +25,19 @@ public class Common implements Infra {
 		By button_login = By.id("funfunBtnLogin");
 
 		// [입력] userId
-		webDriver.findElement(input_text_userId).clear();
-		webDriver.findElement(input_text_userId).sendKeys(id);
+		driver.findElement(input_text_userId).clear();
+		driver.findElement(input_text_userId).sendKeys(id);
 
 		// [입력] password
-		webDriver.findElement(input_password_userPwd).clear();
-		webDriver.findElement(input_password_userPwd).sendKeys(pw);
+		driver.findElement(input_password_userPwd).clear();
+		driver.findElement(input_password_userPwd).sendKeys(pw);
 
 		// [클릭] login button
-		webDriver.findElement(button_login).click();
+		driver.findElement(button_login).click();
 	}
 	public static void logout() {
 		By button_logout = By.className("btn_logout");
 		
-		webDriver.findElement(button_logout).click();
+		driver.findElement(button_logout).click();
 	}
 }
