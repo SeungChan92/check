@@ -1,4 +1,4 @@
-package message;
+package suite.message;
 
 import org.junit.Assert;
 import org.junit.BeforeClass;

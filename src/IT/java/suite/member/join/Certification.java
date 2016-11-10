@@ -1,4 +1,4 @@
-package member.join;
+package suite.member.join;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
