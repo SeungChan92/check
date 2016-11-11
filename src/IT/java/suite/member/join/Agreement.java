@@ -2,23 +2,22 @@ package suite.member.join;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Tool;
 import page.Join_AgreementPage;
-import page.LoginSection;
 import suite.Suite;
 
 public class Agreement extends Suite {
 	
-	private Join_AgreementPage join_agreementPage = PageFactory.initElements(driver, Join_AgreementPage.class);
+	private Join_AgreementPage join_agreementPage = null;
 	
 	@Before
 	public void goToPage_agreement() {
 		Tool.goToPage("/join/");
+		join_agreementPage = PageFactory.initElements(driver, Join_AgreementPage.class);
 	}
-	
+
 	@Test
 	public void agree_0() {
 		this.join_agreementPage.click_agreementBtn();

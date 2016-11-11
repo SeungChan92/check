@@ -1,6 +1,6 @@
 {
-	"baseUrl" : "http://www-sta.prosms.co.kr:10051",
-	"baseUrl_adppurio" : "https://www-dev.adppurio.com:14051",
+	"baseUrl_sta?" : "http://www-sta.prosms.co.kr:10051",
+	"baseUrl" : "https://www-dev.adppurio.com:14051",
 	"baseUrl_prosms" : "http://www-dev.prosms.co.kr:10051",
 	"id" : "issea1015",
 	"pw" : "test1234##",
