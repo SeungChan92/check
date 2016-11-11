@@ -4,8 +4,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import infra.Config;
-
 public class Join_AgreementPage extends Page {
 	
 	public Join_AgreementPage(WebDriver driver) {
