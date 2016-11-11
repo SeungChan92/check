@@ -24,10 +24,10 @@ sourceSets {
 	integTest {
 	   java {
 		   srcDirs = ['src/IT/java']
-		   exclude 'member/login/Wrong_3Times.java'
-		   exclude 'member/join/Agreement.java'
-		   exclude 'member/join/Certification.java'
-		   exclude 'message/**'
+		   exclude 'suite/member/login/**'
+		   //exclude 'suite/member/join/Agreement.java'
+		   exclude 'suite/member/join/Certification.java'
+		   exclude 'suite/message/**'
        }
 	   resources {
 		   srcDirs = ['src/IT/resources']

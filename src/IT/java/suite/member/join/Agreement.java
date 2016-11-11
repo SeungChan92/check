@@ -15,7 +15,7 @@ public class Agreement extends Suite {
 	@Before
 	public void goToPage_agreement() {
 		Tool.goToPage("/join/");
-		join_agreementPage = PageFactory.initElements(driver, Join_AgreementPage.class);
+		this.join_agreementPage = PageFactory.initElements(driver, Join_AgreementPage.class);
 	}
 
 	@Test

@@ -23,10 +23,10 @@ public class Config implements Infra {
 	}
 	public static String get_url(String pageClass_name) {
 
-		String url = null;
+		String url = "";
 		JSONObject jsonObject_urls = (JSONObject) Config.jsonObject_root.get("urls");
 
-		url = (String) jsonObject_urls.get("pageClass_name");
+		url = (String) jsonObject_urls.get(pageClass_name);
 
 		return url;
 	}

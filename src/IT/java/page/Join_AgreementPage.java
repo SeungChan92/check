@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import infra.Config;
+
 public class Join_AgreementPage extends Page {
 	
 	public Join_AgreementPage(WebDriver driver) {
@@ -43,14 +45,20 @@ public class Join_AgreementPage extends Page {
 		return this;
 	}
 
-	public Join_CertificationPage click_agreementBtn() {
+//	public Join_CertificationPage click_agreementBtn() {
+//		button_agreementBtn.click();
+//		
+//		return new Join_CertificationPage(this.driver);
+//	}
+//	public Join_AgreementPage click_agreementBtn_expecting_failure() {
+//		button_agreementBtn.click();
+//		
+//		return new Join_AgreementPage(this.driver);
+//	}
+	public void click_agreementBtn() {
 		button_agreementBtn.click();
-		
-		return new Join_CertificationPage(this.driver);
 	}
-	public Join_AgreementPage click_agreementBtn_expecting_failure() {
+	public void click_agreementBtn_expecting_failure() {
 		button_agreementBtn.click();
-		
-		return new Join_AgreementPage(this.driver);
 	}
 }
