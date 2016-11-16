@@ -12,7 +12,7 @@ public class Page {
 		this.driver = driver;
 
 		// Check that we're on the right page.
-		if (!((Config.get("baseUrl") + Config.get_url(this.getClass().getSimpleName())).equals(this.driver.getCurrentUrl()))) {
+		if (!((Config.get_fromAsp("baseUrl") + Config.get_url(this.getClass().getSimpleName())).equals(this.driver.getCurrentUrl()))) {
 			throw new IllegalStateException("This is not the " + this.getClass().getName());
 		}
 	}

@@ -34,9 +34,9 @@ public class SMS extends Suite {
 	@Test
 	public void send_instantly() {
 		
-		this.typeTitle(Config.get("title"));
-		this.typeMessage(Config.get("message"));
-		this.addReceiver_fromType(Config.get("receiver"));
+		this.typeTitle(Config.get_fromService("title"));
+		this.typeMessage(Config.get_fromService("message"));
+		this.addReceiver_fromType(Config.get_fromService("receiver"));
 		this.clickSendButton();
 	}
 	

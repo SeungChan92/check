@@ -32,7 +32,7 @@ public class Wrong_3Times extends Suite {
 	}
 	@Test
 	public void id_right_pw_blank() {
-		loginSection.login(Config.get("id"), "");
+		loginSection.login(Config.get_fromService("id"), "");
 		Tool.waitFor_alert();
 		assertEquals("비밀번호를 입력해 주세요.", Tool.closeAlert_andGetItsText());
 	}
@@ -44,7 +44,7 @@ public class Wrong_3Times extends Suite {
 	}
 	@Test
 	public void id_right_pw_right_captcha_short() {
-		this.login(Config.get("id"), Config.get("pw"), "a");
+		this.login(Config.get_fromService("id"), Config.get_fromService("pw"), "a");
 		Tool.waitFor_alert();
 		assertEquals("자동입력 방지문자는 최소 6글자 입니다.", Tool.closeAlert_andGetItsText());
 	}

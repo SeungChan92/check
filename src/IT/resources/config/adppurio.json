@@ -1,0 +1,14 @@
+{
+	"baseUrl" : "http://www-sta.adppurio.com:10051",
+
+	"id" : "issea1015",
+	"pw" : "test1234##",
+
+	"title" : "title in Dto",
+	"message" : "message in Dto",
+	"receiver" : "01029591783",
+	
+	"name" : "안승찬",
+	"birth" : "19921015",
+	"phone" : "01029591783"
+}

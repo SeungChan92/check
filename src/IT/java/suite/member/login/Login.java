@@ -42,9 +42,9 @@ public class Login extends Suite{
         
 		return Arrays.asList(new Object[][] {
                  { 1, "", "", "id를 입력해 주세요." }, 
-                 { 1, Config.get("id"), "", "비밀번호를 입력해 주세요." }, 
-                 { 2, Config.get("id"), "a", "" },
-                 { 3, Config.get("id"), Config.get("pw"), "" }
+                 { 1, Config.get_fromService("id"), "", "비밀번호를 입력해 주세요." }, 
+                 { 2, Config.get_fromService("id"), "a", "" },
+                 { 3, Config.get_fromService("id"), Config.get_fromService("pw"), "" }
            });
     }
 	public Login(int case_number, String id, String pw, String alertMessage) {
@@ -69,7 +69,7 @@ public class Login extends Suite{
 			assertEquals(this.alertMessage, Tool.closeAlert_andGetItsText());
 			break;
 		case 2:
-			assertEquals(Config.get("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
+			assertEquals(Config.get_fromService("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
 			break;
 		case 3:
 			Common.logout();

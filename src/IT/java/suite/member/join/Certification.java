@@ -34,9 +34,9 @@ public class Certification extends Suite {
 		driver.findElement(button_ok).click();
 		
 		// 정보입력
-		driver.findElement(input_text_userName).sendKeys(Config.get("name"));
-		driver.findElement(input_text_Birth).sendKeys(Config.get("birth"));
-		driver.findElement(input_text_No).sendKeys(Config.get("phone"));
+		driver.findElement(input_text_userName).sendKeys(Config.get_fromService("name"));
+		driver.findElement(input_text_Birth).sendKeys(Config.get_fromService("birth"));
+		driver.findElement(input_text_No).sendKeys(Config.get_fromService("phone"));
 		
 		driver.findElement(button_cancel).click();
 		Tool.goTo_main();

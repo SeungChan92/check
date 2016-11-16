@@ -1,0 +1,14 @@
+{
+	"baseUrl" : "http://www-dev.prosms.co.kr:10051",
+	
+	"id" : "issea1016",
+	"pw" : "dhffls2357!",
+	
+	"title" : "title in Dto",
+	"message" : "message in Dto",
+	"receiver" : "01029591783",
+	
+	"name" : "안승찬",
+	"birth" : "19921015",
+	"phone" : "01029591783"
+}

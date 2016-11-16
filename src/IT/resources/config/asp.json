@@ -1,0 +1,8 @@
+{
+	"targetService" : "adppurio",
+
+	"urls" : {
+		"Join_AgreementPage" : "/join/",
+		"Join_CertificationPage" : "/join/auth"
+	}
+}
