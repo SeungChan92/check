@@ -11,11 +11,12 @@ import suite.Suite;
 public class Agreement extends Suite {
 	
 	private Join_AgreementPage join_agreementPage = null;
+	//private Join_AgreementPage join_agreementPage = PageFactory.initElements(Suite.driver, Join_AgreementPage.class);
 	
 	@Before
 	public void goToPage_agreement() {
 		Tool.goToPage("/join/");
-		this.join_agreementPage = PageFactory.initElements(driver, Join_AgreementPage.class);
+		this.join_agreementPage = PageFactory.initElements(Suite.driver, Join_AgreementPage.class);
 	}
 
 	@Test
