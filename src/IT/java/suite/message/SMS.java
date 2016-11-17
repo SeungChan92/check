@@ -1,6 +1,7 @@
 package suite.message;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,13 +15,18 @@ import suite.Suite;
 public class SMS extends Suite {
 	
 	@BeforeClass
-	public static void goToPage_sms () {
+	public static void login () {
 		
 		LoginSection loginSection = null;
 		
-		Tool.goToPage("/sms/sendView");
+		Tool.goToPage("/");
 		loginSection = PageFactory.initElements(driver, LoginSection.class);
 		loginSection.login();
+	}
+	
+	@Before
+	public void goToPage_sms() {
+		Tool.goToPage("/sms/sendView");
 	}
 	
 	@Test
@@ -38,6 +44,9 @@ public class SMS extends Suite {
 		this.typeMessage(Config.get_fromService("message"));
 		this.addReceiver_fromType(Config.get_fromService("receiver"));
 		this.clickSendButton();
+		
+		Tool.waitFor_alert();
+		Assert.assertEquals("발송하였습니다.", Tool.closeAlert_andGetItsText());
 	}
 	
 	private void typeTitle(String title) {

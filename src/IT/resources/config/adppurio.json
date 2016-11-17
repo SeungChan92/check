@@ -1,7 +1,7 @@
 {
 	"baseUrl" : "http://www-sta.adppurio.com:10051",
 
-	"id" : "issea1015",
+	"id" : "test1",
 	"pw" : "test1234##",
 
 	"title" : "title in Dto",

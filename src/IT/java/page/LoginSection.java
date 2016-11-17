@@ -16,7 +16,7 @@ public class LoginSection {
 	private WebElement button_funfunBtnLogin;
 	
 	public void login() {
-		this.login(Config.get_fromAsp("id"), Config.get_fromAsp("pw"));
+		this.login(Config.get_fromService("id"), Config.get_fromService("pw"));
 	}
 	public void login(String userId, String userPwd) {
 		this.type_userId(userId);

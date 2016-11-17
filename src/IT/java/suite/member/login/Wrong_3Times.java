@@ -40,7 +40,7 @@ public class Wrong_3Times extends Suite {
 	public void id_right_pw_right() {
 		loginSection.login();
 		Tool.waitFor_alert();
-		assertEquals("자동입력 방지문자를 입력해 주세요", Tool.closeAlert_andGetItsText());
+		assertEquals("자동입력 방지문자는 최소 6글자 입니다.", Tool.closeAlert_andGetItsText());
 	}
 	@Test
 	public void id_right_pw_right_captcha_short() {
