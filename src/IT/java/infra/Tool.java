@@ -110,4 +110,9 @@ public class Tool implements Infra {
 		Tool.waitFor_alert();
 		assertEquals(alertMessage, Tool.closeAlert_andGetItsText());
 	}
+
+	public static void type(WebElement webElement, String string) {
+		webElement.clear();
+		webElement.sendKeys(string);
+	}
 }

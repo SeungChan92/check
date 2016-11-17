@@ -14,6 +14,8 @@ import suite.Suite;
 
 public class SMS extends Suite {
 	
+	private page.sms.sendView.Page page_sms_sendView = null;
+	
 	@BeforeClass
 	public static void login () {
 		
@@ -27,52 +29,28 @@ public class SMS extends Suite {
 	@Before
 	public void goToPage_sms() {
 		Tool.goToPage("/sms/sendView");
+		this.page_sms_sendView = PageFactory.initElements(driver, page.sms.sendView.Page.class);
 	}
 	
 	@Test
 	public void typeTitle_moreThan_30 () {
 		String string_31 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 		
-		typeTitle(string_31);
+		this.page_sms_sendView.type_sendMainDtoSubject(string_31);
+		
 		Tool.waitFor_alert();
 		Assert.assertEquals("제목은 30자이내로 작성해 주세요.", Tool.closeAlert_andGetItsText());		
 	}
 	@Test
 	public void send_instantly() {
 		
-		this.typeTitle(Config.get_fromService("title"));
-		this.typeMessage(Config.get_fromService("message"));
-		this.addReceiver_fromType(Config.get_fromService("receiver"));
-		this.clickSendButton();
+		this.page_sms_sendView.type_sendMainDtoSubject(Config.get_fromService("title"));
+		this.page_sms_sendView.type_sendMessageDtoMessage(Config.get_fromService("message"));
+		this.page_sms_sendView.type_textReceiverInput(Config.get_fromService("receiver"));
+		this.page_sms_sendView.click_btnReceiverAdd();
+		this.page_sms_sendView.click_btnSend();
 		
 		Tool.waitFor_alert();
 		Assert.assertEquals("발송하였습니다.", Tool.closeAlert_andGetItsText());
 	}
-	
-	private void typeTitle(String title) {
-		By input_sendMainDtoSubject = By.id("sendMainDtoSubject");
-		
-		Suite.driver.findElement(input_sendMainDtoSubject).clear();
-		Suite.driver.findElement(input_sendMainDtoSubject).sendKeys(title);
-	}
-	private void typeMessage(String message) {
-		By textarea_message = By.id("sendMessageDtoMessage");
-		
-		Suite.driver.findElement(textarea_message).clear();
-		Suite.driver.findElement(textarea_message).sendKeys(message);
-	}
-	private void addReceiver_fromType(String receiver) {
-		By textarea_receiver = By.id("textReceiverInput");
-		By button_addReceiver = By.id("btnReceiverAdd");
-		
-		Suite.driver.findElement(textarea_receiver).click();
-		Suite.driver.findElement(textarea_receiver).sendKeys(receiver);
-		Suite.driver.findElement(button_addReceiver).click();
-	}
-	private void clickSendButton() {
-		By a_btnSend = By.id("btnSend");
-		
-		Suite.driver.findElement(a_btnSend).click();
-	}
-	
 }
