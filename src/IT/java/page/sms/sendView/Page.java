@@ -22,6 +22,9 @@ public class Page extends page.Page {
 	@FindBy(id = "btnReceiverAdd")
 	private WebElement button_btnReceiverAdd;
 	
+	@FindBy(name = "group")
+	public WebElement li_group;
+	
 	@FindBy(id = "btnReceiverLatest")
 	private WebElement button_btnReceiverLatest;
 	@FindBy(id = "btnReceiverOften")
@@ -53,6 +56,11 @@ public class Page extends page.Page {
 	
 	public Page click_btnReceiverAdd() {
 		this.button_btnReceiverAdd.click();
+		
+		return this;
+	}
+	public Page click_btnSendReceiverAddress() {
+		this.button_btnSendReceiverAddress.click();
 		
 		return this;
 	}

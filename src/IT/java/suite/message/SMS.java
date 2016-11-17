@@ -53,4 +53,24 @@ public class SMS extends Suite {
 		Tool.waitFor_alert();
 		Assert.assertEquals("발송하였습니다.", Tool.closeAlert_andGetItsText());
 	}
+	@Test
+	public void add_receiver_fromGroup() {
+		
+		page.send.receiver.popup.address.groups.Page page_popup = null;
+		
+		this.page_sms_sendView.click_btnSendReceiverAddress();
+		
+		Tool.goTo_PopUp();
+		
+		page_popup = PageFactory.initElements(driver, page.send.receiver.popup.address.groups.Page.class);
+		page_popup.click_checkbox();
+		page_popup.click_add();
+		Tool.closeAlert_andGetItsText();
+		page_popup.click_close();
+		
+		Tool.goTo_main();
+		
+		this.page_sms_sendView = PageFactory.initElements(driver, page.sms.sendView.Page.class);
+		this.page_sms_sendView.li_group.isDisplayed();
+	}
 }
