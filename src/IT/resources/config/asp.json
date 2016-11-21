@@ -4,5 +4,8 @@
 	"urls" : {
 		"Join_AgreementPage" : "/join/",
 		"Join_CertificationPage" : "/join/auth"
+	},
+	"paths" : {
+		"logo" : "C:/Users/daou/workspace/verification/src/IT/resources/logo/logo.gif"
 	}
 }

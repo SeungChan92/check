@@ -23,14 +23,23 @@ public class Config implements Infra {
 	}
 	public static String get_url(String pageClass_name) {
 
-		String url = "";
+		String url = null;
 		JSONObject jsonObject_urls = (JSONObject) Config.jsonObject_asp_root.get("urls");
 
 		url = (String) jsonObject_urls.get(pageClass_name);
 
 		return url;
 	}
-
+	public static String get_path(String file_name) {
+		
+		String path = null;
+		JSONObject jsonObject_paths = (JSONObject) Config.jsonObject_asp_root.get("paths");
+		
+		path = (String) jsonObject_paths.get(file_name);
+		
+		return path;
+	}
+	
 	// depth 1
 	public static void load() {
 		String targetService_name = null;
