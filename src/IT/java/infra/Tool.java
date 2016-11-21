@@ -115,4 +115,14 @@ public class Tool implements Infra {
 		webElement.clear();
 		webElement.sendKeys(string);
 	}
+
+	public static boolean check_if_exist(By by) {
+		boolean exist = true;
+
+		if (driver.findElements(by).isEmpty()) {
+			exist = false;
+		}
+		
+		return exist;
+	}
 }

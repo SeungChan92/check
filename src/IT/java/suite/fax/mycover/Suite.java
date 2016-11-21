@@ -34,5 +34,17 @@ public class Suite extends suite.Suite {
 		this.page_fax_mycover_saveView.delete_upperLogo_if_exist();
 		this.page_fax_mycover_saveView.select_upperLogo();
 		this.page_fax_mycover_saveView.clickButton_save();
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+	@Test
+	public void register_lowerLogo() {
+		this.page_fax_mycover_saveView.delete_lowerLogo_if_exist();
+		this.page_fax_mycover_saveView.select_lowerLogo();
+		this.page_fax_mycover_saveView.clickButton_save();
 	}
 }
