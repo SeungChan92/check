@@ -1,4 +1,4 @@
-package suite.member.join;
+package suite.member.join.certification;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -6,9 +6,8 @@ import org.openqa.selenium.By;
 
 import infra.Config;
 import infra.Tool;
-import suite.Suite;
 
-public class Certification extends Suite {
+public class Suite extends suite.Suite {
 	@BeforeClass
 	public static void goToPage_certification() {
 		Tool.goToPage("/join/");

@@ -1,18 +1,16 @@
-package suite.message;
+package suite.message.sms;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
 import infra.Tool;
 import page.LoginSection;
-import suite.Suite;
 
-public class SMS extends Suite {
+public class Suite extends suite.Suite {
 	
 	private page.sms.sendView.Page page_sms_sendView = null;
 	

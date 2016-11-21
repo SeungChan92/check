@@ -16,10 +16,9 @@ import infra.Common;
 import infra.Config;
 import infra.Tool;
 import page.LoginSection;
-import suite.Suite;
 
 @RunWith(Parameterized.class)
-public class Login extends Suite{
+public class Suite extends suite.Suite{
 	
 	/*
 	 * cases
@@ -47,7 +46,7 @@ public class Login extends Suite{
                  { 3, Config.get_fromService("id"), Config.get_fromService("pw"), "" }
            });
     }
-	public Login(int case_number, String id, String pw, String alertMessage) {
+	public Suite(int case_number, String id, String pw, String alertMessage) {
 		this.case_number = case_number;
 		this.id = id;
 		this.pw = pw;
@@ -70,7 +69,7 @@ public class Login extends Suite{
 			break;
 		case 2:
 			//assertEquals(Config.get_fromService("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
-			assertEquals("https://www-sta.adppurio.com:14051/login/?fail", Suite.driver.getCurrentUrl());
+			assertEquals("https://www-sta.adppurio.com:14051/login/?fail", driver.getCurrentUrl());
 			break;
 		case 3:
 			Common.logout();

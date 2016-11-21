@@ -1,4 +1,4 @@
-package suite.member.login;
+package suite.member.login.wrong_3times;
 
 import static org.junit.Assert.assertEquals;
 
@@ -11,9 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 import infra.Config;
 import infra.Tool;
 import page.LoginSection;
-import suite.Suite;
 
-public class Wrong_3Times extends Suite {
+public class Suite extends suite.Suite {
 	
 	private static LoginSection loginSection = null;
 	
