@@ -34,7 +34,6 @@ public class Suite extends suite.Suite{
 	
     private LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
 	
-	///*
 	@Parameters(name = "id:{1}, pw:{2}")
 	public static Collection<Object[]> data() {
 		Config.init();
@@ -85,5 +84,5 @@ public class Suite extends suite.Suite{
 		}
 		Tool.assertEquals_currentUrl("/login?fail=who");
 	}
-	//*/
+	*/
 }
