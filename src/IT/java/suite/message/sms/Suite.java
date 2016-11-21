@@ -10,19 +10,9 @@ import infra.Config;
 import infra.Tool;
 import page.LoginSection;
 
-public class Suite extends suite.Suite {
+public class Suite extends suite.LoginedSuite {
 	
 	private page.sms.sendView.Page page_sms_sendView = null;
-	
-	@BeforeClass
-	public static void login () {
-		
-		LoginSection loginSection = null;
-		
-		Tool.goToPage("/");
-		loginSection = PageFactory.initElements(driver, LoginSection.class);
-		loginSection.login();
-	}
 	
 	@Before
 	public void goToPage_sms() {
