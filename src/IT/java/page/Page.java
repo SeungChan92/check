@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import infra.Config;
 
-public class Page {
+public abstract class Page {
 
 	protected final WebDriver driver;
 

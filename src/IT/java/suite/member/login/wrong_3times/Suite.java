@@ -3,7 +3,7 @@ package suite.member.login.wrong_3times;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
@@ -17,8 +17,8 @@ public class Suite extends suite.Suite {
 	private static LoginSection loginSection = null;
 	
 	///*
-	@BeforeClass
-	public static void goToPage_wrong3times() {
+	@Before
+	public void goToFirstPage() {
 		Tool.goToPage("/login?fail=who");
 		loginSection = PageFactory.initElements(driver, LoginSection.class);
 	}
@@ -39,7 +39,7 @@ public class Suite extends suite.Suite {
 	public void id_right_pw_right() {
 		loginSection.login();
 		Tool.waitFor_alert();
-		assertEquals("자동입력 방지문자는 최소 6글자 입니다.", Tool.closeAlert_andGetItsText());
+		assertEquals("자동입력 방지문자를 입력해 주세요", Tool.closeAlert_andGetItsText());
 	}
 	@Test
 	public void id_right_pw_right_captcha_short() {

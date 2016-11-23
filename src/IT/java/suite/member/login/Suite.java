@@ -32,7 +32,7 @@ public class Suite extends suite.Suite{
 	private String pw;
 	private String alertMessage;
 	
-    private LoginSection loginSection = PageFactory.initElements(driver, LoginSection.class);
+    private LoginSection loginSection = null;
 	
 	@Parameters(name = "id:{1}, pw:{2}")
 	public static Collection<Object[]> data() {
@@ -53,8 +53,9 @@ public class Suite extends suite.Suite{
     }
 	
 	@Before
-	public void goToPage_home() {
+	public void goToFirstPage() {
 		Common.goToPage_home();
+		loginSection = PageFactory.initElements(driver, LoginSection.class);
 	}
 	
 	@Test

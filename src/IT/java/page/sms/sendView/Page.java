@@ -12,6 +12,10 @@ public class Page extends page.Page {
 		super(driver);
 	}
 	
+	public static void goToPage() {
+		Tool.goToPage("/sms/sendView");
+	}
+	
 	@FindBy(id = "sendMainDtoSubject")
 	private WebElement input_text_sendMainDtoSubject;
 	@FindBy(id = "sendMessageDtoMessage")

@@ -8,9 +8,9 @@ import org.openqa.selenium.support.FindBy;
 import infra.Config;
 import infra.Tool;
 
-public abstract class Page extends page.Page {
+public class Page extends page.Page {
 
-	public static void goTo_page() {
+	public static void goToPage() {
 		Tool.goToPage("/fax/mycover/saveView");
 	}
 	

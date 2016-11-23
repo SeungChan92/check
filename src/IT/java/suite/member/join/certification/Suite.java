@@ -1,21 +1,35 @@
 package suite.member.join.certification;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
 import infra.Tool;
 
 public class Suite extends suite.Suite {
-	@BeforeClass
-	public static void goToPage_certification() {
+	
+	private page.join.Page firstPage = null;
+	private page.join.auth.Page secondPage = null;
+	
+	@Before
+	public void goToFirstPage() {
 		Tool.goToPage("/join/");
-		agree_4();
+		this.firstPage = PageFactory.initElements(driver
+				, page.join.Page.class);
+		this.firstPage.check_agreementCheck();
+		this.firstPage.check_privacyCheck();
+		this.firstPage.check_trustCheck();
+		this.firstPage.check_marketingCheck();
+		this.firstPage.click_agreementBtn_pageMove();
+		this.secondPage = PageFactory.initElements(driver
+				, page.join.auth.Page.class);
 	}
 	
 	@Test
-	public void buttonClick_certify() {
+	public void certify() {
 		By button_certify = By.id("kmcRequest");
 		By button_kmc = By.xpath("//*[@id='container']/ul/li[4]/a");
 		By input_radio_mvno_corp_ktm = By.id("mvno_corp_ktm");
@@ -39,24 +53,5 @@ public class Suite extends suite.Suite {
 		
 		driver.findElement(button_cancel).click();
 		Tool.goTo_main();
-	}
-	
-	private static void agree_4() {
-		By input_checkbox_agreementCheck = By.id("agreementCheck");
-		By input_checkbox_privacyCheck = By.id("privacyCheck");
-		By input_checkbox_trustCheck = By.id("trustCheck");
-		By input_checkbox_marketingCheck = By.id("marketingCheck");
-		
-		Suite.driver.findElement(input_checkbox_agreementCheck).click();
-		Suite.driver.findElement(input_checkbox_privacyCheck).click();
-		Suite.driver.findElement(input_checkbox_trustCheck).click();
-		Suite.driver.findElement(input_checkbox_marketingCheck).click();
-		click_button_agreementBtn();
-		Tool.assertEquals_currentUrl("/join/auth");
-	}
-	private static void click_button_agreementBtn() {
-		By button_agreementBtn = By.id("agreementBtn");
-		
-		Suite.driver.findElement(button_agreementBtn).click();
 	}	
 }
