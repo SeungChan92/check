@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -50,8 +49,8 @@ public class Add_ByType extends suite.LoginedSuite  {
 		this.alertMessage = alertMessage;
     }
 	
-	@Before
-	public void goToPage() {
+	@Override
+	public void goToFirstPage() {
 		page.fax.sendView.Page.goTo_page();
 		this.page_fax_sendView = PageFactory.initElements(driver
 				, page.fax.sendView.Page.class);

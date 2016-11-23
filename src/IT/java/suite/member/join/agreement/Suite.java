@@ -1,6 +1,5 @@
 package suite.member.join.agreement;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -10,8 +9,8 @@ public class Suite extends suite.Suite {
 	
 	private page.join.Page firstPage = null;
 	
-	@Before
-	public void goToPage_agreement() {
+	@Override
+	public void goToFirstPage() {
 		Tool.goToPage("/join/");
 		this.firstPage = PageFactory.initElements(driver, page.join.Page.class);
 	}

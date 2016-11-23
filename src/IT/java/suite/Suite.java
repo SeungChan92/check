@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -25,6 +26,8 @@ public abstract class Suite {
 		setup_driver();
 		setup_infra();
 	}
+	@Before
+	public abstract void goToFirstPage();
 	@AfterClass
 	public static void finish() {
 		driver.close();

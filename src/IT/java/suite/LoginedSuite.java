@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import infra.Tool;
 import page.LoginSection;
 
-public class LoginedSuite extends Suite {
+public abstract class LoginedSuite extends Suite {
 	
 	@BeforeClass
 	public static void login () {
