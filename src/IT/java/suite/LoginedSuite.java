@@ -4,17 +4,17 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Tool;
-import page.LoginSection;
+import page.section.Login;
 
 public abstract class LoginedSuite extends Suite {
 	
 	@BeforeClass
 	public static void login () {
 		
-		LoginSection loginSection = null;
+		Login loginSection = null;
 		
 		Tool.goToPage("/");
-		loginSection = PageFactory.initElements(driver, LoginSection.class);
+		loginSection = PageFactory.initElements(driver, Login.class);
 		loginSection.login();
 	}
 }

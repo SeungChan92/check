@@ -10,17 +10,17 @@ import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
 import infra.Tool;
-import page.LoginSection;
+import page.section.Login;
 
 public class Suite extends suite.Suite {
 	
-	private static LoginSection loginSection = null;
+	private static Login loginSection = null;
 	
 	///*
 	@Before
 	public void goToFirstPage() {
 		Tool.goToPage("/login?fail=who");
-		loginSection = PageFactory.initElements(driver, LoginSection.class);
+		loginSection = PageFactory.initElements(driver, Login.class);
 	}
 	
 	@Test

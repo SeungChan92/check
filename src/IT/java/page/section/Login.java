@@ -1,11 +1,11 @@
-package page;
+package page.section;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import infra.Config;
 
-public class LoginSection {
+public class Login {
 	
 	@FindBy(name = "userId")
 	private WebElement input_text_userId;

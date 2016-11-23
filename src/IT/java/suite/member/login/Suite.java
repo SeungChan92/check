@@ -15,7 +15,7 @@ import org.openqa.selenium.support.PageFactory;
 import infra.Common;
 import infra.Config;
 import infra.Tool;
-import page.LoginSection;
+import page.section.Login;
 
 @RunWith(Parameterized.class)
 public class Suite extends suite.Suite{
@@ -32,7 +32,7 @@ public class Suite extends suite.Suite{
 	private String pw;
 	private String alertMessage;
 	
-    private LoginSection loginSection = null;
+    private Login loginSection = null;
 	
 	@Parameters(name = "id:{1}, pw:{2}")
 	public static Collection<Object[]> data() {
@@ -55,7 +55,7 @@ public class Suite extends suite.Suite{
 	@Before
 	public void goToFirstPage() {
 		Common.goToPage_home();
-		loginSection = PageFactory.initElements(driver, LoginSection.class);
+		loginSection = PageFactory.initElements(driver, Login.class);
 	}
 	
 	@Test
