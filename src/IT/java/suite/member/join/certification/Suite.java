@@ -41,7 +41,7 @@ public class Suite extends suite.Suite {
 		By button_cancel = By.className("btn_cancel");
 		
 		driver.findElement(button_certify).click();
-		Tool.goTo_PopUp();
+		Tool.goTo_popUp();
 		driver.findElement(button_kmc).click();
 		driver.findElement(input_radio_mvno_corp_ktm).click();
 		driver.findElement(button_ok).click();

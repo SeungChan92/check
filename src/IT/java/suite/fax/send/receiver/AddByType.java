@@ -16,7 +16,7 @@ import infra.Config;
 import infra.Tool;
 
 @RunWith(Parameterized.class)
-public class Add_ByType extends suite.LoginedSuite  {
+public class AddByType extends suite.LoginedSuite  {
 
 	/*
 	 * cases
@@ -42,7 +42,7 @@ public class Add_ByType extends suite.LoginedSuite  {
                  { 3, Config.get_fromService("faxNumber"), Config.get_fromService("name"), "" }
            });
     }
-	public Add_ByType(int case_number, String faxNumber, String receiver, String alertMessage) {
+	public AddByType(int case_number, String faxNumber, String receiver, String alertMessage) {
 		this.case_number = case_number;
 		this.faxNumber = faxNumber;
 		this.receiver = receiver;
@@ -57,7 +57,7 @@ public class Add_ByType extends suite.LoginedSuite  {
 	}
 	
 	@Test
-	public void add_receiver() {
+	public void addReceiver() {
 		this.page_fax_sendView.type_faxNumber(this.faxNumber);
 		this.page_fax_sendView.type_receiver(this.receiver);
 		this.page_fax_sendView.click_add();

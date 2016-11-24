@@ -47,7 +47,7 @@ public class Suite extends suite.LoginedSuite {
 		
 		this.firstPage.click_btnSendReceiverAddress();
 		
-		Tool.goTo_PopUp();
+		Tool.goTo_popUp();
 		
 		page_popup = PageFactory.initElements(driver, page.send.receiver.popup.address.groups.Page.class);
 		page_popup.click_checkbox();

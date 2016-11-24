@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
+import infra.Config;
 import infra.Tool;
 import suite.LoginedSuite;
 
@@ -24,7 +25,7 @@ public class Suite extends LoginedSuite {
 		
 	    this.firstPage.click_address();
 	    
-	    Tool.goTo_PopUp();
+	    Tool.goTo_popUp();
 	    secondPage = PageFactory.initElements(driver
 				, page.fax.send.receiver.popup.address.groups.Page.class);
 	    secondPage.click_checkbox();
@@ -34,5 +35,14 @@ public class Suite extends LoginedSuite {
 	    
 	    Tool.goTo_main();
 	    Assert.assertTrue(this.firstPage.checkIf_receiver_is_added_from_group());
+	}
+	@Test
+	public void addByType_sameNumberTwice() {
+	    this.firstPage
+	    		.type_faxNumber(Config.get_fromService("faxNumber"))
+	    		.click_add()
+	    		.type_faxNumber(Config.get_fromService("faxNumber"))
+	    		.click_add();
+	    Assert.assertEquals(1, this.firstPage.countAddedReceiverLines());
 	}
 }

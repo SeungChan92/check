@@ -67,7 +67,7 @@ public class Tool implements Infra {
 		}
 	}
 
-	public static void goTo_PopUp() {
+	public static void goTo_popUp() {
 		mainWindowHandle = driver.getWindowHandle();
 
 		wait.until(new ExpectedCondition<Boolean>() {
@@ -88,7 +88,7 @@ public class Tool implements Infra {
 		driver.switchTo().window(mainWindowHandle);
 		System.out.println("focus : main");
 	}
-
+	
 	public static void goToPage(String url) {
 		driver.get(Config.get_fromService("baseUrl")+url);
 	}

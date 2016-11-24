@@ -1,8 +1,11 @@
 package page.fax.sendView;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 import infra.Config;
@@ -32,6 +35,9 @@ public class Page extends page.Page {
 	private WebElement button_btnReceiverSelectedDelete;
 	@FindBy(id = "btnReceiverAllDelete")
 	private WebElement button_btnReceiverAllDelete;
+	
+	@FindBy(xpath = "//*[@id='sendReceivers']/li")
+	private List<WebElement> li_sendReceivers;
 
 	public Page type_faxNumber(String faxNumber) {
 
@@ -87,5 +93,8 @@ public class Page extends page.Page {
 		}
 
 		return receiver_is_added_from_group;
+	}
+	public int countAddedReceiverLines() {
+		return this.li_sendReceivers.size();
 	}
 }

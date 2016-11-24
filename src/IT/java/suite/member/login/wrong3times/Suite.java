@@ -1,4 +1,4 @@
-package suite.member.login.wrong_3times;
+package suite.member.login.wrong3times;
 
 import static org.junit.Assert.assertEquals;
 
