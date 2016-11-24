@@ -13,16 +13,16 @@ If you find Web Test Automation useful in your project, please consider citing:
     Year = 2016
 
 ## Contents
-1. [Summary] (#summary)
-2. [Operating Method] (#operation-method)
-2. [Todo] (#todo)
-3. [Issue] (#issue)
+1. [Summary](#summary)
+2. [Operating Method](#operating-method)
+2. [Todo](#todo)
+3. [Issue](#issue)
 4. [Development Environment](#development-environment)
-5. [Result Reporting] (#result-reporting)
+5. [Result Reporting](#result-reporting)
 6. [Installation](#installation)
 7. [Run](#run)
 8. [Usage](#usage)
-9. [Data Structure] (#data-structure)
+9. [Data Structure](#data-structure)
 10. [Reference](#reference)
 
 ## Summary

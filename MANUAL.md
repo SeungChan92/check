@@ -1,4 +1,24 @@
-## page class 새로 추가하기
+## testCase 추가하기
+
+**1번. 테스트 케이스 sheet에서 자동화 할 testCase를 선택한다.**
+
+**2번. 선택한 테스트가 진행되는 동안 거치는 page(url)들을 확인한다.**
+
+**3번. 2번에서 확인한 page들이 모두 page object로 구현 되어있는지 확인한다.**
+
+> case1. 구현되어 있지 않은 page를 위한 [page class를 추가한다](#page-class).
+
+> case2. 모두 구현되었다면 다음 단계를 진행한다.
+
+**4번. testCase를 추가할 suite가 마련되어 있는지 확인하다.**
+
+> suite 이름 : suite.*TestSheet_Depth0*.*TestSheet_Depth1*.**...**.Suite
+
+> case1. suite가 없다면, [suite class를 추가한다](#suite-class).
+
+> case2. suite가 있다면, [suite에 testCase를 구현한다](#suite-class).
+
+## page class 추가하기
 
 **1번. page package 아래에 새로운 하위 package와 class를 추가한다.**
 > naming rule : page.*PAGE*.*URL*.Page
@@ -25,10 +45,10 @@
 > + 함수 실행에 의해 페이지 이동이 있을 시, 해당 page object를 return
 > + 페이지 이동이 없을 경우, return this
 
-## suite class 새로 추가하기
+## suite class 추가하기
 
 **1번. suite package 아래에 새로운 하위 package와 class를 추가한다.**
-> naming rule : page.*TestSheet_Depth0*.*TestSheet_Depth1*.**...**.Suite
+> naming rule : suite.*TestSheet_Depth0*.*TestSheet_Depth1*.**...**.Suite
 >> ex : suite.member.join.certification.Suite
 
 **2번. private Page firstPage = null 선언**
