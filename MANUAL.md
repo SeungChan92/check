@@ -6,7 +6,7 @@
 
 **3번. 2번에서 확인한 page들이 모두 page object로 구현 되어있는지 확인한다.**
 
-> case1. 구현되어 있지 않은 page를 위한 [page class를 추가한다](#page-class).
+> case1. 구현되어 있지 않은 page를 위한 [page class를 추가한다](#page-class-추가하기).
 
 > case2. 모두 구현되었다면 다음 단계를 진행한다.
 
@@ -14,9 +14,9 @@
 
 > suite 이름 : suite.*TestSheet_Depth0*.*TestSheet_Depth1*.**...**.Suite
 
-> case1. suite가 없다면, [suite class를 추가한다](#suite-class).
+> case1. suite가 없다면, [suite class를 추가한다](#suite-class-추가하기).
 
-> case2. suite가 있다면, [suite에 testCase를 구현한다](#suite-class).
+> case2. suite가 있다면, [suite에 testCase를 구현한다](#suite-class-추가하기).
 
 ## page class 추가하기
 
