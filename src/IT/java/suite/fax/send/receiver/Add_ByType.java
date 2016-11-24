@@ -51,7 +51,7 @@ public class Add_ByType extends suite.LoginedSuite  {
 	
 	@Override
 	public void goToFirstPage() {
-		page.fax.sendView.Page.goTo_page();
+		page.fax.sendView.Page.goToPage();
 		this.page_fax_sendView = PageFactory.initElements(driver
 				, page.fax.sendView.Page.class);
 	}
@@ -69,10 +69,10 @@ public class Add_ByType extends suite.LoginedSuite  {
 			assertEquals(this.alertMessage, Tool.closeAlert_andGetItsText());
 			break;
 		case 2:
-			Assert.assertTrue(this.page_fax_sendView.inputs_are_cleared());
+			Assert.assertTrue(this.page_fax_sendView.checkIf_inputs_are_cleared());
 			break;
 		case 3:
-			Assert.assertTrue(this.page_fax_sendView.receiver_is_added());
+			Assert.assertTrue(this.page_fax_sendView.checkIf_receiver_is_added_from_type());
 			break;
 		}
 	}

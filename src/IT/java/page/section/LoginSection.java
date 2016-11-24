@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 import infra.Config;
 
-public class Login {
+public class LoginSection {
 	
 	@FindBy(name = "userId")
 	private WebElement input_text_userId;

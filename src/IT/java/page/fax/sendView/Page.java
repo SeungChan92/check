@@ -10,7 +10,7 @@ import infra.Tool;
 
 public class Page extends page.Page {
 
-	public static void goTo_page() {
+	public static void goToPage() {
 		Tool.goToPage("/fax/sendView");
 	}
 
@@ -51,8 +51,13 @@ public class Page extends page.Page {
 
 		return this;
 	}
-
-	public boolean inputs_are_cleared() {
+	public Page click_address() {
+		this.button_funPopAddress.click();
+		
+		return this;
+	}
+	
+	public boolean checkIf_inputs_are_cleared() {
 		boolean inputs_are_cleared = false;
 
 		if (this.input_textReceiverInput.getText().isEmpty() 
@@ -63,14 +68,24 @@ public class Page extends page.Page {
 
 		return inputs_are_cleared;
 	}
-	public boolean receiver_is_added() {
-		boolean type_receiver_is_added = false;
+	public boolean checkIf_receiver_is_added_from_type() {
+		boolean receiver_is_added_from_type = false;
 
-		if (Tool.check_if_exist(By.name("member")))
+		if (Tool.checkIf_exist(By.name("member")))
 		{
-			type_receiver_is_added = true;
+			receiver_is_added_from_type = true;
 		}
 
-		return type_receiver_is_added;
+		return receiver_is_added_from_type;
+	}
+	public boolean checkIf_receiver_is_added_from_group() {
+		boolean receiver_is_added_from_group = false;
+
+		if (Tool.checkIf_exist(By.name("group")))
+		{
+			receiver_is_added_from_group = true;
+		}
+
+		return receiver_is_added_from_group;
 	}
 }
