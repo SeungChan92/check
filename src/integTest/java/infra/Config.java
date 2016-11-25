@@ -69,7 +69,7 @@ public class Config implements Infra {
 	// depth 2
 	private static void load_asp_root() {
 		JSONParser parser = new JSONParser();
-		String configFile_path = "src/IT/resources/config/asp.json";
+		String configFile_path = "src/integTest/resources/config/asp.json";
 
 		try {
 			Object obj;
@@ -81,7 +81,7 @@ public class Config implements Infra {
 	}
 	private static void load_service_root(String service_name) {
 		JSONParser parser = new JSONParser();
-		String configFile_path = "src/IT/resources/config/" + service_name + ".json";
+		String configFile_path = "src/integTest/resources/config/" + service_name + ".json";
 
 		try {
 			Object obj;

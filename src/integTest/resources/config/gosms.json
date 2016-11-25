@@ -1,5 +1,5 @@
 {
-	"baseUrl" : "http://www-dev.gosms.co.kr:10051",
+	"baseUrl" : "http://www-sta.gosms.co.kr:10051",
 
 	"id" : "issea1015",
 	"pw" : "test1234##",
@@ -10,5 +10,8 @@
 	
 	"name" : "안승찬",
 	"birth" : "19921015",
-	"phone" : "01029591783"
+	"phone" : "01029591783",
+	
+	"faxNumber" : "030334462012",
+	"faxNumber_multi" : "030334462012, 030334462011"
 }
