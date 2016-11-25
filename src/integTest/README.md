@@ -17,7 +17,6 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 4. [Development Environment](#development-environment)
 5. [Test Result Reporting](#test-result-reporting)
 6. [Installation](#installation)
-7. [Run](#run)
 8. [Usage](#usage)
 9. [Data Structure](#data-structure)
 10. [Reference](#reference)
@@ -36,11 +35,67 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 2. SonarQube가 JUnit-XML 형식의 보고서를 읽어서 SonarQube 보고서에 포함시킨다.
 
 ## Installation
-1. src/IT
+### 1. src/integTest folder를 ASP 프로젝트에 포함시킨다.
+### 2. build.gradle 수정
++ add configurations
 
-## Run
+	configurations {
+		integTestCompile.extendsFrom testCompile
+		integTestRuntime.extendsFrom testRuntime
+	}
+	
++ add sourceSets
+
+	sourceSets {
+		integTest {
+		   java {
+			   srcDirs = ['src/integTest/java']
+	       }
+		   resources {
+			   srcDirs = ['src/integTest/resources']
+		   }
+		}
+	}
+	
++ add task
+
+	task integTest(type: Test) {
+		//dependsOn startApp
+		//finalizedBy stopApp
+		testClassesDir = sourceSets.integTest.output.classesDir
+		classpath = sourceSets.integTest.runtimeClasspath
+		//mustRunAfter test
+	}
+	
++ config encoding
+
+	compileIntegTestJava.options.encoding = 'UTF-8'
+	
++ (check repository)
+
+	repositories {
+	    jcenter()
+	}
+	
++ add dependencies
+
+	dependencies {
+		// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+		testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+		// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+		testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+		testCompile 'junit:junit:4.12'
+	}
 
 ## Usage
+### 전체 테스트 케이스를 실행 - gradle 사용
+gradle build task-chain에 포함시키기.
+### 일부 테스트 케이스를 실행 - eclipse - JUnit runner 사용
+#### 설정하기
+1. eclisp
+
+#### 실행하기
+
 ### selenium server에 접근하기
 #### basic
 	1. [on server] run {driver}.exe

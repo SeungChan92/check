@@ -23,14 +23,14 @@ configurations {
 sourceSets {
 	integTest {
 	   java {
-		   srcDirs = ['src/IT/java']
+		   srcDirs = ['src/integTest/java']
 //		   exclude 'suite/member/login/**'
 //		   exclude 'suite/member/join/Agreement.java'
 //		   exclude 'suite/member/join/Certification.java'
 //		   exclude 'suite/message/**'
        }
 	   resources {
-		   srcDirs = ['src/IT/resources']
+		   srcDirs = ['src/integTest/resources']
 	   }
 	}
 }
