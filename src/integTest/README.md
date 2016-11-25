@@ -39,13 +39,16 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 ### 2. build.gradle 수정
 + add configurations
 
+```gradle
 	configurations {
 		integTestCompile.extendsFrom testCompile
 		integTestRuntime.extendsFrom testRuntime
 	}
-	
+```
+
 + add sourceSets
 
+```gradle
 	sourceSets {
 		integTest {
 		   java {
@@ -56,9 +59,11 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 		   }
 		}
 	}
-	
+```
+
 + add task
 
+```gradle
 	task integTest(type: Test) {
 		//dependsOn startApp
 		//finalizedBy stopApp
@@ -66,16 +71,17 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 		classpath = sourceSets.integTest.runtimeClasspath
 		//mustRunAfter test
 	}
+```
 	
 + config encoding
 
-```
+```gradle
 compileIntegTestJava.options.encoding = 'UTF-8'
 ```	
 
 + (check repository)
 
-```
+```gradle
 repositories {
     jcenter()
 }
@@ -83,6 +89,7 @@ repositories {
 	
 + add dependencies
 
+```gradle
 	dependencies {
 		// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
 		testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
@@ -90,6 +97,7 @@ repositories {
 		testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
 		testCompile 'junit:junit:4.12'
 	}
+```
 
 ## Usage
 ### 전체 테스트 케이스를 실행 - gradle 사용
