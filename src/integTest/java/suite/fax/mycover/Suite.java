@@ -1,5 +1,6 @@
 package suite.fax.mycover;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
@@ -19,17 +20,15 @@ public class Suite extends suite.LoginedSuite {
 		this.page_fax_mycover_saveView.delete_upperLogo_if_exist();
 		this.page_fax_mycover_saveView.select_upperLogo();
 		this.page_fax_mycover_saveView.clickButton_save();
-//		try {
-//			Thread.sleep(5000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		
+		Assert.assertTrue(this.page_fax_mycover_saveView.checkIf_deleteUpperLogoButton_exist());
 	}
 	@Test
 	public void register_lowerLogo() {
 		this.page_fax_mycover_saveView.delete_lowerLogo_if_exist();
 		this.page_fax_mycover_saveView.select_lowerLogo();
 		this.page_fax_mycover_saveView.clickButton_save();
+		
+		Assert.assertTrue(this.page_fax_mycover_saveView.checkIf_deleteLowerLogoButton_exist());
 	}
 }

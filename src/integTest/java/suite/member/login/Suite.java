@@ -68,8 +68,8 @@ public class Suite extends suite.Suite{
 			assertEquals(this.alertMessage, Tool.closeAlert_andGetItsText());
 			break;
 		case 2:
-			//assertEquals(Config.get_fromService("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
-			assertEquals("https://www-sta.adppurio.com:14051/login/?fail", driver.getCurrentUrl());
+			assertEquals(Config.get_fromService("baseUrl")+"/login/?fail", Suite.driver.getCurrentUrl());
+//			assertEquals("https://www-sta.adppurio.com:14051/login/?fail", driver.getCurrentUrl());
 			break;
 		case 3:
 			Common.logout();

@@ -52,7 +52,7 @@ public class Page extends page.Page {
 	
 	public Page delete_upperLogo_if_exist() {
 
-		if(Tool.checkIf_exist(By.id("topFileDete")))
+		if(this.checkIf_deleteUpperLogoButton_exist())
 		{
 			this.button_topFileDete.click();
 			Tool.closeAlert_andGetItsText();
@@ -68,7 +68,7 @@ public class Page extends page.Page {
 	}
 	public Page delete_lowerLogo_if_exist() {
 
-		if(Tool.checkIf_exist(By.id("bottomFileDete")))
+		if(this.checkIf_deleteLowerLogoButton_exist())
 		{
 			this.button_bottomFileDete.click();
 			Tool.closeAlert_andGetItsText();
@@ -81,5 +81,14 @@ public class Page extends page.Page {
 		}
 
 		return this;
+	}
+
+	public boolean checkIf_deleteUpperLogoButton_exist() {
+		
+		return Tool.checkIf_exist(By.id("topFileDete"));
+	}
+	public boolean checkIf_deleteLowerLogoButton_exist() {
+		
+		return Tool.checkIf_exist(By.id("bottomFileDete"));
 	}
 }
