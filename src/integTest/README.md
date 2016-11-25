@@ -69,13 +69,17 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 	
 + config encoding
 
-	compileIntegTestJava.options.encoding = 'UTF-8'
-	
+```
+compileIntegTestJava.options.encoding = 'UTF-8'
+```	
+
 + (check repository)
 
-	repositories {
-	    jcenter()
-	}
+```
+repositories {
+    jcenter()
+}
+```
 	
 + add dependencies
 
