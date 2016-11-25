@@ -18,7 +18,6 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 5. [Test Result Reporting](#test-result-reporting)
 6. [Installation](#installation)
 8. [Usage](#usage)
-9. [Data Structure](#data-structure)
 10. [Reference](#reference)
 
 ## Summary
@@ -101,104 +100,42 @@ dependencies {
 
 ## Usage
 ### 전체 테스트 케이스를 실행 - gradle 사용
-gradle build task-chain에 포함시키기.
+gradle build task-chain에 **integTest** 포함시키기.
+
+<br>
+
 ### 일부 테스트 케이스를 실행 - eclipse - JUnit runner 사용
-#### 설정하기
-1. eclisp
+#### 1. 설정하기
+> ##### 1. Run Configurations 창 열기
+>> 위치 : eclipse 상단 - 플레이 버튼 오른쪽에 있는 아래를 향하는 화살표 클릭
 
-#### 실행하기
+> ##### 2. 왼쪽 리스트에서 JUnit 찾고, 새로운 설정 만들기
+>> JUnit 위에서, 우클릭
 
-### selenium server에 접근하기
+> ##### 3. 테스트 클래스(Test-Suite) 정하기
+> ##### 4. 테스트 매소드(Test-Case) 정하기
+> ##### 5. click 'Apply'
+
+#### 2. 실행하기
+> ##### 1. Run Configurations 창 열기
+>> 위치 : eclipse 상단 - 플레이 버튼 오른쪽에 있는 아래를 향하는 화살표 클릭
+
+> ##### 2. 왼쪽 리스트에서 만들어 둔 JUnit 설정 찾기
+> ##### 3. click 'Run'
+
+<br>
+
+### UI Test용 Window 서버 사용
 #### basic
-	1. [on server] run {driver}.exe
-		+ [option] server에 접근 허용하는 아이피 기입
-	2. [on client] use [class] RemoteWebDriver
+> ##### 1. Window 서버에서 WebDriver 실행
+>> 실행시, option으로 Window 서버에 접근 허용하는 아이피 기입
+
+> ##### 2. [on client] use [class] RemoteWebDriver
+>> 현재 java source에서 설정 가능하고, config file에 설정할 수 있도록 업데이트 필요함.
+
 #### advance
-	keyword : selenium-server, hub, node
-
-## Data Structure
-
-It save crawling result as json format in a file
-
-	{
-		pages :
-		[
-			{
-				path : "",
-				alertMessages :
-				[
-					{
-						message : "",
-						snapshot :
-						{
-							formTags :
-							[
-								{
-									attributes :
-									{
-										id : "",
-										name : ""
-									},
-									inputTags :
-									[
-										{
-											attributes :
-											{
-												id : "",
-												name : "",
-												value : "",
-												type : ""
-											}
-										}
-									],
-								}
-							]
-						}
-					}
-				],
-				formTags :
-				[
-					{
-						attributes :
-						{
-							id : "",
-							name : ""
-						},
-						submitButton_tagName : "",
-						submitButton_id : "",
-						submitButton_name : "",
-						inputTags :
-						[
-							{
-								attributes :
-								{
-									type : "",
-									id : "",
-									name : ""
-								},
-								valueTypes :
-								[
-									"", ""
-								],
-								validValue : ""
-								alertMessages :
-								[
-									{
-										valueType : "",
-										message : ""
-									}
-								]
-							}
-						]
-					}
-				]
-			}
-		]
-	}
+> keyword : selenium-server, hub, node
 
 ## Reference
 
 + Selenium
-+ ExtentReports
-+ https://github.com/yasserg/crawler4j
-+ jsoup
