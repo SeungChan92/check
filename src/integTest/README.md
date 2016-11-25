@@ -40,37 +40,37 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 + add configurations
 
 ```gradle
-	configurations {
-		integTestCompile.extendsFrom testCompile
-		integTestRuntime.extendsFrom testRuntime
-	}
+configurations {
+	integTestCompile.extendsFrom testCompile
+	integTestRuntime.extendsFrom testRuntime
+}
 ```
 
 + add sourceSets
 
 ```gradle
-	sourceSets {
-		integTest {
-		   java {
-			   srcDirs = ['src/integTest/java']
-	       }
-		   resources {
-			   srcDirs = ['src/integTest/resources']
-		   }
-		}
+sourceSets {
+	integTest {
+	   java {
+		   srcDirs = ['src/integTest/java']
+       }
+	   resources {
+		   srcDirs = ['src/integTest/resources']
+	   }
 	}
+}
 ```
 
 + add task
 
 ```gradle
-	task integTest(type: Test) {
-		//dependsOn startApp
-		//finalizedBy stopApp
-		testClassesDir = sourceSets.integTest.output.classesDir
-		classpath = sourceSets.integTest.runtimeClasspath
-		//mustRunAfter test
-	}
+task integTest(type: Test) {
+	//dependsOn startApp
+	//finalizedBy stopApp
+	testClassesDir = sourceSets.integTest.output.classesDir
+	classpath = sourceSets.integTest.runtimeClasspath
+	//mustRunAfter test
+}
 ```
 	
 + config encoding
@@ -90,13 +90,13 @@ repositories {
 + add dependencies
 
 ```gradle
-	dependencies {
-		// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
-		testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
-		// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
-		testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
-		testCompile 'junit:junit:4.12'
-	}
+dependencies {
+	// https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java
+	testCompile group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '2.41.0'
+	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+	testCompile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+	testCompile 'junit:junit:4.12'
+}
 ```
 
 ## Usage
