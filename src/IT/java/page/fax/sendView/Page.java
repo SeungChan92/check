@@ -62,6 +62,16 @@ public class Page extends page.Page {
 		
 		return this;
 	}
+	public Page click_delete() {
+		this.button_btnReceiverSelectedDelete.click();
+		
+		return this;
+	}
+	public Page click_addedReceiver(int addedReceiver_index) {
+		this.li_sendReceivers.get(addedReceiver_index-1).click();
+
+		return this;
+	}
 	
 	public boolean checkIf_inputs_are_cleared() {
 		boolean inputs_are_cleared = false;

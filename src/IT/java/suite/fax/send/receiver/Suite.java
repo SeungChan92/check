@@ -45,4 +45,28 @@ public class Suite extends LoginedSuite {
 	    		.click_add();
 	    Assert.assertEquals(1, this.firstPage.countAddedReceiverLines());
 	}
+	@Test
+	public void addByType_multiFaxNumber() {
+		
+	    this.firstPage
+	    		.type_faxNumber(Config.get_fromService("faxNumber_multi"))
+	    		.click_add();
+	    
+	    Assert.assertTrue(null, this.firstPage.countAddedReceiverLines() > 1);
+	}
+	@Test
+	public void deleteAddedReceiver() {
+		
+	    this.firstPage
+		    .type_faxNumber(Config.get_fromService("faxNumber"))
+			.click_add();
+	    
+	    Assert.assertEquals(1, this.firstPage.countAddedReceiverLines());
+	    
+	    this.firstPage
+			.click_addedReceiver(1)
+			.click_delete();
+	    
+	    Assert.assertEquals(0, this.firstPage.countAddedReceiverLines());
+	}
 }
