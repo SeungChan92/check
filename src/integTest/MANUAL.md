@@ -18,6 +18,8 @@
 
 > case2. suite가 있다면, [suite에 testCase를 구현한다](#suite-class-추가하기).
 
+<br>
+
 ## page class 추가하기
 
 **1번. page package 아래에 새로운 하위 package와 class를 추가한다.**
@@ -30,20 +32,26 @@
 **3번. WebElement 나열**
 > 형식 : 
 
-	@FindBy(id = "uploadFileTop") // id 대신 다른 attribute 사용 가능
-	private WebElement input_file_uploadFileTop;
+```java
+@FindBy(id = "uploadFileTop") // id 대신 다른 attribute 사용 가능
+private WebElement input_file_uploadFileTop;
+```
 	
 **4번. Suite에서 사용할 함수 정의**
 > 예 :
 
-	public Page select_upperLogo() {
-		this.input_file_uploadFileTop.sendKeys(Config.get_path("logo"));
-		return this;
-	}
+```java
+public Page select_upperLogo() {
+	this.input_file_uploadFileTop.sendKeys(Config.get_path("logo"));
+	return this;
+}
+```
 	
 > 특이사항 :
 > + 함수 실행에 의해 페이지 이동이 있을 시, 해당 page object를 return
 > + 페이지 이동이 없을 경우, return this
+
+<br>
 
 ## suite class 추가하기
 
@@ -59,15 +67,19 @@
 
 > 예 :
 
-		this.firstPage = PageFactory.initElements(driver
-				, page.FirstPage.class);
+```java
+this.firstPage = PageFactory.initElements(driver
+		, page.FirstPage.class);
+```
 
 **4번. test case 구현**
 > 예 :
 
-	@Test
-	public void register_lowerLogo() {
-		this.page_fax_mycover_saveView.delete_lowerLogo_if_exist();
-		this.page_fax_mycover_saveView.select_lowerLogo();
-		this.page_fax_mycover_saveView.clickButton_save();
-	}
+```java
+@Test
+public void register_lowerLogo() {
+	this.page_fax_mycover_saveView.delete_lowerLogo_if_exist();
+	this.page_fax_mycover_saveView.select_lowerLogo();
+	this.page_fax_mycover_saveView.clickButton_save();
+}
+```
