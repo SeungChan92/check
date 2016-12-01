@@ -21,7 +21,7 @@ public class Page extends page.Page {
 		super(driver);
 	}
 
-	//Receiver
+	// Receiver
 	@FindBy(id = "textReceiverInput")
 	private WebElement input_textReceiverInput;
 	@FindBy(id = "textReceiverName")
@@ -39,6 +39,10 @@ public class Page extends page.Page {
 	@FindBy(xpath = "//*[@id='sendReceivers']/li")
 	private List<WebElement> li_sendReceivers;
 
+	// Document
+	@FindBy(id = "funFaxDocument")
+	private WebElement a_funFaxDocument;
+	
 	public Page type_faxNumber(String faxNumber) {
 
 		this.input_textReceiverInput.sendKeys(faxNumber);
@@ -51,6 +55,7 @@ public class Page extends page.Page {
 
 		return this;
 	}
+	
 	public Page click_add() {
 
 		this.button_btnReceiverAdd.click();
@@ -70,6 +75,11 @@ public class Page extends page.Page {
 	public Page click_addedReceiver(int addedReceiver_index) {
 		this.li_sendReceivers.get(addedReceiver_index-1).click();
 
+		return this;
+	}
+	public Page click_funFaxDocument() {
+		this.a_funFaxDocument.click();
+		
 		return this;
 	}
 	

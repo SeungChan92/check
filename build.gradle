@@ -27,7 +27,7 @@ sourceSets {
 //		   exclude 'suite/member/login/**'
 //		   exclude 'suite/member/join/Agreement.java'
 //		   exclude 'suite/member/join/Certification.java'
-//		   exclude 'suite/message/**'
+		   exclude 'suite/message/**'
        }
 	   resources {
 		   srcDirs = ['src/integTest/resources']
