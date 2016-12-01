@@ -125,4 +125,22 @@ public class Tool implements Infra {
 		
 		return exist;
 	}
+
+	public static String getUrl(String classFullName) {
+		String url = "";
+		String[] splitPackageName = null;
+		
+//		System.out.println("classFullName : " + classFullName);
+//		System.out.println("length : " + (classFullName.split("\\.")).length);
+		
+		splitPackageName = classFullName.split("\\.");
+		
+		for(int i=1; i<splitPackageName.length-1; i++){
+			url += "/" + splitPackageName[i];
+		}
+		
+//		System.out.println(url);
+		
+		return url;
+	}
 }

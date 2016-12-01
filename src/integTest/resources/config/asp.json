@@ -1,10 +1,6 @@
 {
 	"targetService" : "gosms",
 
-	"urls" : {
-		"Join_AgreementPage" : "/join/",
-		"Join_CertificationPage" : "/join/auth"
-	},
 	"paths" : {
 		"logo" : "C:/Users/daou/workspace/verification/src/integTest/resources/logo/logo.gif"
 	}
