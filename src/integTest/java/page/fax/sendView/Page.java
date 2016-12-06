@@ -42,6 +42,8 @@ public class Page extends page.Page {
 	// Document
 	@FindBy(id = "funFaxDocument")
 	private WebElement a_funFaxDocument;
+	@FindBy(name = "file")
+	public WebElement li_file;
 	
 	public Page type_faxNumber(String faxNumber) {
 

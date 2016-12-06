@@ -16,12 +16,15 @@ public class Page extends page.Page {
 		Tool.goToPage("/fax/popup/document");
 	}
 
+	@FindBy(name = "faxDocumentNo")
+	private WebElement checkbox_faxDocumentNo;
+	
 	@FindBy(id = "funFaxSend")
 	private WebElement a_funFaxSend;
 	@FindBy(xpath = "/html/body/div/div[2]/div/div/a[2]")
 	private WebElement a_close;
 
-	public Page click_funFaxSend() {
+	public Page click_add() {
 
 		this.a_funFaxSend.click();
 
@@ -31,6 +34,12 @@ public class Page extends page.Page {
 
 		this.a_close.click();
 
+		return this;
+	}
+	public Page click_faxDocumentNo() {
+		
+		this.checkbox_faxDocumentNo.click();
+		
 		return this;
 	}
 }
