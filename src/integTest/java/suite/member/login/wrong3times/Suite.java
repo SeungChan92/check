@@ -9,7 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 import page.section.LoginSection;
 
 public class Suite extends suite.Suite {

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 import suite.LoginedSuite;
 
 public class Suite extends LoginedSuite {

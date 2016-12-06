@@ -14,7 +14,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import infra.Common;
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 import page.section.LoginSection;
 
 @RunWith(Parameterized.class)

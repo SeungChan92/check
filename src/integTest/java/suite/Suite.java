@@ -15,7 +15,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import infra.Common;
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 
 public abstract class Suite {
 	protected static WebDriver driver = null;

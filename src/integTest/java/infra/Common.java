@@ -3,6 +3,8 @@ package infra;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import infra.webdriverextension.Tool;
+
 public class Common implements Infra {
 
 	private static WebDriver driver = null;

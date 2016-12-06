@@ -3,7 +3,7 @@ package suite;
 import org.junit.BeforeClass;
 import org.openqa.selenium.support.PageFactory;
 
-import infra.Tool;
+import infra.webdriverextension.Tool;
 import page.section.LoginSection;
 
 public abstract class LoginedSuite extends Suite {

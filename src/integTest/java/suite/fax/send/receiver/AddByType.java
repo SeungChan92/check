@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.support.PageFactory;
 
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 
 @RunWith(Parameterized.class)
 public class AddByType extends suite.LoginedSuite  {

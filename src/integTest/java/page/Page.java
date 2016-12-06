@@ -3,7 +3,7 @@ package page;
 import org.openqa.selenium.WebDriver;
 
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 
 public abstract class Page {
 

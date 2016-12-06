@@ -9,7 +9,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 
 import infra.Config;
-import infra.Tool;
+import infra.webdriverextension.Tool;
 
 public class Page extends page.Page {
 

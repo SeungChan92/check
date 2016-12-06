@@ -3,7 +3,7 @@ package suite.member.join.agreement;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
-import infra.Tool;
+import infra.webdriverextension.Tool;
 
 public class Suite extends suite.Suite {
 	

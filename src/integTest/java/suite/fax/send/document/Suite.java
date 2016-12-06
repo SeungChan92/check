@@ -3,7 +3,7 @@ package suite.fax.send.document;
 import org.junit.Test;
 import org.openqa.selenium.support.PageFactory;
 
-import infra.Tool;
+import infra.webdriverextension.Tool;
 import suite.LoginedSuite;
 
 public class Suite extends LoginedSuite {
