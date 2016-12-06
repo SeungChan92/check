@@ -16,30 +16,30 @@ apply plugin: 'java' // Apply the java plugin to add support for Java
 apply plugin: 'eclipse'
 
 configurations {
-	integTestCompile.extendsFrom testCompile
-	integTestRuntime.extendsFrom testRuntime
+	webtestCompile.extendsFrom testCompile
+	webtestRuntime.extendsFrom testRuntime
 }
 
 sourceSets {
 	integTest {
 	   java {
-		   srcDirs = ['src/integTest/java']
+		   srcDirs = ['src/webtest/java']
 //		   exclude 'suite/member/login/**'
 //		   exclude 'suite/member/join/Agreement.java'
 //		   exclude 'suite/member/join/Certification.java'
 		   exclude 'suite/message/**'
        }
 	   resources {
-		   srcDirs = ['src/integTest/resources']
+		   srcDirs = ['src/webtest/resources']
 	   }
 	}
 }
 
-task integTest(type: Test) {
+task webtest(type: Test) {
 	//dependsOn startApp
 	//finalizedBy stopApp
-	testClassesDir = sourceSets.integTest.output.classesDir
-	classpath = sourceSets.integTest.runtimeClasspath
+	testClassesDir = sourceSets.webtest.output.classesDir
+	classpath = sourceSets.webtest.runtimeClasspath
 	//mustRunAfter test
 }
 
