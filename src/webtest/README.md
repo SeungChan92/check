@@ -140,6 +140,8 @@ gradle build task-chain에 **integTest** 포함시키기.
 
 ## Current Browsers in Window Server
 + Chrome 55.0.2883.75 m (이후 버전 일 수도 있음)
++ (x) Internet Explorer 7, 9 : windows 7 에서 지원하지 않음
++ (x) Internet Explorer 10 : installer를 찾기 어려움
 + Internet Explorer 8, 11(서버장비 재시작 필요)
 + Firefox 50.0.2 이후 버전 (이후 버전 일 수도 있음)
 + Safari 5.1.7 이후 버전 (이후 버전 일 수도 있음)
