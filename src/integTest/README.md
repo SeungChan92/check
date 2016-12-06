@@ -18,6 +18,8 @@ If you find 차세대 ASP UI Test useful in your project, please consider citing
 5. [Test Result Reporting](#test-result-reporting)
 6. [Installation](#installation)
 8. [Usage](#usage)
+9. [Current Browsers in Window Server](#current-browsers-in-window-server)
+9. [Current Drivers in Window Server](#current-drivers-in-window-server)
 10. [Reference](#reference)
 
 ## Summary
@@ -135,6 +137,16 @@ gradle build task-chain에 **integTest** 포함시키기.
 
 #### advance
 > keyword : selenium-server, hub, node
+
+## Current Browsers in Window Server
++ Chrome 55.0.2883.75 m (이후 버전 일 수도 있음)
++ Internet Explorer 8
++ Firefox 50.0.2 이후 버전 (이후 버전 일 수도 있음)
++ Safari 5.1.7 이후 버전 (이후 버전 일 수도 있음)
+
+## Current Drivers in Window Server
++ Chrome
++ Internet Explorer
 
 ## Reference
 
