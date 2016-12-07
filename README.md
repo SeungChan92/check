@@ -1,1 +1,1 @@
-read [it](https://github.com/SeungChan92/verification/tree/master/src/integTest)
+read [it](src/webtest)
