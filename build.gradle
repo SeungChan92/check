@@ -21,13 +21,17 @@ configurations {
 }
 
 sourceSets {
-	integTest {
+	webtest {
 	   java {
-		   srcDirs = ['src/webtest/java']
-//		   exclude 'suite/member/login/**'
-//		   exclude 'suite/member/join/Agreement.java'
-//		   exclude 'suite/member/join/Certification.java'
+		   srcDirs = ['src/webtest/java/com/daou/asp/webtest']
+		   
+		   exclude 'suite/fax/**'
+		   exclude 'suite/member/**'
 		   exclude 'suite/message/**'
+		   
+		   exclude 'suite/member/login/**'
+		   exclude 'suite/member/join/Agreement.java'
+		   exclude 'suite/member/join/Certification.java'
        }
 	   resources {
 		   srcDirs = ['src/webtest/resources']
@@ -45,8 +49,7 @@ task webtest(type: Test) {
 
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
-compileTestJava.options.encoding = 'UTF-8'
-compileIntegTestJava.options.encoding = 'UTF-8'
+compileWebtestJava.options.encoding = 'UTF-8'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
