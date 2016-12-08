@@ -136,7 +136,7 @@ gradle build task-chain에 **integTest** 포함시키기.
 >> 현재 java source에서 설정 가능하고, config file에 설정할 수 있도록 업데이트 필요함.
 
 #### advance
-> https://github.com/SeleniumHQ/selenium/wiki/Grid2
+> use [Selenium Grid](SELENIUM_GRID.md)
 
 ## Current Browsers in Window Server
 + Chrome 55.0.2883.75 m (이후 버전 일 수도 있음)
