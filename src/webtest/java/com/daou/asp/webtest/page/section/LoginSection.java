@@ -7,9 +7,9 @@ import com.daou.asp.webtest.infra.Config;
 
 public class LoginSection {
 	
-	@FindBy(name = "userId")
+	@FindBy(id = "userId")
 	private WebElement input_text_userId;
-	@FindBy(name = "userPwd")
+	@FindBy(id = "userPwd")
 	private WebElement input_password_userPwd;
 	
 	@FindBy(id = "funfunBtnLogin")
