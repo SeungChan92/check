@@ -31,6 +31,7 @@ public abstract class Suite {
 	@AfterClass
 	public static void finish() {
 		driver.close();
+		driver.quit();
 	}
 	
 	// depth 1
@@ -42,14 +43,23 @@ public abstract class Suite {
 //				System.setProperty("webdriver.ie.driver", "driver/IEDriverServer.exe");
 ////				driver = new InternetExplorerDriver();
 //				driver = new ChromeDriver();
-		// ## [for] remote
-		try {
-			driver = new RemoteWebDriver(
-					new URL("http://123.2.134.231:9515"),
-			        DesiredCapabilities.chrome());
+//		// ## [for] remote
+//		try {
 //			driver = new RemoteWebDriver(
-//					new URL("http://123.2.134.231:5555"),
-//			        DesiredCapabilities.internetExplorer());
+//					new URL("http://123.2.134.231:9515"),
+//			        DesiredCapabilities.chrome());
+////			driver = new RemoteWebDriver(
+////					new URL("http://123.2.134.231:5555"),
+////			        DesiredCapabilities.internetExplorer());
+//		} catch (MalformedURLException e) {
+//			e.printStackTrace();
+//		}
+		// ### [for] remote - hub
+		try {
+			DesiredCapabilities capability = DesiredCapabilities.chrome();
+			driver = new RemoteWebDriver(
+					new URL("http://123.2.134.231:4444/wd/hub"),
+					capability);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
